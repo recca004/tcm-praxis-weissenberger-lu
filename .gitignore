@@ -17,3 +17,9 @@ docs/impeccable-audit.md
 
 # CI workflow kept locally — restore with: git add -f .github/workflows/deploy.yml (requires 'workflow' token scope)
 .github/workflows/
+
+# Design exploration previews (Stage 3 artifacts — reviewed, not shipped)
+design-explorations/
+docs/screenshots/audit/
+docs/screenshots/reference/
+.taste-skill/

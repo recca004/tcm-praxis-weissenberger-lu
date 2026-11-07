@@ -1,7 +1,6 @@
 ---
-import Icon from '../Icon.astro';
 import { ROUTES } from '../../data/routes.js';
-import { HERO } from '../../data/home.js';
+import { HERO, TRUST_ITEMS } from '../../data/home.js';
 const { locale } = Astro.props;
 const D = HERO;
 ---
@@ -10,23 +9,27 @@ const D = HERO;
     <div class="hero-grid">
       <div class="hero-content">
         <span class="eyebrow">{D.eyebrow[locale]}</span>
-        <h1>{D.title[locale]}</h1>
+        <h1 class="hero-title">{D.title[locale]}</h1>
         <p class="lead">{D.lead[locale]}</p>
         <div class="hero-actions">
           <a href={ROUTES.booking[locale]} class="btn btn-primary btn-lg">{D.primary[locale]}</a>
-          <a href={ROUTES.treatments[locale]} class="btn btn-outline btn-lg">{D.secondary[locale]}</a>
+          <a href={ROUTES.treatments[locale]} class="btn btn-secondary btn-lg">{D.secondary[locale]}</a>
         </div>
+        <dl class="hero-facts">
+          {TRUST_ITEMS.map((t) => (
+            <div class="hero-fact">
+              <dt>{typeof t.h === 'string' ? t.h : t.h[locale]} {t.badge && <span class="badge-confirm">{t.badge[locale]}</span>}</dt>
+              <dd>{t.p[locale]}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
-      <div class="hero-media-wrapper">
+      <figure class="hero-media-wrapper">
         <div class="hero-image-frame">
-          <img src="/assets/images/hero-clinic.webp" srcset="/assets/images/hero-clinic-sm.webp 800w, /assets/images/hero-clinic.webp 1600w" sizes="(max-width: 800px) 100vw, 50vw" alt={D.imageAlt[locale]} fetchpriority="high" />
+          <img src="/assets/images/hero-clinic.webp" srcset="/assets/images/hero-clinic.webp 1376w, /assets/images/hero-clinic-sm.webp 800w" sizes="(max-width: 640px) 100vw, 600px" alt={D.imageAlt[locale]} fetchpriority="high" />
+          <span class="hero-photo-badge">{D.badge[locale]}</span>
         </div>
-        <p class="hero-image-caption">
-          <Icon name="map-pin" size={18} />
-          <span>{D.address[locale]}</span>
-          <span class="hero-badge-placeholder">{D.badge[locale]}</span>
-        </p>
-      </div>
+      </figure>
     </div>
   </div>
 </section>

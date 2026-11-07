@@ -9,14 +9,14 @@ const secondaryHref = D.secondary === 'phone' ? PRACTICE.phoneHref : ROUTES.cont
 const SecondaryIcon = D.secondary === 'phone';
 ---
 {inSection ? (
-  <section class="section" style="padding-top: 0;">
+  <section class="section">
     <div class="container">
       <div class="cta-banner">
         <h2>{D.title[locale]}</h2>
         <p>{D.text[locale]}</p>
         <div class="cta-banner-buttons">
           <a href={ROUTES.booking[locale]} class="btn btn-secondary btn-lg">{D.primary[locale]}</a>
-          <a href={secondaryHref} class="cta-phone-fallback">
+          <a href={secondaryHref} class="btn btn-outline btn-lg cta-phone-fallback">
             {SecondaryIcon && <Icon name="phone" size={18} />} {D.secondaryLabel[locale]}
           </a>
         </div>
@@ -29,7 +29,7 @@ const SecondaryIcon = D.secondary === 'phone';
     <p>{D.text[locale]}</p>
     <div class="cta-banner-buttons">
       <a href={ROUTES.booking[locale]} class="btn btn-secondary btn-lg">{D.primary[locale]}</a>
-      <a href={secondaryHref} class="cta-phone-fallback">
+      <a href={secondaryHref} class="btn btn-outline btn-lg cta-phone-fallback">
         {SecondaryIcon && <Icon name="phone" size={18} />} {D.secondaryLabel[locale]}
       </a>
     </div>

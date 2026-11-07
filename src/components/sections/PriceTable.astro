@@ -1,8 +1,8 @@
 ---
 import Rev from '../Rev.astro';
-const { locale, head, rows, showBilling = false, billingBadge = '', compact = false } = Astro.props;
+const { locale, head, rows, showBilling = false, billingBadge = '', compact = false, open = false } = Astro.props;
 ---
-<div class="price-table-wrapper" style={compact ? 'margin-top: 1.5rem;' : 'margin-bottom: var(--space-12);'}>
+<div class:list={['price-table-wrapper', { 'price-table-open': open }]} style={compact ? 'margin-top: 1.5rem;' : 'margin-bottom: var(--space-12);'}>
   <table class="price-table">
     <thead>
       <tr>

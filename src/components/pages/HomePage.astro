@@ -1,60 +1,64 @@
 ---
 import Hero from '../sections/Hero.astro';
-import TrustStrip from '../sections/TrustStrip.astro';
 import SectionHeader from '../SectionHeader.astro';
-import TreatmentGrid from '../sections/TreatmentGrid.astro';
-import PractitionerSection from '../sections/PractitionerSection.astro';
+import TreatmentIndex from '../sections/TreatmentIndex.astro';
+import StatementMoment from '../sections/StatementMoment.astro';
+import PractitionerEditorial from '../sections/PractitionerEditorial.astro';
 import StepsTimeline from '../sections/StepsTimeline.astro';
 import PriceTable from '../sections/PriceTable.astro';
 import InsuranceCard from '../sections/InsuranceCard.astro';
 import FaqAccordion from '../sections/FaqAccordion.astro';
-import BookingWidget from '../sections/BookingWidget.astro';
+import BookingBand from '../sections/BookingBand.astro';
 import ContactDetails from '../sections/ContactDetails.astro';
 import ContactForm from '../sections/ContactForm.astro';
 import CTABanner from '../sections/CTABanner.astro';
+import Icon from '../Icon.astro';
 import Rev from '../Rev.astro';
 import { TREATMENTS_SECTION } from '../../data/treatments.js';
 import { FIRST_VISIT_HOME } from '../../data/firstVisit.js';
 import { PRICES_HOME } from '../../data/prices.js';
 import { FAQ_SECTION } from '../../data/faq.js';
-import { BOOKING } from '../../data/booking.js';
 import { CONTACT_HOME } from '../../data/contact.js';
+import { HERO } from '../../data/home.js';
 import { ROUTES } from '../../data/routes.js';
 
 const { locale } = Astro.props;
 const anchors = { de: { treatments: 'behandlungen', booking: 'online-termin', contact: 'kontakt' }, en: { treatments: 'treatments', booking: 'booking', contact: 'contact' }, zh: { treatments: 'liaofa', booking: 'yuyue', contact: 'lianxi' } }[locale];
 ---
 <Hero locale={locale} />
-<TrustStrip locale={locale} />
+
+<StatementMoment locale={locale} />
 
 <section class="section section-treatments" id={anchors.treatments}>
   <div class="container">
-    <SectionHeader eyebrow={TREATMENTS_SECTION.eyebrow[locale]} title={TREATMENTS_SECTION.title[locale]} lead={TREATMENTS_SECTION.lead[locale]} rev={TREATMENTS_SECTION.rev?.[locale] || []} />
-    <TreatmentGrid locale={locale} variant="preview" />
-  </div>
-</section>
-
-<section class="section section-subtle">
-  <div class="container">
-    <PractitionerSection locale={locale} variant="home" />
+    <SectionHeader title={TREATMENTS_SECTION.title[locale]} lead={TREATMENTS_SECTION.lead[locale]} rev={TREATMENTS_SECTION.rev?.[locale] || []} />
+    <TreatmentIndex locale={locale} />
+    <div style="margin-top: 2.5rem;">
+      <a href={ROUTES.treatments[locale]} class="btn btn-secondary">{HERO.secondary[locale]} <Icon name="arrow-up-right" size={16} /></a>
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <SectionHeader eyebrow={FIRST_VISIT_HOME.eyebrow[locale]} title={FIRST_VISIT_HOME.title[locale]} lead={FIRST_VISIT_HOME.lead[locale]} />
-    <StepsTimeline steps={FIRST_VISIT_HOME.steps} locale={locale} />
+    <PractitionerEditorial locale={locale} />
+  </div>
+</section>
+
+<section class="section section-subtle">
+  <div class="container">
+    <SectionHeader title={FIRST_VISIT_HOME.title[locale]} lead={FIRST_VISIT_HOME.lead[locale]} />
+    <StepsTimeline steps={FIRST_VISIT_HOME.steps} locale={locale} editorial />
     <div style="margin-top: 2.5rem; text-align: center;">
       <a href={ROUTES.firstVisit[locale]} class="btn btn-secondary">{FIRST_VISIT_HOME.link[locale]}</a>
     </div>
   </div>
 </section>
 
-<section class="section section-subtle">
+<section class="section">
   <div class="container">
     <div class="grid-2-asym">
       <div>
-        <span class="eyebrow">{PRICES_HOME.eyebrow[locale]}</span>
         <h2>{PRICES_HOME.title[locale]}</h2>
         <Rev when={(PRICES_HOME.rev?.[locale] || []).includes('text')} />
         <p>{PRICES_HOME.text[locale]}</p>
@@ -67,25 +71,23 @@ const anchors = { de: { treatments: 'behandlungen', booking: 'online-termin', co
   </div>
 </section>
 
-<section class="section">
+<section class="section section-subtle">
   <div class="container container-narrow">
-    <SectionHeader eyebrow={FAQ_SECTION.eyebrow[locale]} title={FAQ_SECTION.title[locale]} lead={FAQ_SECTION.lead[locale]} center />
+    <SectionHeader title={FAQ_SECTION.title[locale]} lead={FAQ_SECTION.lead[locale]} center />
     <FaqAccordion locale={locale} />
   </div>
 </section>
 
-<section class="section section-sage" id={anchors.booking}>
+<section class="section" id={anchors.booking}>
   <div class="container">
-    <SectionHeader eyebrow={BOOKING.home.sectionEyebrow[locale]} title={BOOKING.home.sectionTitle[locale]} lead={BOOKING.home.sectionLead[locale]} center />
-    <BookingWidget locale={locale} variant="home" />
+    <BookingBand locale={locale} />
   </div>
 </section>
 
-<section class="section" id={anchors.contact}>
+<section class="section section-subtle" id={anchors.contact}>
   <div class="container">
     <div class="grid-2">
       <div>
-        <span class="eyebrow">{CONTACT_HOME.eyebrow[locale]}</span>
         <h2>{CONTACT_HOME.title[locale]}</h2>
         <p>{CONTACT_HOME.text[locale]}</p>
         <ContactDetails locale={locale} variant="home" mapsLabel={CONTACT_HOME.mapsBtn[locale]} />

@@ -1,0 +1,47 @@
+---
+// Editorial practitioner section — honest labeled portrait slot,
+// serif headline, quiet credential list.
+// variant="home" (homepage) | variant="about" (About Min page body)
+import Icon from '../Icon.astro';
+import Rev from '../Rev.astro';
+import { PORTRAIT, CREDENTIALS, CREDENTIALS_ABOUT, PRACTITIONER_HOME, ABOUT_PAGE } from '../../data/practitioner.js';
+import { ROUTES } from '../../data/routes.js';
+
+const { locale, variant = 'home' } = Astro.props;
+const isAbout = variant === 'about';
+const D = isAbout ? ABOUT_PAGE : PRACTITIONER_HOME;
+const creds = isAbout ? CREDENTIALS_ABOUT : CREDENTIALS;
+---
+<div class="pract-ed">
+  <div class="pract-ed-photo">
+    <div class="portrait-silhouette" aria-hidden="true"><Icon name="user" size={isAbout ? 72 : 56} /></div>
+    <div class="portrait-label">{PORTRAIT.name}</div>
+    <div class="portrait-sublabel">{PORTRAIT.sublabel[locale]}</div>
+    <span class="badge badge-confirm" style="margin-top: 10px;">{PORTRAIT.badge[locale]}</span>
+  </div>
+  <div class="pract-ed-body">
+    <span class="eyebrow">{D.eyebrow[locale]}</span>
+    <h2 class="pract-ed-name">{isAbout ? D.bodyTitle[locale] : D.title[locale]}</h2>
+    {D.paragraphs.map((p) => (
+      <>
+        <Rev when={p.rev?.[locale]} />
+        <p>{p[locale]}</p>
+      </>
+    ))}
+    <ul class="pract-ed-creds">
+      {creds.map((c) => (
+        <li><Icon name={c.icon} size={18} /><span>{c[locale]}</span> <span class="badge badge-confirm">[CONFIRM]</span></li>
+      ))}
+    </ul>
+    <div class="practitioner-languages">
+      <Icon name="languages" />
+      <span set:html={D.languagesHtml[locale]} />
+    </div>
+    {!isAbout && (
+      <div class="pract-ed-actions">
+        <a href={ROUTES.about[locale]} class="btn btn-secondary">{D.moreBtn[locale]}</a>
+        <a href={ROUTES.booking[locale]} class="btn btn-primary">{D.bookBtn[locale]}</a>
+      </div>
+    )}
+  </div>
+</div>

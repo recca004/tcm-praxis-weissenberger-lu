@@ -226,3 +226,35 @@
     padding: var(--space-5);
   }
 }
+
+/* Premium direction — responsive rules */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  .hero-image-frame { aspect-ratio: 16 / 11; }
+  .pract-ed { grid-template-columns: 1fr; gap: var(--space-8); }
+  .pract-ed-photo { order: 1; max-width: 420px; aspect-ratio: 4 / 3; }
+  .pract-ed-body { order: 2; }
+  .booking-band { grid-template-columns: 1fr; padding: var(--space-8); }
+  .booking-band-actions { flex-direction: row; flex-wrap: wrap; }
+}
+
+@media (max-width: 640px) {
+  .hero-title { font-size: clamp(2.1rem, 9vw, 2.6rem); }
+  .hero-facts { grid-template-columns: 1fr; }
+  .t-index-row { grid-template-columns: 40px 1fr; padding: var(--space-5) 0; }
+  .t-index-link { grid-column: 2; margin-top: var(--space-2); }
+  .statement { padding: var(--space-12) 0 var(--space-4); }
+  .steps-editorial .step-number { font-size: 2.25rem; }
+  .booking-band-actions { flex-direction: column; }
+  .booking-band-actions .btn { width: 100%; }
+}
+
+/* Phase 2 responsive */
+@media (max-width: 860px) {
+  .t-index-page .t-index-row { grid-template-columns: 40px 1fr; }
+  .t-index-page .t-index-icon { display: none; }
+  .t-index-page .t-index-link { grid-column: 2; margin-top: var(--space-2); }
+  .pillar-row { grid-template-columns: 40px 1fr; }
+  .pillar-icon { display: none; }
+  .ed-info-grid { grid-template-columns: 1fr; }
+}
