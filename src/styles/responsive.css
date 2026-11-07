@@ -247,3 +247,13 @@
   .booking-band-actions { flex-direction: column; }
   .booking-band-actions .btn { width: 100%; }
 }
+
+/* Phase 2 responsive */
+@media (max-width: 860px) {
+  .t-index-page .t-index-row { grid-template-columns: 40px 1fr; }
+  .t-index-page .t-index-icon { display: none; }
+  .t-index-page .t-index-link { grid-column: 2; margin-top: var(--space-2); }
+  .pillar-row { grid-template-columns: 40px 1fr; }
+  .pillar-icon { display: none; }
+  .ed-info-grid { grid-template-columns: 1fr; }
+}

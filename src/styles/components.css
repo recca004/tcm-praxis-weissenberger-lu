@@ -1081,3 +1081,204 @@ h1, h2 {
   gap: var(--space-3);
   align-items: stretch;
 }
+
+/* ---- Phase 2: inner-page editorial patterns ---- */
+
+/* Quiet panel (kept where a contained surface genuinely helps) */
+.ed-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-subtle);
+  padding: var(--space-8);
+}
+
+.ed-panel-xl {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-subtle);
+}
+
+/* Treatments page index: num | icon | body | link */
+.t-index-page .t-index-row {
+  grid-template-columns: 56px 52px 1fr auto;
+  padding: var(--space-8) var(--space-2);
+}
+
+.t-index-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-sage-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.t-index-row:hover .t-index-icon {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+/* About pillars: numbered hairline rows */
+.pillars-ed {
+  margin-top: var(--space-12);
+  border-top: 1px solid var(--color-border);
+}
+
+.pillar-row {
+  display: grid;
+  grid-template-columns: 56px 52px 1fr;
+  gap: var(--space-6);
+  align-items: baseline;
+  padding: var(--space-6) var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color var(--transition-fast);
+}
+
+.pillar-row:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.pillar-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--color-sage);
+}
+
+.pillar-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-sage-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillar-body h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-xl);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-1);
+}
+
+.pillar-body p {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* Editorial info blocks (First Visit / Prices) */
+.ed-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-10) var(--space-8);
+}
+
+.ed-info-block {
+  border-top: 2px solid var(--color-primary-dark);
+  padding-top: var(--space-6);
+}
+
+.ed-info-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-sage-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.ed-info-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-xl);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-3);
+}
+
+.ed-info-text {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.ed-info-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.ed-info-items li {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  font-size: var(--text-sm);
+}
+
+.ed-info-items li svg,
+.ed-info-items li i {
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Open price table — rules, not a card */
+.price-table-open {
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.price-table-open .price-table thead th {
+  background: none;
+  border-top: 2px solid var(--color-primary-dark);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.price-table-open .price-table tbody tr {
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.price-table-open .price-table tbody tr:last-child {
+  border-bottom: 2px solid var(--color-primary-dark);
+}
+
+/* Legal pages — open prose, hairline-separated sections */
+.ed-legal {
+  margin-top: var(--space-10);
+}
+
+.ed-legal-section {
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.ed-legal-section:first-child {
+  border-top: 2px solid var(--color-primary-dark);
+}
+
+.ed-legal-section h2 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-3);
+}
+
+.ed-legal-section p {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  line-height: 1.65;
+}

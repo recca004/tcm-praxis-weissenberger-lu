@@ -1,25 +1,33 @@
 ---
-// Editorial treatment index — hairline rows replace the card grid (home only).
+// Editorial treatment index — hairline rows replace the card grid.
+// variant="preview" (home): num + title + desc + link
+// variant="page" (treatments page): num + icon + titleFull + descFull + link
 import Icon from '../Icon.astro';
 import Rev from '../Rev.astro';
 import { TREATMENTS, TREATMENTS_PAGE } from '../../data/treatments.js';
 import { ROUTES } from '../../data/routes.js';
 
-const { locale } = Astro.props;
-const linkLabel = TREATMENTS_PAGE.cardLinkHome[locale];
+const { locale, variant = 'preview' } = Astro.props;
+const isPage = variant === 'page';
+const linkLabel = isPage ? TREATMENTS_PAGE.cardLink[locale] : TREATMENTS_PAGE.cardLinkHome[locale];
 /** @param {number} n */
 const pad = (n) => String(n + 1).padStart(2, '0');
 ---
-<div class="t-index">
+<div class:list={['t-index', { 't-index-page': isPage }]}>
   {TREATMENTS.map((t, i) => (
     <div class="t-index-row">
       <span class="t-index-num" aria-hidden="true">{pad(i)}</span>
+      {isPage && (
+        <div class="t-index-icon" aria-hidden="true"><Icon name={t.icon} /></div>
+      )}
       <div class="t-index-body">
-        <a class="t-index-title-link" href={ROUTES.treatments[locale]}>
-          <h3 class="t-index-title">{t.title[locale]}</h3>
+        <a class="t-index-title-link" href={ROUTES.booking[locale]}>
+          {isPage
+            ? <h2 class="t-index-title">{t.titleFull[locale]}</h2>
+            : <h3 class="t-index-title">{t.title[locale]}</h3>}
         </a>
         <Rev when={t.rev?.[locale]} />
-        <p class="t-index-desc">{t.desc[locale]}</p>
+        <p class="t-index-desc">{isPage ? t.descFull[locale] : t.desc[locale]}</p>
       </div>
       <a href={ROUTES.booking[locale]} class="t-index-link">{linkLabel} <Icon name="arrow-up-right" size={16} /></a>
     </div>

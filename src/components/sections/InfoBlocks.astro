@@ -1,0 +1,29 @@
+---
+// Editorial info blocks — hairline-top sections with icon, serif title and
+// checklist rows. Replaces the white-card InfoCard on inner pages.
+import Icon from '../Icon.astro';
+const { blocks, locale } = Astro.props;
+---
+<div class="ed-info-grid">
+  {blocks.map((b) => (
+    <div class="ed-info-block">
+      <div class="ed-info-icon" aria-hidden="true"><Icon name={b.icon} /></div>
+      <h3 class="ed-info-title">{b.title[locale]}</h3>
+      {b.textHtml && <p class="ed-info-text" set:html={b.textHtml[locale]} />}
+      {b.itemsHtml && (
+        <ul class="ed-info-items">
+          {b.itemsHtml.map((item) => (
+            <li><Icon name="check" size={16} /><span set:html={item[locale]} /></li>
+          ))}
+        </ul>
+      )}
+      {b.items && (
+        <ul class="ed-info-items">
+          {b.items.map((item) => (
+            <li><Icon name="check" size={16} /><span set:html={item[locale]} /></li>
+          ))}
+        </ul>
+      )}
+    </div>
+  ))}
+</div>

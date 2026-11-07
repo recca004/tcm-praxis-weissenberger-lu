@@ -5,7 +5,7 @@ import { LEGAL } from '../../data/legal.js';
 const { locale, doc } = Astro.props;
 const D = LEGAL[doc];
 ---
-<div class="container container-narrow">
+<div class="container container-narrow page-top">
   <BackLink locale={locale} />
 
   <div class="notice-box">
@@ -17,12 +17,12 @@ const D = LEGAL[doc];
   <h1>{D.title[locale]}</h1>
   <p class="lead">{D.lead[locale]}</p>
 
-  <div style="background: var(--color-surface); padding: var(--space-8); border: 1px solid var(--color-border); border-radius: var(--radius-lg); margin-top: 2rem;">
+  <div class="ed-legal">
     {D.sections.map((s, i) => (
-      <>
-        <h2 style={i === 0 ? 'font-size: var(--text-xl); margin-bottom: 0.75rem;' : 'font-size: var(--text-xl); margin-top: 2rem; margin-bottom: 0.75rem;'}>{s.h[locale]}</h2>
-        <p style="font-size: var(--text-sm); color: var(--color-muted); line-height: 1.6;" set:html={s.html[locale]} />
-      </>
+      <section class="ed-legal-section">
+        <h2>{s.h[locale]}</h2>
+        <p set:html={s.html[locale]} />
+      </section>
     ))}
   </div>
 </div>
