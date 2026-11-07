@@ -1,0 +1,49 @@
+---
+// Data-driven build-time Lucide icon. Usage: <Icon name="map-pin" size={20} />
+import * as icons from '@lucide/astro';
+
+const MAP = {
+  'activity': icons.Activity,
+  'alert-circle': icons.CircleAlert,
+  'alert-triangle': icons.TriangleAlert,
+  'arrow-left': icons.ArrowLeft,
+  'arrow-up-right': icons.ArrowUpRight,
+  'award': icons.Award,
+  'bus': icons.Bus,
+  'calendar': icons.Calendar,
+  'car': icons.Car,
+  'check': icons.Check,
+  'check-circle-2': icons.CircleCheck,
+  'chevron-down': icons.ChevronDown,
+  'chevron-left': icons.ChevronLeft,
+  'chevron-right': icons.ChevronRight,
+  'circle-dot': icons.CircleDot,
+  'clipboard-check': icons.ClipboardCheck,
+  'clipboard-list': icons.ClipboardList,
+  'clock': icons.Clock,
+  'clock-3': icons.Clock3,
+  'credit-card': icons.CreditCard,
+  'external-link': icons.ExternalLink,
+  'flame': icons.Flame,
+  'flask-conical': icons.FlaskConical,
+  'heart': icons.Heart,
+  'info': icons.Info,
+  'languages': icons.Languages,
+  'leaf': icons.Leaf,
+  'mail': icons.Mail,
+  'map-pin': icons.MapPin,
+  'menu': icons.Menu,
+  'navigation': icons.Navigation,
+  'phone': icons.Phone,
+  'shield': icons.Shield,
+  'shield-check': icons.ShieldCheck,
+  'tram-front': icons.TramFront,
+  'user': icons.User,
+  'x': icons.X,
+};
+
+const { name, size = 24, ...rest } = Astro.props;
+const C = MAP[name];
+if (!C) throw new Error(`Unknown icon: ${name}`);
+---
+<C size={size} stroke-width={1.8} {...rest} />

@@ -1,0 +1,84 @@
+/**
+ * TCM Praxis Weissenberger-Lu
+ * Design Tokens & CSS Variables
+ * Swiss Healthcare Design System
+ */
+
+:root {
+  /* Brand Palette */
+  --color-primary: #28584E;
+  --color-primary-dark: #1E433B;
+  --color-primary-light: #3D7569;
+  --color-sage: #799087;
+  --color-sage-light: #EBF0ED;
+  --color-background: #FAF8F3;
+  --color-surface: #FFFFFF;
+  --color-surface-subtle: #F4F1EA;
+  --color-text: #24322D;
+  --color-muted: #52655E;
+  --color-border: #DCE4DF;
+  --color-border-subtle: #E8EFEA;
+  --color-accent: #D9C7A7;
+  --color-accent-soft: #F5EFE4;
+  --color-danger: #A33D35;
+  --color-danger-light: #FCEEED;
+  --color-warning: #B26A00;
+  --color-warning-light: #FFF8E6;
+  --color-info-badge: #E3EDE8;
+  --color-info-badge-text: #235449;
+
+  /* Typography */
+  --font-sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-chinese: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Heiti TC', sans-serif;
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+
+  /* Type Scale */
+  --text-xs: 0.8125rem;     /* 13px */
+  --text-sm: 0.9375rem;     /* 15px */
+  --text-base: 1.0625rem;   /* 17px */
+  --text-lg: 1.25rem;       /* 20px */
+  --text-xl: 1.5rem;        /* 24px */
+  --text-2xl: 1.875rem;     /* 30px */
+  --text-3xl: 2.375rem;     /* 38px */
+  --text-4xl: 3rem;         /* 48px */
+  --text-hero: clamp(2.25rem, 4.5vw, 3.25rem);
+
+  /* Spacing Grid (8px base) */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-narrow: 760px;
+  --header-height: 76px;
+  --header-height-mobile: 64px;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows - Quiet & Subtle */
+  --shadow-subtle: 0 1px 3px rgba(36, 50, 45, 0.04), 0 1px 2px rgba(36, 50, 45, 0.02);
+  --shadow-card: 0 4px 16px rgba(36, 50, 45, 0.04), 0 1px 3px rgba(36, 50, 45, 0.02);
+  --shadow-hover: 0 10px 24px rgba(40, 88, 78, 0.08), 0 2px 6px rgba(40, 88, 78, 0.03);
+  --shadow-dropdown: 0 12px 32px rgba(36, 50, 45, 0.12);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}

@@ -1,0 +1,9 @@
+---
+import { I18N } from '../data/routes.js';
+const { links, current, inline = false } = Astro.props;
+---
+<div class="lang-switcher" aria-label={I18N.langSwitch[current]}>
+  {links.map((l) => (
+    <a href={l.href} class:list={['lang-btn', { 'is-active': l.locale === current }]} hreflang={l.hreflang} title={l.title} {...(l.locale === current ? { 'aria-current': 'page' } : {})}>{l.label}</a>
+  ))}
+</div>

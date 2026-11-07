@@ -1,0 +1,18 @@
+---
+import Rev from '../Rev.astro';
+const { steps, locale, titleTag = 'h3', pageStyle = false } = Astro.props;
+const Tag = titleTag;
+---
+<div class="timeline-grid" {...(pageStyle ? { style: 'margin-bottom: var(--space-12);' } : {})}>
+  {steps.map((s, i) => (
+    <div class="timeline-step">
+      <div class="step-number">{i + 1}</div>
+      <Rev when={s.rev?.[locale] && s.revTitle !== false} />
+      {pageStyle
+        ? <Tag class="step-title" style="font-size: var(--text-lg);">{s.title[locale]}</Tag>
+        : <Tag class="step-title">{s.title[locale]}</Tag>}
+      <Rev when={s.rev?.[locale]} />
+      <p class="step-desc">{s.desc[locale]}</p>
+    </div>
+  ))}
+</div>

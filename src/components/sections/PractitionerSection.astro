@@ -1,0 +1,51 @@
+---
+import Icon from '../Icon.astro';
+import Rev from '../Rev.astro';
+import { PORTRAIT, CREDENTIALS, CREDENTIALS_ABOUT, PRACTITIONER_HOME, ABOUT_PAGE } from '../../data/practitioner.js';
+import { ROUTES } from '../../data/routes.js';
+
+const { locale, variant = 'home' } = Astro.props;
+const isAbout = variant === 'about';
+const D = isAbout ? ABOUT_PAGE : PRACTITIONER_HOME;
+const creds = isAbout ? CREDENTIALS_ABOUT : CREDENTIALS;
+---
+<div class="practitioner-wrapper" {...(isAbout ? { style: 'margin-bottom: var(--space-12);' } : {})}>
+  <div class="practitioner-grid">
+    <div class="portrait-placeholder-box">
+      <div class="portrait-silhouette" aria-hidden="true">
+        <Icon name="user" size={isAbout ? 64 : 56} />
+      </div>
+      <div class="portrait-label">{PORTRAIT.name}</div>
+      <div class="portrait-sublabel">{PORTRAIT.sublabel[locale]}</div>
+      <span class="badge badge-confirm" style="margin-top: 10px;">{PORTRAIT.badge[locale]}</span>
+    </div>
+    <div class="practitioner-body">
+      {!isAbout && <span class="eyebrow">{D.eyebrow[locale]}</span>}
+      <h2>{isAbout ? D.bodyTitle[locale] : D.title[locale]}</h2>
+      {D.paragraphs.map((p) => (
+        <>
+          <Rev when={p.rev?.[locale]} />
+          <p>{p[locale]}</p>
+        </>
+      ))}
+
+      <div class="practitioner-credentials">
+        {creds.map((c) => (
+          <span class="credential-chip"><Icon name={c.icon} size={18} /> {c[locale]} <span class="badge badge-confirm">[CONFIRM]</span></span>
+        ))}
+      </div>
+
+      <div class="practitioner-languages">
+        <Icon name="languages" />
+        <span set:html={D.languagesHtml[locale]} />
+      </div>
+
+      {!isAbout && (
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href={ROUTES.about[locale]} class="btn btn-secondary">{D.moreBtn[locale]}</a>
+          <a href={ROUTES.booking[locale]} class="btn btn-primary">{D.bookBtn[locale]}</a>
+        </div>
+      )}
+    </div>
+  </div>
+</div>

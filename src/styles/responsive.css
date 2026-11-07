@@ -1,0 +1,228 @@
+/**
+ * TCM Praxis Weissenberger-Lu
+ * Responsive Breakpoints & Mobile Optimization
+ * Target screens: 320px, 375px, 768px, 1024px, 1440px
+ */
+
+/* ==========================================================================
+   Desktop / Large Screens (1024px - 1440px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .site-nav {
+    display: flex;
+  }
+  .mobile-menu-toggle {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Tablet & Smaller Laptops (max-width: 1023px)
+   ========================================================================== */
+@media (max-width: 1023px) {
+  :root {
+    --header-height: 68px;
+    --text-hero: clamp(2rem, 3.8vw, 2.5rem);
+  }
+
+  .site-nav {
+    display: none; /* Collapses into mobile drawer */
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .hero-content {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .hero-image-frame {
+    aspect-ratio: 4 / 3;
+    max-height: 340px;
+  }
+
+  .trust-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+    margin-top: var(--space-4);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .practitioner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait-placeholder-box {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    min-height: 280px;
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+
+  .booking-calendar-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Mobile Tablets & Large Phones (max-width: 767px)
+   ========================================================================== */
+@media (max-width: 767px) {
+  :root {
+    --header-height: var(--header-height-mobile);
+    --space-16: 3rem;
+    --space-20: 3.5rem;
+  }
+
+  .section {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+  }
+
+  .section-hero {
+    padding-top: calc(var(--header-height) + var(--space-6));
+    padding-bottom: var(--space-8);
+    min-height: auto;
+  }
+
+  .header-container {
+    gap: var(--space-3);
+  }
+
+  .header-actions {
+    gap: var(--space-3);
+  }
+
+  .brand-title span {
+    display: none; /* Location suffix yields room to lang switcher + menu toggle */
+  }
+
+  .header-actions .btn-primary {
+    display: none; /* Available directly inside open mobile menu drawer */
+  }
+
+  .section-hero {
+    padding-top: calc(var(--header-height) + var(--space-8));
+    padding-bottom: var(--space-6);
+  }
+
+  .hero-image-frame {
+    max-height: 300px;
+  }
+
+  .hero-image-caption {
+    flex-wrap: wrap;
+  }
+
+  .trust-strip {
+    grid-template-columns: repeat(2, 1fr);
+    padding: var(--space-5);
+  }
+
+  .trust-content p {
+    display: none; /* compact mobile strip: icon + label only */
+  }
+
+  .grid-3,
+  .grid-2,
+  .grid-2-asym,
+  .timeline-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .practitioner-body {
+    padding: var(--space-6);
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .price-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .booking-body {
+    padding: var(--space-5);
+  }
+
+  .booking-service-options {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-banner {
+    padding: var(--space-8) var(--space-5);
+  }
+
+  .cta-banner-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-banner-buttons .btn,
+  .cta-banner-buttons a {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Small Mobile Screens (max-width: 375px)
+   ========================================================================== */
+@media (max-width: 375px) {
+  .brand-title {
+    font-size: 0.9375rem;
+  }
+
+  .brand-icon {
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+  }
+
+  /* Header switcher does not fit beside brand + toggle at 320–375px;
+     language switching stays available inside the mobile drawer. */
+  .header-actions > .lang-switcher {
+    display: none;
+  }
+
+  .lang-btn {
+    padding: 2px 6px;
+    font-size: 11px;
+  }
+
+  .treatment-card {
+    padding: var(--space-5);
+  }
+}

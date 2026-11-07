@@ -1,0 +1,20 @@
+---
+import Icon from '../Icon.astro';
+import { TRUST_ITEMS } from '../../data/home.js';
+const { locale } = Astro.props;
+---
+<section class="section-trust">
+  <div class="container">
+    <div class="trust-strip">
+      {TRUST_ITEMS.map((t) => (
+        <div class="trust-item">
+          <div class="trust-icon-box"><Icon name={t.icon} /></div>
+          <div class="trust-content">
+            <h3>{typeof t.h === 'string' ? t.h : t.h[locale]} {t.badge && <span class="badge-confirm">{t.badge[locale]}</span>}</h3>
+            <p>{t.p[locale]}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

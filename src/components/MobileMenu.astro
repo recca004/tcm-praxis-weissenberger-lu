@@ -1,0 +1,30 @@
+---
+import { I18N, ROUTES } from '../data/routes.js';
+import { X, ChevronRight, Phone } from '@lucide/astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+const { locale, pageId, langLinks } = Astro.props;
+const links = I18N.drawerLinks[locale];
+const currentHref = ROUTES[pageId][locale];
+---
+<div class="mobile-menu-overlay" aria-hidden="true">
+  <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label={I18N.menuAria[locale]}>
+    <div class="mobile-menu-header">
+      <span class="brand-title">{I18N.menuTitle[locale]}</span>
+      <button class="mobile-menu-close btn btn-secondary btn-sm" type="button" aria-label={I18N.menuClose[locale]}>
+        <X size={20} stroke-width={1.8} />
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href={ROUTES.booking[locale]} class="btn btn-primary btn-block" style="margin-bottom: 1rem;">{I18N.bookMobile[locale]}</a>
+      {links.map(([href, label]) => (
+        <a href={href} class:list={['mobile-nav-link', { 'is-active': href === currentHref }]}>{label} <ChevronRight size={18} stroke-width={1.8} /></a>
+      ))}
+    </div>
+    <div class="mobile-menu-footer">
+      <LanguageSwitcher links={langLinks} current={locale} />
+      <a href={I18N.phoneHref} class="btn btn-secondary btn-sm">
+        <Phone size={16} stroke-width={1.8} /> {I18N.phone}
+      </a>
+    </div>
+  </div>
+</div>

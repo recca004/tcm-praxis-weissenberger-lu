@@ -1,0 +1,57 @@
+---
+import { MapPin, Phone, Mail } from '@lucide/astro';
+import { ROUTES, NAV, I18N } from '../data/routes.js';
+const { locale } = Astro.props;
+const T = {
+  de: { tag: 'Traditionelle Chinesische Medizin in Zürich-Seebach. Persönliche Behandlung bei Min Weissenberger-Lu.', nav: 'Navigation', treat: 'Behandlungen', contact: 'Kontakt', legal: 'Rechtliches',
+    treatments: ['Akupunktur','Chinesische Kräutertherapie','Tuina-Massage','Schröpfen','Moxibustion','TCM-Beratung & Diagnostik'],
+    legalLinks: [['/de/datenschutz/','Datenschutz'],['/de/impressum/','Impressum']],
+    contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zürich'],['phone','+41 78 899 92 88'],['mail','info@tcm-weissenberger-lu.ch']],
+    note: '© 2026 TCM Praxis Weissenberger-Lu · Alle Angaben ohne Gewähr [Inhalte zur Freigabe]' },
+  en: { tag: 'Traditional Chinese Medicine in Zurich-Seebach. Personal treatment with Min Weissenberger-Lu.', nav: 'Navigation', treat: 'Treatments', contact: 'Contact', legal: 'Legal',
+    treatments: ['Acupuncture','Chinese Herbal Medicine','Tuina Massage','Cupping','Moxibustion','TCM Consultation'],
+    legalLinks: [['/en/privacy-policy/','Privacy Policy'],['/en/imprint/','Imprint']],
+    contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zurich'],['phone','+41 78 899 92 88'],['mail','info@tcm-weissenberger-lu.ch']],
+    note: '© 2026 TCM Praxis Weissenberger-Lu · Content pending client approval' },
+  zh: { tag: '蘇黎世 Seebach 傳統中醫診所 · 由中醫師 Min Weissenberger-Lu 親自診治。', nav: '網站導航', treat: '治療項目', contact: '聯絡方式', legal: '法律資訊',
+    treatments: ['針灸','中藥調理','經絡推拿','拔罐','艾灸','中醫諮詢'],
+    legalLinks: [['/zh/yinsi/','隱私政策'],['/zh/falv-shengming/','法律聲明']],
+    contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zürich'],['phone','+41 78 899 92 88'],['mail','info@tcm-weissenberger-lu.ch']],
+    note: '© 2026 TCM Praxis Weissenberger-Lu · 內容待客戶審核' },
+}[locale];
+---
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2>TCM Praxis Weissenberger-Lu</h2>
+        <p>{T.tag}</p>
+      </div>
+      <div class="footer-col">
+        <h3>{T.nav}</h3>
+        <ul class="footer-links">
+          <li><a href={ROUTES.home[locale]} class="footer-link">{I18N.home[locale]}</a></li>
+          {NAV.map(([id, labels]) => <li><a href={ROUTES[id][locale]} class="footer-link">{labels[locale]}</a></li>)}
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>{T.treat}</h3>
+        <ul class="footer-links">
+          {T.treatments.map((t) => <li><a href={ROUTES.treatments[locale]} class="footer-link">{t}</a></li>)}
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>{T.contact}</h3>
+        <ul class="footer-links">
+          {T.contactItems.map(([icon, text]) => <li class="footer-contact-item">{icon === 'map-pin' && <MapPin size={16} stroke-width={1.8} />}{icon === 'phone' && <Phone size={16} stroke-width={1.8} />}{icon === 'mail' && <Mail size={16} stroke-width={1.8} />} {text}</li>)}
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>{T.note}</p>
+      <div class="footer-legal-links">
+        {T.legalLinks.map(([href, label]) => <a href={href} class="footer-legal-link">{label}</a>)}
+      </div>
+    </div>
+  </div>
+</footer>

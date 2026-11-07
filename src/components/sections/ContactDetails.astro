@@ -1,0 +1,49 @@
+---
+// Contact info list (address/phone/email/hours + maps button).
+import Icon from '../Icon.astro';
+import { CONTACT_LABELS, HOURS } from '../../data/contact.js';
+import { PRACTICE } from '../../data/site.js';
+
+const { locale, variant = 'home', mapsLabel } = Astro.props;
+const isPage = variant === 'page';
+const L = CONTACT_LABELS;
+---
+<div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem;">
+  <div class="footer-contact-item">
+    <Icon name="map-pin" />
+    <div>
+      <strong>{L.address[locale]}</strong><br />
+      {isPage && <>{PRACTICE.name}<br /></>}
+      {PRACTICE.street}<br />
+      {isPage ? (locale === 'de' ? '8052 Zürich-Seebach' : '8052 ' + (locale === 'zh' ? 'Zürich-Seebach, Switzerland' : 'Zurich-Seebach, Switzerland')) : (locale === 'zh' ? '8052 Zürich-Seebach, Switzerland' : '8052 ' + (locale === 'de' ? 'Zürich-Seebach' : 'Zurich-Seebach, Switzerland'))}
+    </div>
+  </div>
+  <div class="footer-contact-item">
+    <Icon name="phone" />
+    <div>
+      <strong>{isPage ? L.phone[locale] : L.phoneHome[locale]}</strong><br />
+      <a href={PRACTICE.phoneHref}>{PRACTICE.phone}</a> <span class="badge badge-confirm">[CONFIRM]</span>
+    </div>
+  </div>
+  <div class="footer-contact-item">
+    <Icon name="mail" />
+    <div>
+      <strong>{L.email[locale]}</strong><br />
+      <a href={`mailto:${PRACTICE.email}`}>{PRACTICE.email}</a>
+    </div>
+  </div>
+  <div class="footer-contact-item">
+    <Icon name="clock-3" />
+    <div>
+      <strong>{isPage ? L.hours[locale] : L.hoursHome[locale]}</strong><br />
+      {HOURS.weekday[locale]}<br />
+      {isPage ? HOURS.saturdayPage[locale] : HOURS.saturday[locale]}
+    </div>
+  </div>
+</div>
+
+<div style={isPage ? 'margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--color-border-subtle);' : 'margin-top: 2rem;'}>
+  <a href={PRACTICE.mapsUrl} target="_blank" rel="noopener noreferrer" class={isPage ? 'btn btn-primary btn-block' : 'btn btn-secondary'}>
+    <Icon name="navigation" size={18} /> {mapsLabel} <Icon name="external-link" size={16} />
+  </a>
+</div>

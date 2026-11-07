@@ -1,0 +1,28 @@
+---
+import Rev from '../Rev.astro';
+const { locale, head, rows, showBilling = false, billingBadge = '', compact = false } = Astro.props;
+---
+<div class="price-table-wrapper" style={compact ? 'margin-top: 1.5rem;' : 'margin-bottom: var(--space-12);'}>
+  <table class="price-table">
+    <thead>
+      <tr>
+        {head.map((h) => <th>{h}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((r) => (
+        <tr>
+          <td>
+            <Rev when={r.rev?.[locale]} />
+            <div class="price-service-title">{r.title[locale]}</div>
+            <Rev when={r.rev?.[locale]} />
+            <div class="price-service-desc">{r.desc[locale]}</div>
+          </td>
+          <td class="tabular-nums">{r.duration[locale]}</td>
+          <td><span class="badge badge-confirm">{r.price[locale]}</span></td>
+          {showBilling && <td><span class="badge badge-sage">{billingBadge}</span></td>}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

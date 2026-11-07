@@ -1,0 +1,53 @@
+---
+import { CONTACT_FORM } from '../../data/contact.js';
+const { locale, variant = 'home' } = Astro.props;
+const isPage = variant === 'page';
+const F = CONTACT_FORM;
+const note = isPage ? F.notePage[locale] : F.noteHome[locale];
+const nameLabel = isPage ? F.fields.namePage[locale] : F.fields.name[locale];
+const msgPh = isPage ? F.fields.messagePlaceholderPage[locale] : F.fields.messagePlaceholder[locale];
+const options = isPage ? F.langOptionsPage[locale] : F.langOptions[locale];
+const privacy = isPage ? F.privacyHtmlPage[locale] : F.privacyHtml[locale];
+const submit = isPage ? F.submitPage[locale] : F.submit[locale];
+const TitleTag = isPage ? 'h2' : 'h3';
+---
+<div style="background: var(--color-surface); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border); box-shadow: var(--shadow-subtle);">
+  <TitleTag style={isPage ? 'font-size: var(--text-xl); margin-bottom: 0.5rem;' : 'margin-bottom: 0.5rem;'}>{F.title[locale]}</TitleTag>
+  <p style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: 1.5rem;">{note}</p>
+
+  <form class="js-contact-form">
+    <div class="form-submission-feedback" style="display: none;"></div>
+
+    <div class="form-group">
+      <label class="form-label" for="contact-name">{nameLabel} <span class="required">*</span></label>
+      <input type="text" id="contact-name" class="form-control" placeholder={F.fields.namePlaceholder[locale]} required />
+    </div>
+    {isPage && (
+      <div class="form-group">
+        <label class="form-label" for="contact-phone">{F.fields.phoneOptional[locale]}</label>
+        <input type="tel" id="contact-phone" class="form-control" placeholder="+41 79 123 45 67" />
+      </div>
+    )}
+    <div class="form-group">
+      <label class="form-label" for="contact-email">{F.fields.email[locale]} <span class="required">*</span></label>
+      <input type="email" id="contact-email" class="form-control" placeholder={F.fields.emailPlaceholder[locale]} required />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="contact-lang">{F.fields.lang[locale]}</label>
+      <select id="contact-lang" class="form-select">
+        {options.map(([v, label], i) => <option value={v} selected={i === 0}>{label}</option>)}
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="contact-message">{F.fields.message[locale]} <span class="required">*</span></label>
+      <textarea id="contact-message" class="form-textarea" placeholder={msgPh} required></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-checkbox-label">
+        <input type="checkbox" class="form-checkbox" required />
+        <span set:html={privacy} />
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">{submit}</button>
+  </form>
+</div>

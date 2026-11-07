@@ -1,0 +1,11 @@
+---
+import Icon from './Icon.astro';
+import { ROUTES } from '../data/routes.js';
+import { BACK_LINK } from '../data/home.js';
+const { locale } = Astro.props;
+---
+<div style="margin-bottom: var(--space-6);">
+  <a href={ROUTES.home[locale]} class="btn-text" style="display: inline-flex; align-items: center; gap: 4px; font-size: 14px;">
+    <Icon name="arrow-left" size={16} /> {BACK_LINK[locale]}
+  </a>
+</div>

@@ -1,0 +1,32 @@
+---
+import Icon from '../Icon.astro';
+import { ROUTES } from '../../data/routes.js';
+import { HERO } from '../../data/home.js';
+const { locale } = Astro.props;
+const D = HERO;
+---
+<section class="section section-hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="eyebrow">{D.eyebrow[locale]}</span>
+        <h1>{D.title[locale]}</h1>
+        <p class="lead">{D.lead[locale]}</p>
+        <div class="hero-actions">
+          <a href={ROUTES.booking[locale]} class="btn btn-primary btn-lg">{D.primary[locale]}</a>
+          <a href={ROUTES.treatments[locale]} class="btn btn-outline btn-lg">{D.secondary[locale]}</a>
+        </div>
+      </div>
+      <div class="hero-media-wrapper">
+        <div class="hero-image-frame">
+          <img src="/assets/images/hero-clinic.webp" srcset="/assets/images/hero-clinic-sm.webp 800w, /assets/images/hero-clinic.webp 1600w" sizes="(max-width: 800px) 100vw, 50vw" alt={D.imageAlt[locale]} fetchpriority="high" />
+        </div>
+        <p class="hero-image-caption">
+          <Icon name="map-pin" size={18} />
+          <span>{D.address[locale]}</span>
+          <span class="hero-badge-placeholder">{D.badge[locale]}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,100 @@
+---
+import Hero from '../sections/Hero.astro';
+import TrustStrip from '../sections/TrustStrip.astro';
+import SectionHeader from '../SectionHeader.astro';
+import TreatmentGrid from '../sections/TreatmentGrid.astro';
+import PractitionerSection from '../sections/PractitionerSection.astro';
+import StepsTimeline from '../sections/StepsTimeline.astro';
+import PriceTable from '../sections/PriceTable.astro';
+import InsuranceCard from '../sections/InsuranceCard.astro';
+import FaqAccordion from '../sections/FaqAccordion.astro';
+import BookingWidget from '../sections/BookingWidget.astro';
+import ContactDetails from '../sections/ContactDetails.astro';
+import ContactForm from '../sections/ContactForm.astro';
+import CTABanner from '../sections/CTABanner.astro';
+import Rev from '../Rev.astro';
+import { TREATMENTS_SECTION } from '../../data/treatments.js';
+import { FIRST_VISIT_HOME } from '../../data/firstVisit.js';
+import { PRICES_HOME } from '../../data/prices.js';
+import { FAQ_SECTION } from '../../data/faq.js';
+import { BOOKING } from '../../data/booking.js';
+import { CONTACT_HOME } from '../../data/contact.js';
+import { ROUTES } from '../../data/routes.js';
+
+const { locale } = Astro.props;
+const anchors = { de: { treatments: 'behandlungen', booking: 'online-termin', contact: 'kontakt' }, en: { treatments: 'treatments', booking: 'booking', contact: 'contact' }, zh: { treatments: 'liaofa', booking: 'yuyue', contact: 'lianxi' } }[locale];
+---
+<Hero locale={locale} />
+<TrustStrip locale={locale} />
+
+<section class="section section-treatments" id={anchors.treatments}>
+  <div class="container">
+    <SectionHeader eyebrow={TREATMENTS_SECTION.eyebrow[locale]} title={TREATMENTS_SECTION.title[locale]} lead={TREATMENTS_SECTION.lead[locale]} rev={TREATMENTS_SECTION.rev?.[locale] || []} />
+    <TreatmentGrid locale={locale} variant="preview" />
+  </div>
+</section>
+
+<section class="section section-subtle">
+  <div class="container">
+    <PractitionerSection locale={locale} variant="home" />
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <SectionHeader eyebrow={FIRST_VISIT_HOME.eyebrow[locale]} title={FIRST_VISIT_HOME.title[locale]} lead={FIRST_VISIT_HOME.lead[locale]} />
+    <StepsTimeline steps={FIRST_VISIT_HOME.steps} locale={locale} />
+    <div style="margin-top: 2.5rem; text-align: center;">
+      <a href={ROUTES.firstVisit[locale]} class="btn btn-secondary">{FIRST_VISIT_HOME.link[locale]}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-subtle">
+  <div class="container">
+    <div class="grid-2-asym">
+      <div>
+        <span class="eyebrow">{PRICES_HOME.eyebrow[locale]}</span>
+        <h2>{PRICES_HOME.title[locale]}</h2>
+        <Rev when={(PRICES_HOME.rev?.[locale] || []).includes('text')} />
+        <p>{PRICES_HOME.text[locale]}</p>
+        <PriceTable locale={locale} head={PRICES_HOME.tableHead[locale]} rows={PRICES_HOME.rows} compact />
+      </div>
+      <div>
+        <InsuranceCard locale={locale} />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+    <SectionHeader eyebrow={FAQ_SECTION.eyebrow[locale]} title={FAQ_SECTION.title[locale]} lead={FAQ_SECTION.lead[locale]} center />
+    <FaqAccordion locale={locale} />
+  </div>
+</section>
+
+<section class="section section-sage" id={anchors.booking}>
+  <div class="container">
+    <SectionHeader eyebrow={BOOKING.home.sectionEyebrow[locale]} title={BOOKING.home.sectionTitle[locale]} lead={BOOKING.home.sectionLead[locale]} center />
+    <BookingWidget locale={locale} variant="home" />
+  </div>
+</section>
+
+<section class="section" id={anchors.contact}>
+  <div class="container">
+    <div class="grid-2">
+      <div>
+        <span class="eyebrow">{CONTACT_HOME.eyebrow[locale]}</span>
+        <h2>{CONTACT_HOME.title[locale]}</h2>
+        <p>{CONTACT_HOME.text[locale]}</p>
+        <ContactDetails locale={locale} variant="home" mapsLabel={CONTACT_HOME.mapsBtn[locale]} />
+      </div>
+      <div>
+        <ContactForm locale={locale} variant="home" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<CTABanner locale={locale} pageId="home" inSection />

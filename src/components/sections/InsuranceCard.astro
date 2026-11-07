@@ -1,0 +1,25 @@
+---
+import Icon from '../Icon.astro';
+import { PRICES_HOME } from '../../data/prices.js';
+import { ROUTES } from '../../data/routes.js';
+const { locale } = Astro.props;
+const I = PRICES_HOME.insurance;
+---
+<div class="insurance-card">
+  <span class="eyebrow" style="color: var(--color-primary);">{I.eyebrow[locale]}</span>
+  <h3>{I.title[locale]}</h3>
+  <p style="font-size: var(--text-sm); color: var(--color-muted);">{I.text[locale]}</p>
+
+  <div class="insurance-steps">
+    {I.steps.map((s) => (
+      <div class="insurance-step-item">
+        <Icon name="check-circle-2" />
+        <div set:html={s[locale]} />
+      </div>
+    ))}
+  </div>
+
+  <div style="margin-top: auto; padding-top: 1rem;">
+    <a href={ROUTES.prices[locale]} class="btn btn-outline btn-block">{I.link[locale]}</a>
+  </div>
+</div>

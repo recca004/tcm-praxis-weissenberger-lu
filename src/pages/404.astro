@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ROUTES } from '../data/routes.js';
+---
+<BaseLayout locale="de" pageId="home" title="Seite nicht gefunden | TCM Praxis Weissenberger-Lu" desc="Die gesuchte Seite wurde nicht gefunden." deHref="/de/" enHref="/en/" zhHref="/zh/" canonicalPath="/404/">
+  <section class="section" style="padding-top: calc(var(--header-height) + var(--space-16)); text-align:center;">
+    <div class="container">
+      <span class="eyebrow">404</span>
+      <h1>Seite nicht gefunden</h1>
+      <p class="lead">Die gesuchte Seite existiert nicht oder wurde verschoben.</p>
+      <a href={ROUTES.home.de} class="btn btn-primary btn-lg" style="margin-top: var(--space-6);">Zur Startseite</a>
+    </div>
+  </section>
+</BaseLayout>

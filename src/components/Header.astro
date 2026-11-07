@@ -1,0 +1,28 @@
+---
+import { ROUTES, NAV, I18N, LOCAL_NAME } from '../data/routes.js';
+import { Leaf, Menu } from '@lucide/astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+const { locale, pageId, langLinks } = Astro.props;
+const bookHref = ROUTES.booking[locale];
+---
+<a href="#main-content" class="skip-link">{I18N.skip[locale]}</a>
+<header class="site-header" role="banner">
+  <div class="container header-container">
+    <a href={ROUTES.home[locale]} class="site-brand" aria-label={I18N.homeAria[locale]}>
+      <div class="brand-icon" aria-hidden="true"><Leaf size={20} stroke-width={1.8} /></div>
+      <div class="brand-title">TCM Weissenberger-Lu <span>| {LOCAL_NAME[locale]}</span></div>
+    </a>
+    <nav class="site-nav" role="navigation" aria-label={I18N.navAria[locale]}>
+      {NAV.map(([id, labels]) => (
+        <a href={ROUTES[id][locale]} class:list={['nav-link', { 'is-active': id === pageId }]}>{labels[locale]}</a>
+      ))}
+    </nav>
+    <div class="header-actions">
+      <LanguageSwitcher links={langLinks} current={locale} />
+      <a href={bookHref} class="btn btn-primary" {...(pageId === 'booking' ? { 'aria-current': 'page' } : {})}>{I18N.book[locale]}</a>
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-label={I18N.menuOpen[locale]}>
+        <Menu size={24} stroke-width={1.8} />
+      </button>
+    </div>
+  </div>
+</header>

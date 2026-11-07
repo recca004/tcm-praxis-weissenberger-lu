@@ -1,0 +1,22 @@
+---
+import Icon from '../Icon.astro';
+import Rev from '../Rev.astro';
+import { FAQ_ITEMS } from '../../data/faq.js';
+const { locale } = Astro.props;
+const items = FAQ_ITEMS.filter((f) => f.locales.includes(locale));
+---
+<div class="accordion">
+  {items.map((f) => (
+    <div class="accordion-item">
+      <button class="accordion-trigger" type="button" aria-expanded="false">
+        <Rev when={f.rev?.[locale]} />
+        <span>{f.q[locale]}</span>
+        <Icon name="chevron-down" class="accordion-icon" />
+      </button>
+      <div class="accordion-panel">
+        <Rev when={f.rev?.[locale]} />
+        <p>{f.a[locale]}</p>
+      </div>
+    </div>
+  ))}
+</div>

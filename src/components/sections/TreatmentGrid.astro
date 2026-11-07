@@ -1,0 +1,36 @@
+---
+import Icon from '../Icon.astro';
+import Rev from '../Rev.astro';
+import { TREATMENTS, TREATMENTS_PAGE } from '../../data/treatments.js';
+import { ROUTES } from '../../data/routes.js';
+
+const { locale, variant = 'preview' } = Astro.props;
+const isPage = variant === 'page';
+const bookHref = ROUTES.booking[locale];
+const linkLabel = isPage ? TREATMENTS_PAGE.cardLink[locale] : TREATMENTS_PAGE.cardLinkHome[locale];
+---
+<div class="grid-3" {...(isPage ? { style: 'margin-bottom: var(--space-16);' } : {})}>
+  {TREATMENTS.map((t) => (
+    <article class="treatment-card">
+      <div class="treatment-icon-wrapper" aria-hidden="true"><Icon name={t.icon} /></div>
+      <Rev when={t.rev?.[locale] && !isPage} />
+      {isPage ? (
+        <>
+          <Rev when={t.rev?.[locale]} />
+          <h2 class="treatment-title" style="font-size: var(--text-xl);">{t.titleFull[locale]}</h2>
+        </>
+      ) : (
+        <h3 class="treatment-title">{t.title[locale]}</h3>
+      )}
+      <Rev when={t.rev?.[locale]} />
+      <p class="treatment-desc">{isPage ? t.descFull[locale] : t.desc[locale]}</p>
+      <div class="treatment-card-footer">
+        {isPage ? (
+          <a href={bookHref} class="btn btn-outline btn-sm">{linkLabel} <Icon name="arrow-up-right" size={16} /></a>
+        ) : (
+          <a href={bookHref} class="card-action-link">{linkLabel} <Icon name="arrow-up-right" size={16} /></a>
+        )}
+      </div>
+    </article>
+  ))}
+</div>

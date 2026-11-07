@@ -1,0 +1,121 @@
+---
+import Icon from '../Icon.astro';
+import Rev from '../Rev.astro';
+import { BOOKING, BOOKING_DEMO } from '../../data/booking.js';
+import { PRACTICE } from '../../data/site.js';
+
+const { locale, variant = 'home' } = Astro.props;
+const D = BOOKING[variant];
+const S = BOOKING.shared;
+const notesLabel = variant === 'page' ? S.fields.notesPage[locale] : S.fields.notes[locale];
+---
+<div class="booking-widget-container js-booking-widget" {...(variant === 'page' ? { style: 'margin-bottom: var(--space-12);' } : {})}>
+  <div class="booking-header">
+    <div>
+      <h3>{D.widgetTitle[locale]}</h3>
+      <p>{PRACTICE.name} · {locale === 'zh' ? '蘇黎世 Seebach' : 'Zürich-Seebach'}</p>
+    </div>
+    <div class="badge badge-info" style="background: rgba(255,255,255,0.15); color: #fff;">
+      <Icon name="calendar" size={16} /> {D.widgetBadge[locale]}
+    </div>
+  </div>
+
+  <div class="booking-steps-bar" role="tablist">
+    {S.stepTabs[locale].map((tab, i) => (
+      <button class:list={['booking-step-tab', { 'is-active': i === 0 }]} data-step={i + 1} role="tab" type="button">
+        <span>{tab}</span>
+      </button>
+    ))}
+  </div>
+
+  <div class="booking-body">
+    <div class="booking-step-panel" data-step="1">
+      <h4 style="margin-bottom: 1rem;">{D.step1Heading[locale]}</h4>
+      <div class="booking-service-options">
+        {D.services.map((s, i) => (
+          <div class:list={['service-card-select', { 'is-selected': i === 0 }]} data-service={s.id}>
+            <Rev when={s.rev?.[locale]} />
+            <h4>{s.title[locale]}</h4>
+            <Rev when={s.rev?.[locale]} />
+            <p class="service-card-meta">{s.meta[locale]}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="booking-step-panel" data-step="2" style="display: none;">
+      <h4 style="margin-bottom: 1rem;">{D.step2Heading[locale]}</h4>
+      <div class="booking-calendar-row">
+        <div>
+          <strong style="font-size: 14px; display: block; margin-bottom: 8px;">{S.monthLabel[locale]}</strong>
+          <div class="calendar-mini-grid">
+            {S.weekdays[locale].map((w) => <div class="cal-day-header">{w}</div>)}
+            {BOOKING_DEMO.days.map((day) => (
+              <button
+                type="button"
+                class:list={['cal-day-cell', { 'is-selected': day === BOOKING_DEMO.selectedDay }]}
+                disabled={BOOKING_DEMO.disabledDays.includes(day)}
+              >{day}</button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <strong style="font-size: 14px; display: block; margin-bottom: 8px;">{S.timesLabel[locale]}</strong>
+          <div class="time-slots-grid">
+            {S.timeSlots[locale].map((t, i) => (
+              <button type="button" class:list={['time-slot-btn', { 'is-selected': i === 0 }]}>{t}</button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-step-panel" data-step="3" style="display: none;">
+      <h4 style="margin-bottom: 1rem;">{D.step3Heading[locale]}</h4>
+      <div class="form-group">
+        <label class="form-label" for="booking-name">{S.fields.name[locale]} <span class="required">*</span></label>
+        <input type="text" id="booking-name" class="form-control" placeholder={D.namePlaceholder[locale]} required />
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="form-group">
+          <label class="form-label" for="booking-phone">{S.fields.phone[locale]} <span class="required">*</span></label>
+          <input type="tel" id="booking-phone" class="form-control" placeholder="+41 79 123 45 67" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="booking-email">{S.fields.email[locale]} <span class="required">*</span></label>
+          <input type="email" id="booking-email" class="form-control" placeholder={D.emailPlaceholder[locale]} required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="booking-notes">{notesLabel}</label>
+        <textarea id="booking-notes" class="form-textarea" placeholder={D.notesPlaceholder[locale]}></textarea>
+      </div>
+    </div>
+
+    <div class="booking-step-panel" data-step="4" style="display: none;">
+      <h4 style="margin-bottom: 1rem;">{D.step4Heading[locale]}</h4>
+      <div style="background: var(--color-surface-subtle); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
+        <Rev when={D.summaryServiceRev?.[locale]} />
+        <p style="margin-bottom: 6px;"><strong>{S.summaryLabels.service[locale]}</strong> <span class="js-summary-service">{D.summaryService[locale]}</span></p>
+        <p style="margin-bottom: 6px;"><strong>{S.summaryLabels.datetime[locale]}</strong> <span class="js-summary-datetime">{D.summaryDatetime[locale]}</span></p>
+        <p style="margin-bottom: 6px;"><strong>{S.summaryLabels.location[locale]}</strong> {S.locationText}</p>
+        <p style="margin-bottom: 0;"><strong>{S.summaryLabels.patient[locale]}</strong> <span class="js-summary-patient">—</span></p>
+      </div>
+
+      <div class="demo-notice-banner">
+        <Icon name="alert-circle" />
+        <div set:html={D.demoNoticeHtml[locale]} />
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
+      <button type="button" class="btn btn-secondary js-booking-prev" style="visibility: hidden;">
+        <Icon name="chevron-left" size={18} /> <span class="js-prev-label">{S.prev[locale]}</span>
+      </button>
+      <button type="button" class="btn btn-primary js-booking-next">
+        <span class="js-next-label">{S.next[locale]}</span> <Icon name="chevron-right" size={18} />
+      </button>
+    </div>
+  </div>
+</div>

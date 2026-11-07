@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomePage from '../../components/pages/HomePage.astro';
+import SubPage from '../../components/pages/SubPage.astro';
+import { ROUTES, LOCALES } from '../../data/routes.js';
+import meta from '../../data/meta.json';
+
+export function getStaticPaths() {
+  const paths: { params: { locale: string; slug?: string }; props: { pageId: string } }[] = [];
+  for (const [pageId, slugs] of Object.entries(ROUTES)) {
+    for (const loc of LOCALES) {
+      const url = slugs[loc];
+      const slug = url === `/${loc}/` ? undefined : url.replace(`/${loc}/`, '').replace(/\/$/, '');
+      paths.push({ params: { locale: loc, slug }, props: { pageId } });
+    }
+  }
+  return paths;
+}
+
+const { locale } = Astro.params;
+const { pageId } = Astro.props;
+const m = (meta as Record<string, Record<string, { title: string; desc: string }>>)[pageId]?.[locale] || { title: 'TCM Praxis Weissenberger-Lu', desc: '' };
+---
+<BaseLayout
+  locale={locale} pageId={pageId} title={m.title} desc={m.desc}
+  deHref={ROUTES[pageId].de} enHref={ROUTES[pageId].en} zhHref={ROUTES[pageId].zh}
+  canonicalPath={ROUTES[pageId][locale]}>
+  {pageId === 'home' ? <HomePage locale={locale} /> : <SubPage locale={locale} pageId={pageId} />}
+</BaseLayout>

@@ -1,0 +1,5 @@
+---
+// Renders the medical-review marker comment when `when` is true.
+const { when } = Astro.props;
+---
+{when && <Fragment set:html={'<!-- REVIEW-MIN-TC -->'} />}

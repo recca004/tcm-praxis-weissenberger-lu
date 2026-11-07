@@ -1,0 +1,13 @@
+---
+import Rev from './Rev.astro';
+const { eyebrow, title, lead, level = 'h2', center = false, rev = [] } = Astro.props;
+const Tag = level;
+---
+<div class:list={['section-header', { 'text-center': center }]}>
+  <Rev when={rev.includes('eyebrow')} />
+  <span class="eyebrow">{eyebrow}</span>
+  <Rev when={rev.includes('title')} />
+  <Tag>{title}</Tag>
+  {lead && <Rev when={rev.includes('lead')} />}
+  {lead && <p class="lead">{lead}</p>}
+</div>

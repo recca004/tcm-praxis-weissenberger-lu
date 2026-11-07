@@ -1,0 +1,140 @@
+---
+// All non-home pages share this shell: back link + header + page body.
+import BackLink from '../BackLink.astro';
+import SectionHeader from '../SectionHeader.astro';
+import TreatmentGrid from '../sections/TreatmentGrid.astro';
+import PractitionerSection from '../sections/PractitionerSection.astro';
+import StepsTimeline from '../sections/StepsTimeline.astro';
+import PriceTable from '../sections/PriceTable.astro';
+import InfoCard from '../sections/InfoCard.astro';
+import BookingWidget from '../sections/BookingWidget.astro';
+import ContactDetails from '../sections/ContactDetails.astro';
+import TransitCard from '../sections/TransitCard.astro';
+import ContactForm from '../sections/ContactForm.astro';
+import CTABanner from '../sections/CTABanner.astro';
+import LegalPage from '../sections/LegalPage.astro';
+import Icon from '../Icon.astro';
+import Rev from '../Rev.astro';
+import { TREATMENTS_PAGE, DIAGNOSTIC } from '../../data/treatments.js';
+import { ABOUT_PAGE } from '../../data/practitioner.js';
+import { FIRST_VISIT_PAGE } from '../../data/firstVisit.js';
+import { PRICES_PAGE } from '../../data/prices.js';
+import { BOOKING } from '../../data/booking.js';
+import { CONTACT_PAGE } from '../../data/contact.js';
+import { PRACTICE } from '../../data/site.js';
+
+const { locale, pageId } = Astro.props;
+const HEADER = {
+  treatments: { d: TREATMENTS_PAGE, center: false },
+  about: { d: ABOUT_PAGE, center: false },
+  firstVisit: { d: FIRST_VISIT_PAGE, center: false },
+  prices: { d: PRICES_PAGE, center: false },
+  booking: { d: { eyebrow: BOOKING.page.sectionEyebrow, title: BOOKING.page.sectionTitle, lead: BOOKING.page.sectionLead }, center: true },
+  contact: { d: CONTACT_PAGE, center: false },
+}[pageId];
+const isLegal = pageId === 'privacy' || pageId === 'imprint';
+---
+{isLegal ? (
+  <LegalPage locale={locale} doc={pageId} />
+) : (
+  <div class="container">
+    <BackLink locale={locale} />
+    <SectionHeader eyebrow={HEADER.d.eyebrow[locale]} title={HEADER.d.title[locale]} lead={HEADER.d.lead?.[locale]} level="h1" center={HEADER.center} rev={HEADER.d.rev?.[locale] || []} />
+
+    {pageId === 'treatments' && (
+      <>
+        <TreatmentGrid locale={locale} variant="page" />
+        <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-8); margin-bottom: var(--space-16);">
+          <div class="grid-2" style="align-items: center;">
+            <div>
+              <span class="eyebrow">{DIAGNOSTIC.eyebrow[locale]}</span>
+              <h2>{DIAGNOSTIC.title[locale]}</h2>
+              <Rev when={(DIAGNOSTIC.rev?.[locale] || []).includes('lead')} />
+              <p>{DIAGNOSTIC.lead[locale]}</p>
+              <ul style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+                {DIAGNOSTIC.items.map((item) => (
+                  <li style="display: flex; gap: 0.5rem; align-items: flex-start; font-size: var(--text-sm);">
+                    <Icon name="check-circle-2" size={18} class="check-icon" />
+                    <span set:html={item[locale]} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <img src={DIAGNOSTIC.image[locale].src} alt={DIAGNOSTIC.image[locale].alt} loading="lazy" style="border-radius: var(--radius-lg); border: 1px solid var(--color-border);" />
+            </div>
+          </div>
+        </div>
+        <CTABanner locale={locale} pageId="treatments" />
+      </>
+    )}
+
+    {pageId === 'about' && (
+      <>
+        <PractitionerSection locale={locale} variant="about" />
+        <div class="grid-3" style="margin-bottom: var(--space-16);">
+          {ABOUT_PAGE.pillars.map((p) => (
+            <div style="background: var(--color-surface); padding: var(--space-6); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+              <div class="trust-icon-box" style="margin-bottom: 1rem;"><Icon name={p.icon} /></div>
+              <Rev when={p.rev?.[locale]} />
+              <h3 style="font-size: var(--text-lg); margin-bottom: 0.5rem;">{p.title[locale]}</h3>
+              <Rev when={p.rev?.[locale]} />
+              <p style="font-size: var(--text-sm); color: var(--color-muted);">{p.desc[locale]}</p>
+            </div>
+          ))}
+        </div>
+        <CTABanner locale={locale} pageId="about" />
+      </>
+    )}
+
+    {pageId === 'firstVisit' && (
+      <>
+        <StepsTimeline steps={FIRST_VISIT_PAGE.steps} locale={locale} titleTag="h2" pageStyle />
+        <div class="grid-2" style="margin-bottom: var(--space-16); align-items: stretch;">
+          {FIRST_VISIT_PAGE.boxes.map((b) => <InfoCard locale={locale} icon={b.icon} title={b.title} itemsHtml={b.items} />)}
+        </div>
+        <CTABanner locale={locale} pageId="firstVisit" />
+      </>
+    )}
+
+    {pageId === 'prices' && (
+      <>
+        <PriceTable locale={locale} head={PRICES_PAGE.tableHead[locale]} rows={PRICES_PAGE.rows} showBilling billingBadge={PRICES_PAGE.billingBadge} />
+        <div class="grid-2" style="margin-bottom: var(--space-16); align-items: stretch;">
+          {PRICES_PAGE.cards.map((c) => <InfoCard locale={locale} icon={c.icon} title={c.title} textHtml={c.textHtml} itemsHtml={c.itemsHtml} />)}
+        </div>
+        <CTABanner locale={locale} pageId="prices" />
+      </>
+    )}
+
+    {pageId === 'booking' && (
+      <>
+        <BookingWidget locale={locale} variant="page" />
+        <div style="max-width: 680px; margin: 0 auto var(--space-16); text-align: center; background: var(--color-surface); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+          <h3 style="margin-bottom: 0.5rem;">{BOOKING.shared.phoneAlt.title[locale]}</h3>
+          <p style="font-size: var(--text-sm); color: var(--color-muted); margin-bottom: 1.25rem;">
+            {BOOKING.shared.phoneAlt.text[locale]}
+          </p>
+          <a href={PRACTICE.phoneHref} class="btn btn-outline">
+            <Icon name="phone" size={18} /> {BOOKING.shared.phoneAlt.btn[locale]}
+          </a>
+        </div>
+      </>
+    )}
+
+    {pageId === 'contact' && (
+      <div class="grid-2" style="margin-bottom: var(--space-16);">
+        <div>
+          <div style="background: var(--color-surface); padding: var(--space-8); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-subtle); margin-bottom: var(--space-6);">
+            <h2 style="font-size: var(--text-xl); margin-bottom: 1.25rem;">{CONTACT_PAGE.cardTitle[locale]}</h2>
+            <ContactDetails locale={locale} variant="page" mapsLabel={CONTACT_PAGE.mapsBtn[locale]} />
+          </div>
+          <TransitCard locale={locale} />
+        </div>
+        <div>
+          <ContactForm locale={locale} variant="page" />
+        </div>
+      </div>
+    )}
+  </div>
+)}

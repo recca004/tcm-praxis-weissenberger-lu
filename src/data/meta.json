@@ -1,0 +1,128 @@
+{
+  "home": {
+    "de": {
+      "title": "TCM Praxis Weissenberger-Lu | Zürich-Seebach",
+      "desc": "Persönliche Traditionelle Chinesische Medizin, Akupunktur und Kräuterheilkunde bei Min Weissenberger-Lu in Zürich-Seebach."
+    },
+    "en": {
+      "title": "TCM & Acupuncture Zurich-Seebach | Weissenberger-Lu",
+      "desc": "Personal Traditional Chinese Medicine, acupuncture, and herbal therapy by Min Weissenberger-Lu in Zurich-Seebach. English consultations available."
+    },
+    "zh": {
+      "title": "蘇黎世 Seebach 中醫與針灸 | TCM Praxis Weissenberger-Lu",
+      "desc": "蘇黎世 Seebach 中醫診所：由瑞士聯邦中醫師 Min Weissenberger-Lu 主理，提供專業針灸、中藥調理、推拿、拔罐及綜合體質辨證。支援瑞士補充醫療保險（VVG）。"
+    }
+  },
+  "about": {
+    "de": {
+      "title": "Über Min Weissenberger-Lu | TCM Praxis Zürich",
+      "desc": "Lernen Sie Min Weissenberger-Lu kennen. Eidg. Diplomierte TCM-Therapeutin in Zürich-Seebach mit Erfahrung in Akupunktur und Kräutermedizin."
+    },
+    "en": {
+      "title": "Meet Min Weissenberger-Lu | TCM Zurich-Seebach",
+      "desc": "Meet Min Weissenberger-Lu, certified TCM practitioner in Zurich-Seebach. Professional qualifications, philosophy, and multilingual care in English, German, and Chinese."
+    },
+    "zh": {
+      "title": "認識 Min Weissenberger-Lu | 蘇黎世中醫診所",
+      "desc": "瞭解主治中醫師 Min Weissenberger-Lu。瑞士聯邦認證中醫師，擅長傳統針灸、體質辨證與中藥調理，提供中文、德語、英語三語服務。"
+    }
+  },
+  "treatments": {
+    "de": {
+      "title": "TCM-Behandlungen in Zürich-Seebach | Weissenberger-Lu",
+      "desc": "Ganzheitliche TCM-Behandlungen: Akupunktur, chinesische Kräutertherapie, Tuina-Massage, Schröpfen und Moxibustion in Zürich-Seebach."
+    },
+    "en": {
+      "title": "TCM Treatments in Zurich-Seebach | Weissenberger-Lu",
+      "desc": "Explore holistic TCM treatments: Acupuncture, Chinese herbal medicine, Tuina massage, cupping, and moxibustion in Zurich-Seebach."
+    },
+    "zh": {
+      "title": "中醫治療項目 | 蘇黎世 Seebach | TCM Weissenberger-Lu",
+      "desc": "蘇黎世 Seebach 專業中醫特色診療項目：傳統針灸、道地中藥配方、經絡推拿、拔罐與艾灸溫通調理。詳細瞭解各項療法機制與適用範疇。"
+    }
+  },
+  "firstVisit": {
+    "de": {
+      "title": "Erster TCM-Termin: Ablauf & Vorbereitung | Zürich-Seebach",
+      "desc": "Alles Wichtige zu Ihrem ersten Termin bei TCM Weissenberger-Lu in Zürich-Seebach: Vorbereitung, Dauer, Kosten, Krankenkasse und Ablauf."
+    },
+    "en": {
+      "title": "Your First TCM Appointment: What to Expect | Zurich",
+      "desc": "A comprehensive guide to your first TCM and acupuncture appointment with Min Weissenberger-Lu in Zurich-Seebach. Preparation, process, and tips."
+    },
+    "zh": {
+      "title": "首次中醫就診流程與準備 | 蘇黎世 Seebach",
+      "desc": "蘇黎世 Seebach 中醫診所首次就診指南：初診流程、準備事項、所需證件、診療時間、瑞士醫療保險報銷及注意事項。"
+    }
+  },
+  "prices": {
+    "de": {
+      "title": "TCM Preise & Krankenkasse | Zürich-Seebach",
+      "desc": "Übersicht über Behandlungskosten und Kostenübernahme durch die Krankenkasse (Zusatzversicherung VVG / Tarif 590) bei TCM Weissenberger-Lu."
+    },
+    "en": {
+      "title": "TCM Prices & Insurance in Zurich | Weissenberger-Lu",
+      "desc": "Transparent pricing and Swiss health insurance reimbursement information (Tariff 590 / VVG supplementary insurance) for TCM Praxis Weissenberger-Lu."
+    },
+    "zh": {
+      "title": "中醫收費與補充醫療保險 | 蘇黎世 | Weissenberger-Lu",
+      "desc": "蘇黎世 Seebach 中醫診所費用標準與瑞士補充醫療保險（Tarif 590 / VVG）報銷指南。價格公開透明，合規報銷憑證。"
+    }
+  },
+  "booking": {
+    "de": {
+      "title": "Termin buchen | TCM Praxis Weissenberger-Lu Zürich",
+      "desc": "Buchen Sie Ihren TCM- oder Akupunkturtermin online bei Min Weissenberger-Lu in Zürich-Seebach."
+    },
+    "en": {
+      "title": "Book an Appointment | TCM Praxis Weissenberger-Lu",
+      "desc": "Book your TCM or acupuncture appointment online with Min Weissenberger-Lu in Zurich-Seebach."
+    },
+    "zh": {
+      "title": "預約就診 | 蘇黎世 Seebach | TCM Weissenberger-Lu",
+      "desc": "蘇黎世 Seebach 中醫與針灸線上預約：選擇初診或複診，自選就診時間，體驗流暢便捷的預約服務。"
+    }
+  },
+  "contact": {
+    "de": {
+      "title": "Kontakt & Anfahrt | TCM Praxis Zürich-Seebach",
+      "desc": "Kontakt, Adresse, Anfahrt mit Tram 14 / Bus 768 und Öffnungszeiten der TCM Praxis Weissenberger-Lu an der Schaffhauserstrasse 466 in 8052 Zürich."
+    },
+    "en": {
+      "title": "Contact & Directions | TCM Zurich-Seebach",
+      "desc": "Contact details, address, opening hours, and public transit directions (Tram 14 / Bus 768) for TCM Praxis Weissenberger-Lu in Zurich-Seebach."
+    },
+    "zh": {
+      "title": "聯絡方式及交通路線 | 蘇黎世 | TCM Weissenberger-Lu",
+      "desc": "蘇黎世 Seebach 中醫診所聯絡方式：診所地址（Schaffhauserstrasse 466）、營業時間、接診電話，以及14路電車與768路巴士路線指南。"
+    }
+  },
+  "privacy": {
+    "de": {
+      "title": "Datenschutzerklärung | TCM Praxis Weissenberger-Lu",
+      "desc": "Datenschutzerklärung der TCM Praxis Weissenberger-Lu gemäss dem Schweizer Datenschutzgesetz (DSG)."
+    },
+    "en": {
+      "title": "Privacy Policy | TCM Praxis Weissenberger-Lu",
+      "desc": "Privacy policy of TCM Praxis Weissenberger-Lu in accordance with the Swiss Federal Act on Data Protection (FADP)."
+    },
+    "zh": {
+      "title": "隱私政策 | 蘇黎世 | TCM Weissenberger-Lu",
+      "desc": "蘇黎世 Seebach 中醫診所 TCM Praxis Weissenberger-Lu 隱私政策說明（遵循瑞士聯邦資料保護法 FADP / DSG）。"
+    }
+  },
+  "imprint": {
+    "de": {
+      "title": "Impressum | TCM Praxis Weissenberger-Lu",
+      "desc": "Rechtliche Angaben und Impressum der TCM Praxis Weissenberger-Lu in Zürich-Seebach."
+    },
+    "en": {
+      "title": "Imprint | TCM Praxis Weissenberger-Lu",
+      "desc": "Legal notice and imprint for TCM Praxis Weissenberger-Lu in Zurich-Seebach, Switzerland."
+    },
+    "zh": {
+      "title": "網站法律宣告 | 蘇黎世 | TCM Weissenberger-Lu",
+      "desc": "蘇黎世 Seebach 中醫診所 TCM Praxis Weissenberger-Lu 網站法定經營主體、執業資質監督及法律責任宣告。"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+---
+import { LANG_TAG } from '../data/routes.js';
+import { SITE_URL } from '../data/site.js';
+import Header from '../components/Header.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/variables.css';
+import '../styles/base.css';
+import '../styles/layout.css';
+import '../styles/components.css';
+import '../styles/responsive.css';
+
+const { locale, pageId, title, desc } = Astro.props;
+const SITE = SITE_URL;
+const langLinks = [
+  { locale: 'de', label: 'DE', title: 'Deutsch', hreflang: 'de-CH', href: Astro.props.deHref },
+  { locale: 'en', label: 'EN', title: 'English', hreflang: 'en', href: Astro.props.enHref },
+  { locale: 'zh', label: '中文', title: '中文', hreflang: 'zh-Hant', href: Astro.props.zhHref },
+];
+const canonical = SITE + Astro.props.canonicalPath;
+---
+<!doctype html>
+<html lang={LANG_TAG[locale]}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    {langLinks.map((l) => <link rel="alternate" hreflang={l.hreflang} href={SITE + l.href} />)}
+    <link rel="alternate" hreflang="x-default" href={`${SITE}/de/`} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <Header locale={locale} pageId={pageId} langLinks={langLinks} />
+    <MobileMenu locale={locale} pageId={pageId} langLinks={langLinks} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    <script>
+      import gsap from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+      (window as any).gsap = gsap;
+      (window as any).ScrollTrigger = ScrollTrigger;
+      import '../scripts/main.js';
+      import '../scripts/booking-demo.js';
+      import '../scripts/animations.js';
+    </script>
+  </body>
+</html>
