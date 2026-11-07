@@ -854,3 +854,230 @@
   flex-shrink: 0;
   margin-top: 3px;
 }
+
+/* ==========================================================================
+   Premium direction: Quiet Consultation Room (design/quiet-consultation)
+   ========================================================================== */
+
+/* Serif display on h1/h2 — Latin faces lead, Chinese falls to the TC stack. */
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 4.6vw, 3.9rem);
+  line-height: 1.12;
+}
+
+/* Editorial treatment index — hairline rows, no cards */
+.t-index {
+  border-top: 1px solid var(--color-border);
+}
+
+.t-index-row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: var(--space-6);
+  align-items: baseline;
+  padding: var(--space-6) var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color var(--transition-fast);
+}
+
+.t-index-row:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.t-index-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--color-sage);
+}
+
+.t-index-title-link {
+  display: inline-block;
+}
+
+.t-index-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-xl);
+  letter-spacing: -0.01em;
+  color: var(--color-primary-dark);
+  margin-bottom: 2px;
+  transition: color var(--transition-fast);
+}
+
+.t-index-title-link:hover .t-index-title {
+  color: var(--color-primary);
+}
+
+.t-index-desc {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  line-height: 1.55;
+  max-width: 62ch;
+  margin: 0;
+}
+
+.t-index-link {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.t-index-link:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Dealt moment — serif statement between hairlines */
+.statement {
+  padding: var(--space-20) 0 var(--space-8);
+}
+
+.statement-text {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+  line-height: 1.4;
+  color: var(--color-primary-dark);
+  text-align: center;
+  text-wrap: balance;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-16) var(--space-6);
+  margin: 0;
+}
+
+/* Editorial practitioner section (home) */
+.pract-ed {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.pract-ed-photo {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: linear-gradient(160deg, var(--color-surface-subtle), var(--color-sage-light));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  text-align: center;
+}
+
+.pract-ed-body p {
+  font-size: var(--text-base);
+  line-height: 1.65;
+  max-width: 58ch;
+}
+
+.pract-ed-creds {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: var(--space-5) 0 var(--space-6);
+}
+
+.pract-ed-creds li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-primary-dark);
+}
+
+.pract-ed-creds li svg,
+.pract-ed-creds li i {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.pract-ed-actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* Editorial steps — serif numerals, hairline tops, no cards */
+.steps-editorial .timeline-step {
+  background: none;
+  border: none;
+  border-top: 2px solid var(--color-primary-dark);
+  border-radius: 0;
+  box-shadow: none;
+  padding: var(--space-8) var(--space-4) 0 0;
+}
+
+.steps-editorial .timeline-step:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.steps-editorial .step-number {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--color-sage);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 2.75rem;
+  line-height: 1;
+  margin-bottom: var(--space-4);
+}
+
+.steps-editorial .step-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-xl);
+  letter-spacing: -0.01em;
+}
+
+.steps-editorial .step-desc {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+/* Quiet booking band — clear path to the dedicated booking page */
+.booking-band {
+  display: grid;
+  grid-template-columns: 1.25fr auto;
+  gap: var(--space-10);
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-12);
+}
+
+.booking-band-text h2 {
+  margin-bottom: var(--space-2);
+}
+
+.booking-band-text .lead {
+  margin-bottom: 0;
+  max-width: 52ch;
+}
+
+.booking-band-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: stretch;
+}

@@ -1,0 +1,20 @@
+---
+// Quiet booking band (home) — clear path to the dedicated booking page
+// without embedding the four-step demo widget mid-flow.
+import Icon from '../Icon.astro';
+import { BOOKING } from '../../data/booking.js';
+import { ROUTES, I18N } from '../../data/routes.js';
+
+const { locale } = Astro.props;
+---
+<div class="booking-band">
+  <div class="booking-band-text">
+    <span class="eyebrow">{BOOKING.home.sectionEyebrow[locale]}</span>
+    <h2>{BOOKING.home.sectionTitle[locale]}</h2>
+    <p class="lead">{BOOKING.home.sectionLead[locale]}</p>
+  </div>
+  <div class="booking-band-actions">
+    <a href={ROUTES.booking[locale]} class="btn btn-primary btn-lg">{I18N.book[locale]}</a>
+    <a href={I18N.phoneHref} class="btn btn-secondary btn-lg"><Icon name="phone" size={18} /> {I18N.phone}</a>
+  </div>
+</div>

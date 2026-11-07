@@ -75,5 +75,14 @@ export const TRUST_ITEMS = [
   },
 ];
 
+// Quiet statement moment — reuses existing approved sentences verbatim.
+export const STATEMENT = {
+  text: {
+    de: 'Mein Anspruch ist es, jedem Menschen mit Aufmerksamkeit, Respekt und fachlicher Sorgfalt zu begegnen.',
+    en: 'My conviction is that effective medical care requires taking time to listen attentively and understand each patient as a whole person.',
+    zh: '在蘇黎世 Seebach 診所，我始終堅持給予每位患者充裕的就診時間與專注的傾聽。',
+  },
+};
+
 // Sub-page "back to home" label.
 export const BACK_LINK = { de: 'Zurück zur Startseite', en: 'Back to Home', zh: '返回首頁' };

@@ -37,7 +37,7 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
 {isLegal ? (
   <LegalPage locale={locale} doc={pageId} />
 ) : (
-  <div class="container">
+  <div class="container page-top">
     <BackLink locale={locale} />
     <SectionHeader eyebrow={HEADER.d.eyebrow[locale]} title={HEADER.d.title[locale]} lead={HEADER.d.lead?.[locale]} level="h1" center={HEADER.center} rev={HEADER.d.rev?.[locale] || []} />
 

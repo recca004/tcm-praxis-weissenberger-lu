@@ -30,6 +30,9 @@
   /* Typography */
   --font-sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  /* Premium direction "Quiet Consultation Room": serif leads display type on
+     Latin pages; Chinese glyphs fall through to the TC stack. */
+  --font-display: 'Source Serif 4', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', Georgia, serif;
   --font-chinese: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Heiti TC', sans-serif;
   --font-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
 

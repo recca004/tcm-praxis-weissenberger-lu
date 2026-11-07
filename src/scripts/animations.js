@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', () => {
     setTimeout(() => {
       if (window.ScrollTrigger) window.ScrollTrigger.refresh();
-      document.querySelectorAll('.treatment-card, .timeline-step, .trust-item, .practitioner-wrapper, .hero-content > *, .hero-media-wrapper')
+      document.querySelectorAll('.treatment-card, .t-index-row, .timeline-step, .trust-item, .practitioner-wrapper, .pract-ed, .statement-text, .booking-band, .hero-content > *, .hero-media-wrapper')
         .forEach((el) => {
           if (parseFloat(getComputedStyle(el).opacity) < 1) {
             gsap.to(el, { opacity: 1, y: 0, scale: 1, duration: 0.3, clearProps: 'opacity,transform' });
@@ -66,6 +66,9 @@ function initPageAnimations(gsap, hasST) {
 
   reveal('.trust-item', { y: 15, duration: 0.5 });
   reveal('.treatment-card', { y: 24, duration: 0.6 });
+  reveal('.t-index-row', { y: 18, duration: 0.55 });
   reveal('.timeline-step', { y: 20 });
-  reveal('.practitioner-wrapper', { duration: 0.65 });
+  reveal('.practitioner-wrapper, .pract-ed', { duration: 0.65 });
+  reveal('.statement-text', { duration: 0.7 });
+  reveal('.booking-band', { y: 16, duration: 0.6 });
 }

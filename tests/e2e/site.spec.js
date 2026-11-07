@@ -43,12 +43,12 @@ test.describe('routes', () => {
 test.describe('homepage content', () => {
   test('all sections render', async ({ page }) => {
     await page.goto('/de/');
-    await expect(page.locator('.treatment-card')).toHaveCount(6);
-    await expect(page.locator('.trust-item')).toHaveCount(4);
+    await expect(page.locator('.t-index-row')).toHaveCount(6);
+    await expect(page.locator('.hero-fact')).toHaveCount(4);
     await expect(page.locator('.timeline-step')).toHaveCount(3);
     await expect(page.locator('.accordion-item')).toHaveCount(6);
     await expect(page.locator('.price-table tbody tr')).toHaveCount(3);
-    await expect(page.locator('.js-booking-widget')).toBeVisible();
+    await expect(page.locator('.booking-band a[href*="/termin-buchen"]')).toBeVisible();
     await expect(page.locator('.cta-banner')).toHaveCount(1);
     await expect(page.locator('img[src*="hero-clinic"]')).toBeVisible();
   });
@@ -147,7 +147,7 @@ test.describe('motion', () => {
   test('content visible with reduced motion', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/de/');
-    const opacity = await page.locator('.treatment-card').first().evaluate((el) => getComputedStyle(el).opacity);
+    const opacity = await page.locator('.t-index-row').first().evaluate((el) => getComputedStyle(el).opacity);
     expect(parseFloat(opacity)).toBe(1);
     await expect(page.locator('.hero-content h1')).toBeVisible();
   });

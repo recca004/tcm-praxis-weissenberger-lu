@@ -1,0 +1,27 @@
+---
+// Editorial treatment index — hairline rows replace the card grid (home only).
+import Icon from '../Icon.astro';
+import Rev from '../Rev.astro';
+import { TREATMENTS, TREATMENTS_PAGE } from '../../data/treatments.js';
+import { ROUTES } from '../../data/routes.js';
+
+const { locale } = Astro.props;
+const linkLabel = TREATMENTS_PAGE.cardLinkHome[locale];
+/** @param {number} n */
+const pad = (n) => String(n + 1).padStart(2, '0');
+---
+<div class="t-index">
+  {TREATMENTS.map((t, i) => (
+    <div class="t-index-row">
+      <span class="t-index-num" aria-hidden="true">{pad(i)}</span>
+      <div class="t-index-body">
+        <a class="t-index-title-link" href={ROUTES.treatments[locale]}>
+          <h3 class="t-index-title">{t.title[locale]}</h3>
+        </a>
+        <Rev when={t.rev?.[locale]} />
+        <p class="t-index-desc">{t.desc[locale]}</p>
+      </div>
+      <a href={ROUTES.booking[locale]} class="t-index-link">{linkLabel} <Icon name="arrow-up-right" size={16} /></a>
+    </div>
+  ))}
+</div>
