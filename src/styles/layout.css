@@ -4,17 +4,23 @@
  */
 
 /* Container */
-.container {
-  width: 100%;
+.container,
+.wrap {
+  width: min(100% - 2 * var(--space-6), var(--container-max));
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--space-6);
-  padding-right: var(--space-6);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .container-narrow {
+  width: min(100% - 2 * var(--space-6), var(--container-narrow));
   max-width: var(--container-narrow);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Sub-page top offset — clears the fixed header (was clipped on audit). */
@@ -30,8 +36,22 @@
 }
 
 .section-hero {
-  padding-top: calc(var(--header-height) + var(--space-12));
-  padding-bottom: var(--space-8);
+  min-height: calc(100svh - var(--header-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: calc(var(--header-height) + var(--space-6));
+  padding-bottom: var(--space-6);
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .section-hero {
+    min-height: 100svh;
+    height: 100svh;
+    padding-top: calc(var(--header-height) + var(--space-4));
+    padding-bottom: var(--space-4);
+  }
 }
 
 /* Trust information sits in its own quiet band under the hero —
@@ -225,12 +245,14 @@
   z-index: 1001;
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--transition-base);
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
 }
 
 .mobile-menu-overlay.is-open {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
 }
 
 .mobile-menu-panel {
@@ -301,9 +323,9 @@
    ========================================================================== */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: var(--space-16);
-  align-items: end;
+  grid-template-columns: 690px 486px;
+  gap: 24px;
+  align-items: start;
 }
 
 .hero-content {
@@ -471,14 +493,15 @@
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-6);
+  align-items: start;
 }
 
 .grid-2-asym {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-12);
-  align-items: center;
+  grid-template-columns: 7fr 5fr;
+  gap: var(--space-6);
+  align-items: start;
 }
 
 /* ==========================================================================
@@ -494,8 +517,9 @@
 
 .footer-top {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-  gap: var(--space-8);
+  grid-template-columns: 1.4fr 0.9fr 1fr 1.1fr;
+  gap: var(--space-6);
+  align-items: start;
   margin-bottom: var(--space-12);
 }
 

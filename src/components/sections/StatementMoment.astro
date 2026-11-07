@@ -1,10 +1,10 @@
 ---
-// The dealt moment: one quiet serif statement between hairlines.
+// The dealt moment: one quiet serif statement between hairlines with word-highlight.
 import { STATEMENT } from '../../data/home.js';
 const { locale } = Astro.props;
 ---
-<section class="statement" aria-label="statement">
+<section class="section statement" id="statement" data-moment="word-highlight" aria-label="statement">
   <div class="container container-narrow">
-    <p class="statement-text">{STATEMENT.text[locale]}</p>
+    <p class="statement-text mo-wh__text">{STATEMENT.text[locale]}</p>
   </div>
 </section>

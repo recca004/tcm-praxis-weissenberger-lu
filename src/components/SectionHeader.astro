@@ -4,8 +4,8 @@ const { eyebrow, title, lead, level = 'h2', center = false, rev = [] } = Astro.p
 const Tag = level;
 ---
 <div class:list={['section-header', { 'text-center': center }]}>
-  <Rev when={rev.includes('eyebrow')} />
-  <span class="eyebrow">{eyebrow}</span>
+  {eyebrow && <Rev when={rev.includes('eyebrow')} />}
+  {eyebrow && <span class="eyebrow">{eyebrow}</span>}
   <Rev when={rev.includes('title')} />
   <Tag>{title}</Tag>
   {lead && <Rev when={rev.includes('lead')} />}

@@ -1,74 +1,88 @@
 /**
  * TCM Praxis Weissenberger-Lu
- * GSAP & ScrollTrigger Animations
+ * Micro-Interactions & Dealt Moment
  *
- * Visibility contract: markup is visible by default. Elements only ever
- * start hidden when GSAP + ScrollTrigger are both present, motion is not
- * reduced, and a reveal trigger is scheduled for them. A failsafe reveals
- * anything still hidden after load, so no content can stay invisible.
+ * House rule: Content on a clinic/service page scrolls plainly without
+ * scroll-jacking or fading elements. A dignified entrance runs once on
+ * load, the dealt statement moment scrubs on scroll, and micro-interactions
+ * handle all hover, press, and focus states.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-  if (typeof window.gsap === 'undefined') return;
 
-  const gsap = window.gsap;
-  const hasST = typeof window.ScrollTrigger !== 'undefined';
-  if (hasST) gsap.registerPlugin(window.ScrollTrigger);
-
-  initPageAnimations(gsap, hasST);
-
-  // Failsafe: anything still at opacity 0 after everything settled is forced visible.
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      if (window.ScrollTrigger) window.ScrollTrigger.refresh();
-      document.querySelectorAll('.treatment-card, .t-index-row, .timeline-step, .trust-item, .practitioner-wrapper, .pract-ed, .statement-text, .booking-band, .hero-content > *, .hero-media-wrapper')
-        .forEach((el) => {
-          if (parseFloat(getComputedStyle(el).opacity) < 1) {
-            gsap.to(el, { opacity: 1, y: 0, scale: 1, duration: 0.3, clearProps: 'opacity,transform' });
-          }
-        });
-    }, 1500);
-  });
+  initHeroEntrance(prefersReducedMotion);
+  initWordHighlight(prefersReducedMotion);
 });
 
-function initPageAnimations(gsap, hasST) {
-  // 1. Hero Content Entrance
+function initHeroEntrance(reducedMotion) {
+  if (reducedMotion) return;
   const heroContent = document.querySelector('.hero-content');
   const heroMedia = document.querySelector('.hero-media-wrapper');
 
-  if (heroContent) {
-    gsap.from(heroContent.children, {
-      y: 20, opacity: 0, duration: 0.65, stagger: 0.1, ease: 'power2.out', clearProps: 'all'
+  if (heroContent && typeof window.gsap !== 'undefined') {
+    window.gsap.from(heroContent.children, {
+      y: 16,
+      opacity: 0,
+      duration: 0.65,
+      stagger: 0.08,
+      ease: 'power2.out',
+      clearProps: 'all',
     });
   }
 
-  if (heroMedia) {
-    gsap.from(heroMedia, {
-      scale: 0.98, opacity: 0, duration: 0.8, delay: 0.15, ease: 'power2.out', clearProps: 'all'
+  if (heroMedia && typeof window.gsap !== 'undefined') {
+    window.gsap.from(heroMedia, {
+      scale: 0.98,
+      opacity: 0,
+      duration: 0.75,
+      delay: 0.1,
+      ease: 'power2.out',
+      clearProps: 'all',
     });
   }
+}
 
-  if (!hasST) return;
+function initWordHighlight(reducedMotion) {
+  const statement = document.querySelector('[data-moment="word-highlight"]');
+  if (!statement) return;
+  const textEl = statement.querySelector('.mo-wh__text');
+  if (!textEl) return;
 
-  // Per-element reveals: each item animates when IT enters the viewport,
-  // so later rows are not left faded waiting on a section-level trigger.
-  const reveal = (selector, vars = {}) => {
-    gsap.utils.toArray(selector).forEach((el) => {
-      gsap.from(el, {
-        scrollTrigger: { trigger: el, start: 'top 92%', once: true },
-        y: 20, opacity: 0, duration: 0.55, ease: 'power2.out', clearProps: 'all',
-        ...vars
+  // Split text into word spans if not already prepared
+  if (!textEl.querySelector('.mo-w')) {
+    const rawText = textEl.textContent || '';
+    const words = rawText.trim().split(/\s+/);
+    textEl.innerHTML = words.map((w) => `<span class="mo-w">${w}</span>`).join(' ');
+  }
+
+  const words = Array.from(textEl.querySelectorAll('.mo-w'));
+  statement.classList.add('mo-wh');
+
+  if (reducedMotion) {
+    words.forEach((w) => w.classList.add('is-on'));
+    return;
+  }
+
+  let ticking = false;
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const rect = textEl.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const start = vh * 0.85;
+        const end = vh * 0.35;
+        const progress = Math.min(Math.max((start - rect.top) / Math.max(1, start - end + rect.height), 0), 1);
+        const k = Math.round(progress * words.length);
+        words.forEach((w, i) => {
+          w.classList.toggle('is-on', i < k);
+        });
+        ticking = false;
       });
-    });
+      ticking = true;
+    }
   };
 
-  reveal('.trust-item', { y: 15, duration: 0.5 });
-  reveal('.treatment-card', { y: 24, duration: 0.6 });
-  reveal('.t-index-row', { y: 18, duration: 0.55 });
-  reveal('.timeline-step', { y: 20 });
-  reveal('.practitioner-wrapper, .pract-ed', { duration: 0.65 });
-  reveal('.statement-text', { duration: 0.7 });
-  reveal('.booking-band', { y: 16, duration: 0.6 });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }

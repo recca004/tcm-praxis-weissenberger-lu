@@ -1,5 +1,4 @@
 ---
-import Icon from '../Icon.astro';
 import { ROUTES } from '../../data/routes.js';
 import { HERO, TRUST_ITEMS } from '../../data/home.js';
 const { locale } = Astro.props;
@@ -14,7 +13,7 @@ const D = HERO;
         <p class="lead">{D.lead[locale]}</p>
         <div class="hero-actions">
           <a href={ROUTES.booking[locale]} class="btn btn-primary btn-lg">{D.primary[locale]}</a>
-          <a href={ROUTES.treatments[locale]} class="btn btn-outline btn-lg">{D.secondary[locale]}</a>
+          <a href={ROUTES.treatments[locale]} class="btn btn-secondary btn-lg">{D.secondary[locale]}</a>
         </div>
         <dl class="hero-facts">
           {TRUST_ITEMS.map((t) => (
@@ -27,7 +26,7 @@ const D = HERO;
       </div>
       <figure class="hero-media-wrapper">
         <div class="hero-image-frame">
-          <img src="/assets/images/hero-clinic.webp" srcset="/assets/images/hero-clinic-sm.webp 800w, /assets/images/hero-clinic.webp 1600w" sizes="(max-width: 800px) 100vw, 42vw" alt={D.imageAlt[locale]} fetchpriority="high" />
+          <img src="/assets/images/hero-clinic.webp" srcset="/assets/images/hero-clinic.webp 1376w, /assets/images/hero-clinic-sm.webp 800w" sizes="(max-width: 640px) 100vw, 600px" alt={D.imageAlt[locale]} fetchpriority="high" />
           <span class="hero-photo-badge">{D.badge[locale]}</span>
         </div>
       </figure>

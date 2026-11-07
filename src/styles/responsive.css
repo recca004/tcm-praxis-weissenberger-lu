@@ -229,10 +229,11 @@
 
 /* Premium direction — responsive rules */
 @media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr; gap: var(--space-10); }
+  .hero-grid { grid-template-columns: 1fr; gap: var(--space-8); }
   .hero-image-frame { aspect-ratio: 16 / 11; }
-  .pract-ed { grid-template-columns: 1fr; gap: var(--space-10); }
-  .pract-ed-photo { max-width: 420px; aspect-ratio: 4 / 3; }
+  .pract-ed { grid-template-columns: 1fr; gap: var(--space-8); }
+  .pract-ed-photo { order: 1; max-width: 420px; aspect-ratio: 4 / 3; }
+  .pract-ed-body { order: 2; }
   .booking-band { grid-template-columns: 1fr; padding: var(--space-8); }
   .booking-band-actions { flex-direction: row; flex-wrap: wrap; }
 }

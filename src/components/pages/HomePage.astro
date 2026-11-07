@@ -31,7 +31,7 @@ const anchors = { de: { treatments: 'behandlungen', booking: 'online-termin', co
 
 <section class="section section-treatments" id={anchors.treatments}>
   <div class="container">
-    <SectionHeader eyebrow={TREATMENTS_SECTION.eyebrow[locale]} title={TREATMENTS_SECTION.title[locale]} lead={TREATMENTS_SECTION.lead[locale]} rev={TREATMENTS_SECTION.rev?.[locale] || []} />
+    <SectionHeader title={TREATMENTS_SECTION.title[locale]} lead={TREATMENTS_SECTION.lead[locale]} rev={TREATMENTS_SECTION.rev?.[locale] || []} />
     <TreatmentIndex locale={locale} />
     <div style="margin-top: 2.5rem;">
       <a href={ROUTES.treatments[locale]} class="btn btn-secondary">{HERO.secondary[locale]} <Icon name="arrow-up-right" size={16} /></a>
@@ -47,7 +47,7 @@ const anchors = { de: { treatments: 'behandlungen', booking: 'online-termin', co
 
 <section class="section section-subtle">
   <div class="container">
-    <SectionHeader eyebrow={FIRST_VISIT_HOME.eyebrow[locale]} title={FIRST_VISIT_HOME.title[locale]} lead={FIRST_VISIT_HOME.lead[locale]} />
+    <SectionHeader title={FIRST_VISIT_HOME.title[locale]} lead={FIRST_VISIT_HOME.lead[locale]} />
     <StepsTimeline steps={FIRST_VISIT_HOME.steps} locale={locale} editorial />
     <div style="margin-top: 2.5rem; text-align: center;">
       <a href={ROUTES.firstVisit[locale]} class="btn btn-secondary">{FIRST_VISIT_HOME.link[locale]}</a>
@@ -59,7 +59,6 @@ const anchors = { de: { treatments: 'behandlungen', booking: 'online-termin', co
   <div class="container">
     <div class="grid-2-asym">
       <div>
-        <span class="eyebrow">{PRICES_HOME.eyebrow[locale]}</span>
         <h2>{PRICES_HOME.title[locale]}</h2>
         <Rev when={(PRICES_HOME.rev?.[locale] || []).includes('text')} />
         <p>{PRICES_HOME.text[locale]}</p>
@@ -74,7 +73,7 @@ const anchors = { de: { treatments: 'behandlungen', booking: 'online-termin', co
 
 <section class="section section-subtle">
   <div class="container container-narrow">
-    <SectionHeader eyebrow={FAQ_SECTION.eyebrow[locale]} title={FAQ_SECTION.title[locale]} lead={FAQ_SECTION.lead[locale]} center />
+    <SectionHeader title={FAQ_SECTION.title[locale]} lead={FAQ_SECTION.lead[locale]} center />
     <FaqAccordion locale={locale} />
   </div>
 </section>
@@ -89,7 +88,6 @@ const anchors = { de: { treatments: 'behandlungen', booking: 'online-termin', co
   <div class="container">
     <div class="grid-2">
       <div>
-        <span class="eyebrow">{CONTACT_HOME.eyebrow[locale]}</span>
         <h2>{CONTACT_HOME.title[locale]}</h2>
         <p>{CONTACT_HOME.text[locale]}</p>
         <ContactDetails locale={locale} variant="home" mapsLabel={CONTACT_HOME.mapsBtn[locale]} />

@@ -57,7 +57,11 @@ html[lang="zh-Hant"] body {
 
 .skip-link:focus {
   top: var(--space-4);
-  outline: 3px solid var(--color-accent);
+  background: var(--color-primary-dark);
+  color: #FFFFFF;
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 4px 12px rgba(30, 67, 59, 0.25);
 }
 
 /* Typography Hierarchy */

@@ -47,7 +47,6 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
         <div class="ed-panel-xl" style="margin-bottom: var(--space-16);">
           <div class="grid-2" style="align-items: center;">
             <div>
-              <span class="eyebrow">{DIAGNOSTIC.eyebrow[locale]}</span>
               <h2>{DIAGNOSTIC.title[locale]}</h2>
               <Rev when={(DIAGNOSTIC.rev?.[locale] || []).includes('lead')} />
               <p>{DIAGNOSTIC.lead[locale]}</p>
@@ -117,7 +116,7 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
           <p style="font-size: var(--text-sm); color: var(--color-muted); margin-bottom: 1.25rem;">
             {BOOKING.shared.phoneAlt.text[locale]}
           </p>
-          <a href={PRACTICE.phoneHref} class="btn btn-outline">
+          <a href={PRACTICE.phoneHref} class="btn btn-secondary">
             <Icon name="phone" size={18} /> {BOOKING.shared.phoneAlt.btn[locale]}
           </a>
         </div>
