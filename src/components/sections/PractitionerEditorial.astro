@@ -12,13 +12,17 @@ const isAbout = variant === 'about';
 const D = isAbout ? ABOUT_PAGE : PRACTITIONER_HOME;
 const creds = isAbout ? CREDENTIALS_ABOUT : CREDENTIALS;
 ---
-<div class="pract-ed">
+<div class:list={['pract-ed', { 'pract-ed--about': isAbout }]}>
   <div class="pract-ed-photo pract-ed-photo--real">
     <img src="/assets/images/practitioner-portrait.webp" alt={PORTRAIT.alt[locale]} loading="lazy" />
   </div>
   <div class="pract-ed-body">
     {!isAbout && <span class="eyebrow">{D.eyebrow[locale]}</span>}
-    <h2 class="pract-ed-name">{isAbout ? D.bodyTitle[locale] : D.title[locale]}</h2>
+    {isAbout ? (
+      <h1 class="pract-ed-name">{D.title[locale]}</h1>
+    ) : (
+      <h2 class="pract-ed-name">{D.title[locale]}</h2>
+    )}
     {D.paragraphs.map((p) => (
       <>
         <Rev when={p.rev?.[locale]} />

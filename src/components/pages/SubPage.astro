@@ -48,7 +48,7 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
         <SectionHeader eyebrow={HEADER.d.eyebrow[locale]} title={HEADER.d.title[locale]} lead={HEADER.d.lead?.[locale]} level="h1" rev={HEADER.d.rev?.[locale] || []} />
         <img src="/assets/images/clinic-waiting-area.webp" alt={{de:'Wartebereich der Praxis mit zwei Sesseln',en:'Practice waiting area with two chairs',zh:'诊所候诊区 — 两把座椅'}[locale]} loading="eager" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:var(--radius-lg);border:1px solid var(--color-border);" />
       </div>
-    ) : (
+    ) : pageId === 'about' ? null : (
       <SectionHeader eyebrow={HEADER.d.eyebrow[locale]} title={HEADER.d.title[locale]} lead={HEADER.d.lead?.[locale]} level="h1" center={HEADER.center} rev={HEADER.d.rev?.[locale] || []} />
     )}
 
@@ -133,13 +133,13 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
     )}
 
     {pageId === 'prices' && (
-      <>
+      <div class="prices-page">
         <PriceTable locale={locale} head={PRICES_PAGE.tableHead[locale]} rows={PRICES_PAGE.rows} showBilling billingBadge={PRICES_PAGE.billingBadge} open />
         <div style="margin-bottom: var(--space-16);">
           <InfoBlocks blocks={PRICES_PAGE.cards} locale={locale} />
         </div>
         <CTABanner locale={locale} pageId="prices" />
-      </>
+      </div>
     )}
 
     {pageId === 'booking' && (

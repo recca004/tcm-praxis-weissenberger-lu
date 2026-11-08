@@ -1170,6 +1170,13 @@ h3 {
   flex-wrap: wrap;
 }
 
+/* About-page variant: single H1 leads the biography column, portrait stays
+   on the right; on mobile the heading + biography stack before the photo. */
+@media (max-width: 1024px) {
+  .pract-ed--about .pract-ed-body { order: 1; }
+  .pract-ed--about .pract-ed-photo { order: 2; }
+}
+
 /* Editorial steps — serif numerals, hairline tops, no cards */
 .steps-editorial .timeline-step {
   background: none;
@@ -1402,7 +1409,7 @@ h3 {
   margin-top: 2px;
 }
 
-/* Open price table — rules, not a card */
+/* Open price table — soft separated fee rows, no heavy rules (prices page) */
 .price-table-open {
   background: none;
   border: none;
@@ -1411,18 +1418,37 @@ h3 {
   padding: 0;
 }
 
-.price-table-open .price-table thead th {
-  background: none;
-  border-top: 2px solid var(--color-primary-dark);
-  border-bottom: 1px solid var(--color-border);
+.price-table-open .price-table {
+  border-collapse: separate;
+  border-spacing: 0 var(--space-2);
 }
 
-.price-table-open .price-table tbody tr {
+.price-table-open .price-table thead th {
+  background: none;
+  border: none;
+  padding-top: 0;
+}
+
+.price-table-open .price-table td {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border-subtle);
   border-bottom: 1px solid var(--color-border-subtle);
 }
 
-.price-table-open .price-table tbody tr:last-child {
-  border-bottom: 2px solid var(--color-primary-dark);
+.price-table-open .price-table tbody td:first-child {
+  border-left: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.price-table-open .price-table tbody td:last-child {
+  border-right: 1px solid var(--color-border-subtle);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* Prices page only — drop the heavy top rules on insurance/payment blocks */
+.prices-page .ed-info-block {
+  border-top: none;
+  padding-top: 0;
 }
 
 /* Legal pages — open prose, hairline-separated sections */
