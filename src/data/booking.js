@@ -229,10 +229,15 @@ export const BOOKING = {
         en: 'If you do not find a suitable online slot or have special scheduling requirements, please call us directly.',
         zh: '如未找到合适的线上时间段，或有特殊调理需求，欢迎直接致电诊所。',
       },
+      landlineBtn: {
+        de: 'Festnetz: 043 300 99 32',
+        en: 'Landline: +41 43 300 99 32',
+        zh: '固定电话：043 300 99 32',
+      },
       btn: {
-        de: '+41 78 899 92 88 anrufen',
-        en: 'Call +41 78 899 92 88',
-        zh: '致电咨询：+41 78 899 92 88',
+        de: 'Mobil: +41 78 899 92 88',
+        en: 'Mobile: +41 78 899 92 88',
+        zh: '手机：+41 78 899 92 88',
       },
     },
   },

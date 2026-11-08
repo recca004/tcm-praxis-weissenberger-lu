@@ -49,6 +49,21 @@ export const CTA = {
     secondary: 'contact',
     secondaryLabel: { de: 'Frage stellen', en: 'Ask a Question', zh: '咨询问题' },
   },
+  symptoms: {
+    title: {
+      de: 'Sie erkennen Ihr Anliegen wieder?',
+      en: 'Do you recognise your concern?',
+      zh: '希望针对自身情况获得建议？',
+    },
+    text: {
+      de: 'In einer persönlichen Beratung in Zürich-Seebach nehmen wir uns Zeit für Ihre Situation und besprechen, welche Behandlungsform zu Ihnen passt.',
+      en: 'In a personal consultation at our Zurich-Seebach practice, we take time to understand your situation and discuss which treatment approach may suit you.',
+      zh: '欢迎在苏黎世 Seebach 诊所进行一对一中医咨询，我们会耐心了解您的情况并讨论合适的调理方向。',
+    },
+    primary: { de: 'Termin buchen', en: 'Book Appointment', zh: '预约就诊' },
+    secondary: 'contact',
+    secondaryLabel: { de: 'Frage stellen', en: 'Ask a Question', zh: '咨询问题' },
+  },
   firstVisit: {
     title: {
       de: 'Bereit für Ihren ersten Termin?',

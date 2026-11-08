@@ -21,7 +21,7 @@ import { FIRST_VISIT_HOME } from '../../data/firstVisit.js';
 import { PRICES_HOME } from '../../data/prices.js';
 import { FAQ_SECTION } from '../../data/faq.js';
 import { CONTACT_HOME } from '../../data/contact.js';
-import { HERO } from '../../data/home.js';
+import { HERO, HOME_CONCERNS } from '../../data/home.js';
 import { INSURANCE_SECTION } from '../../data/insurers.js';
 import { ROUTES } from '../../data/routes.js';
 
@@ -44,6 +44,10 @@ const anchors = { de: { treatments: 'behandlungen', booking: 'online-termin', co
     <TreatmentIndex locale={locale} limit={5} />
     <div style="margin-top: 2.5rem;">
       <a href={ROUTES.treatments[locale]} class="btn btn-secondary">{HERO.secondary[locale]} <Icon name="arrow-up-right" size={16} /></a>
+    </div>
+    <div class="home-concerns" style="margin-top: var(--space-10); border-top: 1px solid var(--color-border); padding-top: var(--space-8);">
+      <p style="max-width: 68ch; color: var(--color-muted); font-size: var(--text-base); margin-bottom: var(--space-3);">{HOME_CONCERNS.text[locale]}</p>
+      <a href={ROUTES.symptoms[locale]} class="card-action-link">{HOME_CONCERNS.link[locale]} <Icon name="arrow-up-right" size={15} /></a>
     </div>
   </div>
 </section>

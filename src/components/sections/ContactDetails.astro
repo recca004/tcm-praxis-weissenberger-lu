@@ -21,7 +21,14 @@ const L = CONTACT_LABELS;
   <div class="footer-contact-item">
     <Icon name="phone" />
     <div>
-      <strong>{isPage ? L.phone[locale] : L.phoneHome[locale]}</strong><br />
+      <strong>{L.landline[locale]}</strong><br />
+      <a href={PRACTICE.landlineHref}>{PRACTICE.landline}</a>
+    </div>
+  </div>
+  <div class="footer-contact-item">
+    <Icon name="phone" />
+    <div>
+      <strong>{L.mobile[locale]}</strong><br />
       <a href={PRACTICE.phoneHref}>{PRACTICE.phone}</a> <span class="badge badge-confirm">[CONFIRM]</span>
     </div>
   </div>

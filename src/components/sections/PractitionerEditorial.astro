@@ -29,7 +29,7 @@ const creds = isAbout ? CREDENTIALS_ABOUT : CREDENTIALS;
       <>
         <ul class="pract-ed-creds">
           {creds.map((c) => (
-            <li><Icon name={c.icon} size={18} /><span>{c[locale]}</span> <span class="badge badge-confirm">[CONFIRM]</span></li>
+            <li><Icon name={c.icon} size={18} /><span>{c[locale]}</span> {!c.confirmed && <span class="badge badge-confirm">[CONFIRM]</span>}</li>
           ))}
         </ul>
         <div class="practitioner-languages">

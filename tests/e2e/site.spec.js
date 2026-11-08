@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 const ROUTES = [
-  '/de/', '/de/ueber-min/', '/de/behandlungen/', '/de/erster-besuch/', '/de/preise-krankenkasse/', '/de/termin-buchen/', '/de/kontakt/', '/de/datenschutz/', '/de/impressum/',
-  '/en/', '/en/about-min/', '/en/treatments/', '/en/first-visit/', '/en/prices-insurance/', '/en/book-appointment/', '/en/contact/', '/en/privacy-policy/', '/en/imprint/',
-  '/zh/', '/zh/guanyu-min/', '/zh/liaofa/', '/zh/shouci-jiuzhen/', '/zh/feiyong-baoxian/', '/zh/yuyue/', '/zh/lianxi/', '/zh/yinsi/', '/zh/falv-shengming/',
+  '/de/', '/de/ueber-min/', '/de/behandlungen/', '/de/beschwerden/', '/de/erster-besuch/', '/de/preise-krankenkasse/', '/de/termin-buchen/', '/de/kontakt/', '/de/datenschutz/', '/de/impressum/',
+  '/en/', '/en/about-min/', '/en/treatments/', '/en/symptoms/', '/en/first-visit/', '/en/prices-insurance/', '/en/book-appointment/', '/en/contact/', '/en/privacy-policy/', '/en/imprint/',
+  '/zh/', '/zh/guanyu-min/', '/zh/liaofa/', '/zh/changjian-jiankang-wenti/', '/zh/shouci-jiuzhen/', '/zh/feiyong-baoxian/', '/zh/yuyue/', '/zh/lianxi/', '/zh/yinsi/', '/zh/falv-shengming/',
 ];
 
 test.describe('routes', () => {

@@ -2,22 +2,23 @@
 import { MapPin, Phone, Mail } from '@lucide/astro';
 import Logo from './Logo.astro';
 import { ROUTES, NAV, I18N } from '../data/routes.js';
+import { PRACTICE } from '../data/site.js';
 const { locale } = Astro.props;
 const T = {
   de: { tag: 'Traditionelle Chinesische Medizin in Zürich-Seebach. Persönliche Behandlung bei Min Weissenberger-Lu.', nav: 'Navigation', treat: 'Behandlungen', contact: 'Kontakt', legal: 'Rechtliches',
     treatments: ['Akupunktur','Tuina','Schröpfen','Kräutertherapie','Moxa','Alle Behandlungen ansehen →'],
     legalLinks: [['/de/datenschutz/','Datenschutz'],['/de/impressum/','Impressum']],
-    contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zürich'],['phone','+41 78 899 92 88'],['mail','info@tcm-weissenberger-lu.ch']],
+    contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zürich'],['phone',`Festnetz: ${PRACTICE.landline}`,PRACTICE.landlineHref],['phone',`Mobil: ${PRACTICE.phone}`,PRACTICE.phoneHref],['mail',PRACTICE.email,`mailto:${PRACTICE.email}`]],
     note: '© 2026 TCM Praxis Weissenberger-Lu · Alle Angaben ohne Gewähr [Inhalte zur Freigabe]' },
   en: { tag: 'Traditional Chinese Medicine in Zurich-Seebach. Personal treatment with Min Weissenberger-Lu.', nav: 'Navigation', treat: 'Treatments', contact: 'Contact', legal: 'Legal',
     treatments: ['Acupuncture','Tuina','Cupping','Herbal Medicine','Moxibustion','View all treatments →'],
     legalLinks: [['/en/privacy-policy/','Privacy Policy'],['/en/imprint/','Imprint']],
-    contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zurich'],['phone','+41 78 899 92 88'],['mail','info@tcm-weissenberger-lu.ch']],
+    contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zurich'],['phone',`Landline: ${PRACTICE.landline}`,PRACTICE.landlineHref],['phone',`Mobile: ${PRACTICE.phone}`,PRACTICE.phoneHref],['mail',PRACTICE.email,`mailto:${PRACTICE.email}`]],
     note: '© 2026 TCM Praxis Weissenberger-Lu · Content pending client approval' },
   zh: { tag: '苏黎世 Seebach 传统中医诊所 · 由中医师 Min Weissenberger-Lu 亲自诊治。', nav: '网站导航', treat: '治疗项目', contact: '联络方式', legal: '法律资讯',
     treatments: ['针灸','推拿','拔罐','中草药治疗','艾灸','查看全部治疗项目 →'],
     legalLinks: [['/zh/yinsi/','隐私政策'],['/zh/falv-shengming/','法律声明']],
-    contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zürich'],['phone','+41 78 899 92 88'],['mail','info@tcm-weissenberger-lu.ch']],
+    contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zürich'],['phone',`固定电话：${PRACTICE.landline}`,PRACTICE.landlineHref],['phone',`手机：${PRACTICE.phone}`,PRACTICE.phoneHref],['mail',PRACTICE.email,`mailto:${PRACTICE.email}`]],
     note: '© 2026 TCM Praxis Weissenberger-Lu · 内容待客户审核' },
 }[locale];
 ---
@@ -44,7 +45,7 @@ const T = {
       <div class="footer-col">
         <h3>{T.contact}</h3>
         <ul class="footer-links">
-          {T.contactItems.map(([icon, text]) => <li class="footer-contact-item">{icon === 'map-pin' && <MapPin size={16} stroke-width={1.8} />}{icon === 'phone' && <Phone size={16} stroke-width={1.8} />}{icon === 'mail' && <Mail size={16} stroke-width={1.8} />} {text}</li>)}
+          {T.contactItems.map(([icon, text, href]) => <li class="footer-contact-item">{icon === 'map-pin' && <MapPin size={16} stroke-width={1.8} />}{icon === 'phone' && <Phone size={16} stroke-width={1.8} />}{icon === 'mail' && <Mail size={16} stroke-width={1.8} />} {href ? <a href={href}>{text}</a> : text}</li>)}
         </ul>
       </div>
     </div>

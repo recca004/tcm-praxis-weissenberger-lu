@@ -6,8 +6,13 @@ export const PRACTICE = {
   practitioner: 'Min Weissenberger-Lu',
   street: 'Schaffhauserstrasse 466',
   city: '8052 Zürich',
+  // Mobile — pending client approval ([CONFIRM] marker where displayed).
   phone: '+41 78 899 92 88',
   phoneHref: 'tel:+41788999288',
+  // Landline — confirmed by the official EMR profile (emr.ch/de/therapeut/min.weissenberger-lu).
+  landline: '043 300 99 32',
+  landlineIntl: '+41 43 300 99 32',
+  landlineHref: 'tel:+41433009932',
   email: 'info@tcm-weissenberger-lu.ch',
   mapsUrl: 'https://maps.google.com/?q=Schaffhauserstrasse+466,+8052+Zürich',
 };

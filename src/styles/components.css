@@ -1336,6 +1336,13 @@ h3 {
   margin: 0;
 }
 
+/* Symptoms page: quiet consultation-approach note inside a pillar row */
+.pillar-approach {
+  margin-top: var(--space-3);
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--color-sage-light);
+}
+
 /* Editorial info blocks (First Visit / Prices) */
 .ed-info-grid {
   display: grid;

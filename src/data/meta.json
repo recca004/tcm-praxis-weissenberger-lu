@@ -41,6 +41,20 @@
       "desc": "苏黎世 Seebach 专业中医特色诊疗项目：传统针灸、道地中药配方、经络推拿、拔罐与艾灸温通调理。详细了解各项疗法机制与适用范畴。"
     }
   },
+  "symptoms": {
+    "de": {
+      "title": "Beschwerden & Anliegen | TCM Praxis Zürich-Seebach",
+      "desc": "Rückenschmerzen, Migräne, Stress & Schlaf, Verdauungsbeschwerden — wie eine TCM-Beratung bei Min Weissenberger-Lu in Zürich-Seebach Ihrem Anliegen begegnet."
+    },
+    "en": {
+      "title": "Common Health Concerns | TCM Zurich-Seebach",
+      "desc": "Back pain, migraine, stress & sleep, digestion — how a TCM consultation with Min Weissenberger-Lu in Zurich-Seebach approaches your concerns."
+    },
+    "zh": {
+      "title": "常见健康问题 | 苏黎世 Seebach | TCM Weissenberger-Lu",
+      "desc": "背部疼痛、偏头痛、压力与睡眠、消化问题 — 了解苏黎世 Seebach 中医诊所如何以整体辨证方式回应您的健康需求。"
+    }
+  },
   "firstVisit": {
     "de": {
       "title": "Erster TCM-Termin: Ablauf & Vorbereitung | Zürich-Seebach",

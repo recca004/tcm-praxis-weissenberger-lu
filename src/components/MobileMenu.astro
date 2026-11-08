@@ -1,5 +1,6 @@
 ---
 import { I18N, ROUTES } from '../data/routes.js';
+import { PRACTICE } from '../data/site.js';
 import { X, ChevronRight, Phone } from '@lucide/astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 const { locale, pageId, langLinks } = Astro.props;
@@ -22,8 +23,11 @@ const currentHref = ROUTES[pageId][locale];
     </div>
     <div class="mobile-menu-footer">
       <LanguageSwitcher links={langLinks} current={locale} />
-      <a href={I18N.phoneHref} class="btn btn-secondary btn-sm">
-        <Phone size={16} stroke-width={1.8} /> {I18N.phone}
+      <a href={PRACTICE.landlineHref} class="btn btn-secondary btn-sm">
+        <Phone size={16} stroke-width={1.8} /> {I18N.landlineLabel[locale]}: {PRACTICE.landline}
+      </a>
+      <a href={PRACTICE.phoneHref} class="btn btn-secondary btn-sm">
+        <Phone size={16} stroke-width={1.8} /> {I18N.mobileLabel[locale]}: {PRACTICE.phone}
       </a>
     </div>
   </div>

@@ -83,6 +83,20 @@ export const TRUST_ITEMS = [
 ];
 
 
+// Slim link under the home treatments index to the health-concerns page.
+export const HOME_CONCERNS = {
+  text: {
+    de: 'Viele Besucherinnen und Besucher kommen mit einem konkreten Anliegen zu uns: Rückenschmerzen, Migräne, Stress & Schlaf oder Verdauungsbeschwerden.',
+    en: 'Many visitors come to us with a specific concern: back pain, migraine, stress & sleep issues, or digestive complaints.',
+    zh: '许多来访者带着具体的健康困扰前来就诊：背部疼痛、偏头痛、压力与睡眠问题或消化不良。',
+  },
+  link: {
+    de: 'Häufige Beschwerden im Überblick',
+    en: 'Common concerns at a glance',
+    zh: '常见健康问题一览',
+  },
+};
+
 // Quiet statement moment — reuses existing approved sentences verbatim.
 export const STATEMENT = {
   text: {

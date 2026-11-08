@@ -3,7 +3,7 @@ import Rev from '../Rev.astro';
 const { steps, locale, titleTag = 'h3', pageStyle = false, editorial = false } = Astro.props;
 const Tag = titleTag;
 ---
-<div class:list={['timeline-grid', { 'steps-editorial': editorial }]} {...(pageStyle ? { style: 'margin-bottom: var(--space-12);' } : {})}>
+<div class:list={['timeline-grid', { 'steps-editorial': editorial, 'timeline-grid-4col': steps.length > 3 }]} {...(pageStyle ? { style: 'margin-bottom: var(--space-12);' } : {})}>
   {steps.map((s, i) => (
     <div class="timeline-step">
       <div class="step-number">{i + 1}</div>

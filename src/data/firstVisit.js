@@ -89,6 +89,15 @@ export const FIRST_VISIT_PAGE = {
       },
       rev: { zh: true },
     },
+    {
+      title: { de: 'Verlauf & Folgetermine', en: 'Review & Follow-up', zh: '疗效评估与复诊安排' },
+      desc: {
+        de: 'Nach der Behandlung besprechen wir, wie Sie die Behandlung erlebt haben, geben Ihnen Empfehlungen für zu Hause und planen bei Bedarf die Folgetermine.',
+        en: 'After treatment we review how the session felt, share recommendations for home, and plan any follow-up appointments together.',
+        zh: '治疗后与您回顾就诊感受，提供居家调养建议，并在需要时共同安排后续复诊时间。',
+      },
+      rev: { zh: true },
+    },
   ],
   boxes: [
     {

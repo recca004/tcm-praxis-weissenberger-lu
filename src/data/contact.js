@@ -35,6 +35,8 @@ export const CONTACT_LABELS = {
   address: { de: 'Adresse:', en: 'Address:', zh: '诊所地址：' },
   phone: { de: 'Telefon:', en: 'Telephone:', zh: '接诊电话：' },
   phoneHome: { de: 'Telefon:', en: 'Phone:', zh: '联络电话：' },
+  landline: { de: 'Festnetz:', en: 'Landline:', zh: '固定电话：' },
+  mobile: { de: 'Mobil:', en: 'Mobile:', zh: '手机：' },
   email: { de: 'E-Mail:', en: 'Email:', zh: '电子邮箱：' },
   hours: { de: 'Öffnungszeiten:', en: 'Opening Hours:', zh: '接诊时间：' },
   hoursHome: { de: 'Öffnungszeiten:', en: 'Hours:', zh: '接诊时间：' },
@@ -75,6 +77,14 @@ export const TRANSIT = {
         de: '<strong>Parkplätze:</strong> Öffentliche Parkplätze in der blauen Zone befinden sich in den umliegenden Quartierstrassen.',
         en: '<strong>Parking:</strong> Public blue-zone parking spaces are situated along adjacent residential streets.',
         zh: '<strong>自驾停车：</strong>诊所所在街区道路设有公共蓝区（Blaue Zone）停车位。',
+      },
+    },
+    {
+      icon: 'accessibility',
+      html: {
+        de: '<strong>Barrierefreier Zugang:</strong> Die Praxis ist über Lift oder ebenerdig erreichbar.',
+        en: '<strong>Step-free access:</strong> The practice is reachable by lift or at ground level.',
+        zh: '<strong>无障碍通行：</strong>诊所设有电梯或平层入口，行动不便者亦可方便到达。',
       },
     },
   ],

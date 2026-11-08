@@ -17,16 +17,19 @@ import LegalPage from '../sections/LegalPage.astro';
 import Icon from '../Icon.astro';
 import Rev from '../Rev.astro';
 import { TREATMENTS_PAGE, DIAGNOSTIC } from '../../data/treatments.js';
+import { SYMPTOMS_PAGE } from '../../data/symptoms.js';
 import { ABOUT_PAGE } from '../../data/practitioner.js';
 import { FIRST_VISIT_PAGE } from '../../data/firstVisit.js';
 import { PRICES_PAGE } from '../../data/prices.js';
 import { BOOKING } from '../../data/booking.js';
 import { CONTACT_PAGE, MAP_SECTION } from '../../data/contact.js';
 import { PRACTICE } from '../../data/site.js';
+import { ROUTES } from '../../data/routes.js';
 
 const { locale, pageId } = Astro.props;
 const HEADER = {
   treatments: { d: TREATMENTS_PAGE, center: false },
+  symptoms: { d: SYMPTOMS_PAGE, center: false },
   about: { d: ABOUT_PAGE, center: false },
   firstVisit: { d: FIRST_VISIT_PAGE, center: false },
   prices: { d: PRICES_PAGE, center: false },
@@ -69,6 +72,33 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
           <img src={DIAGNOSTIC.image[locale].src} alt={DIAGNOSTIC.image[locale].alt} loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius: var(--radius-lg); border: 1px solid var(--color-border);" />
         </div>
         <CTABanner locale={locale} pageId="treatments" />
+      </>
+    )}
+
+    {pageId === 'symptoms' && (
+      <>
+        <div class="pillars-ed" style="margin-bottom: var(--space-10);">
+          {SYMPTOMS_PAGE.concerns.map((c, i) => (
+            <div class="pillar-row">
+              <span class="pillar-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <div class="pillar-icon"><Icon name={c.icon} /></div>
+              <div class="pillar-body">
+                <h3>{c.title[locale]}</h3>
+                <Rev when={c.rev?.[locale]} />
+                <p>{c.desc[locale]}</p>
+                <p class="pillar-approach"><strong>{SYMPTOMS_PAGE.approachLabel[locale]}</strong> {c.approach[locale]}</p>
+                <a href={ROUTES.booking[locale]} class="card-action-link" style="margin-top: var(--space-3);">
+                  {SYMPTOMS_PAGE.consultLink[locale]} <Icon name="arrow-up-right" size={15} />
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style="margin-bottom: var(--space-12); text-align: center;">
+          <p style="color: var(--color-muted); font-size: var(--text-sm); margin-bottom: var(--space-2);">{SYMPTOMS_PAGE.methods.text[locale]}</p>
+          <a href={ROUTES.treatments[locale]} class="card-action-link">{SYMPTOMS_PAGE.methods.link[locale]} <Icon name="arrow-up-right" size={15} /></a>
+        </div>
+        <CTABanner locale={locale} pageId="symptoms" />
       </>
     )}
 
@@ -120,9 +150,14 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
           <p style="font-size: var(--text-sm); color: var(--color-muted); margin-bottom: 1.25rem;">
             {BOOKING.shared.phoneAlt.text[locale]}
           </p>
-          <a href={PRACTICE.phoneHref} class="btn btn-secondary">
-            <Icon name="phone" size={18} /> {BOOKING.shared.phoneAlt.btn[locale]}
-          </a>
+          <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+            <a href={PRACTICE.landlineHref} class="btn btn-secondary">
+              <Icon name="phone" size={18} /> {BOOKING.shared.phoneAlt.landlineBtn[locale]}
+            </a>
+            <a href={PRACTICE.phoneHref} class="btn btn-secondary">
+              <Icon name="phone" size={18} /> {BOOKING.shared.phoneAlt.btn[locale]}
+            </a>
+          </div>
         </div>
       </>
     )}

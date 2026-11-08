@@ -29,9 +29,9 @@ export const CREDENTIALS = [
   },
   {
     icon: 'shield-check',
-    de: 'EMR / ASCA Anerkennung',
-    en: 'EMR / ASCA Recognition',
-    zh: 'EMR / ASCA 认可执业会员',
+    de: 'EMR-registriert seit Oktober 2021',
+    en: 'EMR registered since October 2021',
+    zh: '自2021年10月起登记于 EMR',
   },
   {
     icon: 'clock-3',
@@ -42,24 +42,37 @@ export const CREDENTIALS = [
 ];
 
 // About-page variants of the credential chips.
+// `confirmed: true` = verified against the official EMR profile
+// (emr.ch/de/therapeut/min.weissenberger-lu). Unverified claims from the old
+// site (ASCA, SBO-TCM, LCC, Bachelor/Master) are kept in the review docs only.
 export const CREDENTIALS_ABOUT = [
   {
     icon: 'award',
-    de: 'Eidgenössisches Diplom TCM-Therapeutin',
-    en: 'Swiss Federal Diploma in TCM',
-    zh: '瑞士联邦认证中医师资质',
+    confirmed: true,
+    de: 'Naturheilpraktikerin mit eidg. Diplom TCM',
+    en: 'Federally Certified Naturopath (TCM)',
+    zh: '瑞士联邦认证自然疗法师（中医）',
   },
   {
     icon: 'shield-check',
-    de: 'Anerkannt bei EMR / ASCA / SBO-TCM',
-    en: 'EMR / ASCA / SBO-TCM Recognized',
-    zh: '瑞士经验医学登记处 EMR / ASCA 会员',
-  },
-  {
-    icon: 'clock-3',
+    confirmed: true,
     de: 'EMR-registriert seit Oktober 2021',
     en: 'EMR registered since October 2021',
     zh: '自2021年10月起登记于 EMR',
+  },
+  {
+    icon: 'check-circle-2',
+    confirmed: true,
+    de: 'Mitglied: TCM Fachverband · NVS',
+    en: 'Member: TCM Fachverband · NVS',
+    zh: '会员：TCM 专业委员会 · NVS 自然疗法医师协会',
+  },
+  {
+    icon: 'clipboard-list',
+    confirmed: true,
+    de: 'EMR-Methoden: Akupunktur · Tuina · Elektro- & Ohr-Akupunktur · Moxa · Schröpfen',
+    en: 'EMR-registered: acupuncture · Tuina · electro & ear acupuncture · moxibustion · cupping',
+    zh: 'EMR 注册疗法：针灸 · 推拿 · 电针 · 耳针 · 艾灸 · 拔罐',
   },
 ];
 
