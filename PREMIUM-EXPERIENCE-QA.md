@@ -106,4 +106,4 @@ Screenshots: `test-results/premium-shots/` — `verify-*` = after-fix evidence.
 
 ## 10. Final commit
 
-`b7919eb` on `design/premium-experience-final` — branch stays unmerged and unpublished.
+`fb9a307` on `design/premium-experience-final` — branch stays unmerged and unpublished.
