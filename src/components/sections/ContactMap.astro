@@ -1,0 +1,42 @@
+---
+// Privacy-friendly Google Maps — iframe src is set only after explicit consent.
+import Icon from '../Icon.astro';
+import { PRACTICE } from '../../data/site.js';
+const { locale } = Astro.props;
+
+const T = {
+  load: { de: 'Karte laden', en: 'Load map', zh: '加载地图' },
+  note: {
+    de: 'Mit dem Laden der Karte wird eine Verbindung zu Google hergestellt.',
+    en: 'Loading the map connects your browser to Google.',
+    zh: '加载地图将与 Google 建立连接。',
+  },
+  title: { de: 'Karte — TCM Praxis Weissenberger-Lu, Zürich-Seebach', en: 'Map — TCM Praxis Weissenberger-Lu, Zurich-Seebach', zh: '地图 — 苏黎世 Seebach 中医诊所' },
+  open: { de: 'In Google Maps öffnen', en: 'Open in Google Maps', zh: '在 Google 地图中打开' },
+};
+const EMBED = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.6322091391057!2d8.548005999999999!3d47.41911460000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a9bb87b3645%3A0x198986aac140d233!2sSchaffhauserstrasse%20466%2C%208052%20Z%C3%BCrich!5e0!3m2!1sen!2sch!4v1794103761676!5m2!1sen!2sch';
+---
+<div class="contact-map" data-embed={EMBED} data-title={T.title[locale]}>
+  <div class="contact-map-placeholder">
+    <Icon name="map-pin" size={28} class="contact-map-pin" />
+    <p class="contact-map-addr">{PRACTICE.street}, {PRACTICE.city}</p>
+    <button type="button" class="btn btn-primary contact-map-load">{T.load[locale]}</button>
+    <p class="contact-map-note">{T.note[locale]}</p>
+    <a href={PRACTICE.mapsUrl} target="_blank" rel="noopener noreferrer" class="contact-map-ext">
+      <Icon name="external-link" size={15} /> {T.open[locale]}
+    </a>
+  </div>
+</div>
+<script>
+  document.querySelectorAll('.contact-map').forEach((wrap) => {
+    wrap.querySelector('.contact-map-load')?.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = wrap.dataset.embed;
+      f.title = wrap.dataset.title;
+      f.loading = 'lazy';
+      f.allowFullscreen = true;
+      f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      wrap.replaceChildren(f);
+    }, { once: true });
+  });
+</script>

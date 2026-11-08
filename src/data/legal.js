@@ -39,7 +39,15 @@ export const LEGAL = {
         },
       },
       {
-        h: { de: '4. Ihre Rechte', en: '4. Your Privacy Rights', zh: '4. 您的法定权利' },
+        h: { de: '4. Google Maps', en: '4. Google Maps', zh: '4. Google 地图' },
+        html: {
+          de: 'Auf der Kontaktseite kann eine Karte von Google Maps (Google Ireland Ltd.) geladen werden. Die Karte wird erst nach Ihrem ausdrücklichen Klick auf «Karte laden» aktiviert; erst dann wird eine Verbindung zu Google-Servern hergestellt und dabei können technische Daten (z.B. IP-Adresse) an Google übertragen werden. Ohne Ihr Klicken findet keine Datenübertragung an Google statt.',
+          en: 'The contact page offers an embedded Google Maps map (Google Ireland Ltd.). The map only activates after you explicitly click ‘Load map’; only then is a connection to Google servers established and technical data (e.g. IP address) may be transmitted to Google. No data is sent to Google without your click.',
+          zh: '联络页面提供内嵌的 Google 地图（Google Ireland Ltd.）。地图仅在您主动点击「加载地图」后启用，届时浏览器才会与 Google 服务器建立连接，并可能传输 IP 地址等技术数据。未经您点击，不会向 Google 发送任何数据。',
+        },
+      },
+      {
+        h: { de: '5. Ihre Rechte', en: '5. Your Privacy Rights', zh: '5. 您的法定权利' },
         html: {
           de: 'Sie haben im Rahmen des anwendbaren Datenschutzrechts das Recht auf unentgeltliche Auskunft über Ihre gespeicherten Daten sowie das Recht auf Berichtigung, Sperrung oder Löschung. Wenden Sie sich hierzu bitte an die oben genannte Kontaktadresse.',
           en: 'Under applicable Swiss data protection laws, you have the right to request free information regarding your stored data, as well as the right to correction or deletion. Please reach out to the contact address indicated above.',

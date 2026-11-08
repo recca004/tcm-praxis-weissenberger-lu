@@ -46,6 +46,10 @@ export const HOURS = {
   saturdayPage: { de: 'Samstag: Nach Vereinbarung', en: 'Saturday: By special arrangement', zh: '周六：需特别预约' },
 };
 
+export const MAP_SECTION = {
+  title: { de: 'So finden Sie uns in Zürich-Seebach', en: 'Find us in Zürich-Seebach', zh: '如何到达苏黎世 Seebach 诊所' },
+};
+
 export const TRANSIT = {
   title: { de: 'Anreise mit ÖV & Auto', en: 'Public Transport & Parking', zh: '公共交通及停车指引' },
   items: [
