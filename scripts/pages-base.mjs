@@ -27,7 +27,9 @@ for (const file of walk(DIST)) {
       // srcset continuation entries: /a.webp 800w, /b.webp 1600w
       .replace(/, \/(.)/g, `, ${BASE}/$1`)
       // meta refresh: content="0; url=/de/"
-      .replace(/url=\/(.)/g, `url=${BASE}/$1`);
+      .replace(/url=\/(.)/g, `url=${BASE}/$1`)
+      // staging preview must not be indexed
+      .replace(/<\/title>/, `</title><meta name="robots" content="noindex,nofollow">`);
     if (out !== html) { writeFileSync(file, out); htmlFiles++; }
   } else if (file.endsWith('.css')) {
     const css = readFileSync(file, 'utf8');
