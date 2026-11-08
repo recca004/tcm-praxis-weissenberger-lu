@@ -101,7 +101,7 @@ function initContactForms() {
       if (lang === 'en') {
         successMsg = 'Thank you for your enquiry. We will get back to you shortly. (Note: This is a design prototype.)';
       } else if (lang.startsWith('zh')) {
-        successMsg = '感謝您的諮詢，我們將盡快與您取得聯絡。（提示：當前為原型展示。）';
+        successMsg = '感谢您的咨询，我们将尽快与您取得联络。（提示：当前为原型展示。）';
       }
 
       if (feedbackEl) {

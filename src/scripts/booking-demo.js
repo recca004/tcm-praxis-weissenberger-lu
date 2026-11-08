@@ -62,7 +62,7 @@ export function initBookingWidget() {
       } else {
         nextBtn.style.display = 'inline-flex';
         nextLabel.textContent = state.step === 3
-          ? (lang === 'en' ? 'Review Appointment' : lang.startsWith('zh') ? '檢視預約資訊' : 'Zur Terminübersicht')
+          ? (lang === 'en' ? 'Review Appointment' : lang.startsWith('zh') ? '检视预约资讯' : 'Zur Terminübersicht')
           : (lang === 'en' ? 'Continue' : lang.startsWith('zh') ? '下一步' : 'Weiter');
       }
     }
