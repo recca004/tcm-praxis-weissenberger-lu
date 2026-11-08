@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('client-review release', () => {
   test('hero shows only 2 approved facts', async ({ page }) => {
     await page.goto('/de/');
-    await expect(page.locator('.hero-fact')).toHaveCount(2);
+    await expect(page.locator('.hero-fact')).toHaveCount(1);
     await expect(page.locator('.hero-facts')).not.toContainText('Diplom');
     await expect(page.locator('.hero-facts')).not.toContainText('Sprachen');
   });

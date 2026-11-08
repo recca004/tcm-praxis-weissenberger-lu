@@ -28,7 +28,7 @@ const canonical = SITE + Astro.props.canonicalPath;
     <meta name="site-kind" content="other" />
     <meta name="page-kind" content="service" />
     <title>{title}</title>
-    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
     <meta name="description" content={desc} />
     <link rel="canonical" href={canonical} />
     {langLinks.map((l) => <link rel="alternate" hreflang={l.hreflang} href={SITE + l.href} />)}

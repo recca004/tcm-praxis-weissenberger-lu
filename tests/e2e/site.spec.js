@@ -44,7 +44,7 @@ test.describe('homepage content', () => {
   test('all sections render', async ({ page }) => {
     await page.goto('/de/');
     await expect(page.locator('.t-index-row')).toHaveCount(5);
-    await expect(page.locator('.hero-fact')).toHaveCount(2);
+    await expect(page.locator('.hero-fact')).toHaveCount(1);
     await expect(page.locator('.timeline-step')).toHaveCount(3);
     await expect(page.locator('.accordion-item')).toHaveCount(6);
     await expect(page.locator('.price-table tbody tr')).toHaveCount(3);

@@ -80,15 +80,6 @@ export const TRUST_ITEMS = [
     },
     rev: { zh: true },
   },
-  {
-    icon: 'map-pin',
-    h: { de: 'Zürich-Seebach', en: 'Zurich-Seebach', zh: '诊所地址' },
-    p: {
-      de: 'Schaffhauserstrasse 466 · Tram 14 / Bus 768 ab Oerlikon',
-      en: 'Schaffhauserstrasse 466 · Tram 14 / Bus 768 via Oerlikon',
-      zh: 'Schaffhauserstrasse 466 · 14路电车 / 768路巴士',
-    },
-  },
 ];
 
 

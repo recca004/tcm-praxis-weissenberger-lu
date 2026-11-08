@@ -55,9 +55,9 @@ export const FAQ_ITEMS = [
       zh: '瑞士医疗保险如何报销？',
     },
     a: {
-      de: 'Bei vorhandener Zusatzversicherung für Komplementärmedizin (VVG) übernehmen die meisten Schweizer Kassen einen grossen Teil der Kosten. Wir empfehlen, die genaue Kostenübernahme vorab direkt mit Ihrer Versicherung zu klären.',
-      en: 'With Swiss supplementary health insurance (VVG), most insurers cover 70–90% of the cost. We recommend contacting your insurer prior to your visit to confirm exact coverage.',
-      zh: '若您购买了涵盖替代医疗的补充险（VVG），保险公司通常报销70%至90%的费用。诊所会为您出具瑞士统一规范的 Tarif 590 账单供您报销。',
+      de: 'Bei vorhandener Zusatzversicherung für Komplementärmedizin (VVG) hängt die Kostenübernahme von Versicherungsvertrag, Behandlung und Anerkennung der Therapeutin ab. Wir empfehlen, die genaue Kostenübernahme vorab direkt mit Ihrer Versicherung zu klären.',
+      en: 'With Swiss supplementary health insurance (VVG), coverage depends on your policy, the treatment and your insurer’s recognition of the practitioner. We recommend confirming reimbursement directly with your insurer before your appointment.',
+      zh: '若您购买了涵盖替代医疗的补充险（VVG），是否报销及报销比例因保险方案、治疗项目及医师资质认可而异。诊所会为您出具瑞士统一规范的 Tarif 590 账单供您报销。',
     },
     locales: ['de', 'en', 'zh'],
   },
