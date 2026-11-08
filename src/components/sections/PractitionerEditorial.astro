@@ -13,11 +13,9 @@ const D = isAbout ? ABOUT_PAGE : PRACTITIONER_HOME;
 const creds = isAbout ? CREDENTIALS_ABOUT : CREDENTIALS;
 ---
 <div class="pract-ed">
-  <div class="pract-ed-photo">
-    <div class="portrait-silhouette" aria-hidden="true"><Icon name="user" size={isAbout ? 72 : 56} /></div>
-    <div class="portrait-label">{PORTRAIT.name}</div>
-    <div class="portrait-sublabel">{PORTRAIT.sublabel[locale]}</div>
-    <span class="badge badge-confirm" style="margin-top: 10px;">{PORTRAIT.badge[locale]}</span>
+  <div class="pract-ed-photo pract-ed-photo--real">
+    <img src="/assets/images/practitioner-portrait.webp" alt={PORTRAIT.alt[locale]} loading="lazy" />
+    <span class="hero-photo-badge">{PORTRAIT.badge[locale]}</span>
   </div>
   <div class="pract-ed-body">
     {!isAbout && <span class="eyebrow">{D.eyebrow[locale]}</span>}

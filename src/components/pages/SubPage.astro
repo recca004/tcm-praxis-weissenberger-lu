@@ -90,6 +90,7 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
 
     {pageId === 'firstVisit' && (
       <>
+        <img src="/assets/images/clinic-waiting-area.webp" alt={{de:'Wartebereich der Praxis mit zwei Sesseln',en:'Practice waiting area with two chairs',zh:'诊所候诊区 — 两把座椅'}[locale]} loading="lazy" style="width:100%;max-width:680px;margin:0 auto var(--space-10);display:block;border-radius:var(--radius-lg);border:1px solid var(--color-border);" />
         <StepsTimeline steps={FIRST_VISIT_PAGE.steps} locale={locale} titleTag="h2" pageStyle editorial />
         <div style="margin-bottom: var(--space-16);">
           <InfoBlocks blocks={FIRST_VISIT_PAGE.boxes} locale={locale} />
@@ -130,6 +131,7 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
             <h2 style="font-size: var(--text-xl); margin-bottom: 1.25rem;">{CONTACT_PAGE.cardTitle[locale]}</h2>
             <ContactDetails locale={locale} variant="page" mapsLabel={CONTACT_PAGE.mapsBtn[locale]} />
           </div>
+          <img src="/assets/images/clinic-reception.webp" alt={{de:'Empfangsbereich der TCM Praxis Weissenberger-Lu in Zürich-Seebach',en:'Reception area of TCM Praxis Weissenberger-Lu in Zurich-Seebach',zh:'诊所接待区实景 — 苏黎世 Seebach'}[locale]} loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;margin-bottom:var(--space-6);border-radius:var(--radius-lg);border:1px solid var(--color-border);" />
           <TransitCard locale={locale} />
         </div>
         <div>

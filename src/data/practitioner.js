@@ -8,9 +8,14 @@ export const PORTRAIT = {
     en: 'TCM Practitioner in Zurich-Seebach',
     zh: '苏黎世 Seebach 执业中医师',
   },
+  alt: {
+    de: 'Min Weissenberger-Lu, TCM-Therapeutin der Praxis in Zürich-Seebach',
+    en: 'Min Weissenberger-Lu, TCM practitioner at the Zurich-Seebach practice',
+    zh: 'Min Weissenberger-Lu — 苏黎世 Seebach 中医诊所执业中医师',
+  },
   badge: {
-    de: '[Foto folgt nach Freigabe durch Min]',
-    en: '[Portrait awaiting client approval]',
+    de: '[Porträt vor Freigabe]',
+    en: '[Portrait subject to approval]',
     zh: '[医师肖像待确认]',
   },
 };

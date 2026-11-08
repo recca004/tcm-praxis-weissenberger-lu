@@ -50,7 +50,7 @@ test.describe('homepage content', () => {
     await expect(page.locator('.price-table tbody tr')).toHaveCount(3);
     await expect(page.locator('.booking-band a[href*="/termin-buchen"]')).toBeVisible();
     await expect(page.locator('.cta-banner')).toHaveCount(1);
-    await expect(page.locator('img[src*="hero-clinic"]')).toBeVisible();
+    await expect(page.locator('img[src*="clinic-room-orchids"]')).toBeVisible();
   });
 
   test('en/zh homepages render correctly', async ({ page }) => {

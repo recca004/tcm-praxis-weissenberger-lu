@@ -14,16 +14,16 @@ export const HERO = {
   primary: { de: 'Termin buchen', en: 'Book Appointment', zh: '预约就诊' },
   secondary: { de: 'Behandlungen ansehen', en: 'Explore Treatments', zh: '浏览治疗项目' },
   imageAlt: {
-    de: 'Ruhiger Behandlungsraum der TCM Praxis in Zürich-Seebach mit Holztisch und angenehmer Atmosphäre',
-    en: 'Calm treatment room of the TCM practice in Zurich-Seebach with wooden table and peaceful atmosphere',
-    zh: '苏黎世 Seebach 中医诊所明亮舒适的实木针灸诊室',
+    de: 'Behandlungsraum der TCM Praxis Weissenberger-Lu in Zürich-Seebach mit Liege und weissen Orchideen',
+    en: 'Treatment room at TCM Praxis Weissenberger-Lu in Zurich-Seebach with treatment table and white orchids',
+    zh: '苏黎世 Seebach 中医诊所治疗室实景 — 治疗床与白色兰花',
   },
   address: {
     de: 'Schaffhauserstrasse 466, 8052 Zürich',
     en: 'Schaffhauserstrasse 466, 8052 Zurich',
     zh: 'Schaffhauserstrasse 466, 8052 Zürich',
   },
-  badge: { de: 'Beispielfoto vor Freigabe', en: 'Photo subject to approval', zh: '示例图片待确认' },
+  badge: { de: 'Foto vor Freigabe', en: 'Photo subject to approval', zh: '实景照片待确认' },
 };
 
 export const TRUST_ITEMS = [

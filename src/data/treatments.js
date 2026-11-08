@@ -163,8 +163,8 @@ export const DIAGNOSTIC = {
   ],
   rev: { zh: ['lead'] },
   image: {
-    de: { src: '/assets/images/tcm-herbs.webp', alt: 'Chinesische Kräuterheilkunde und Beratungstisch' },
-    en: { src: '/assets/images/tcm-cupping.webp', alt: 'TCM treatment instruments, massage stones, and cupping glass' },
-    zh: { src: '/assets/images/tcm-herbs.webp', alt: '传统中药材调理与问诊台' },
+    de: { src: '/assets/images/clinic-treatment-room.webp', alt: 'Behandlungsraum der Praxis mit Liege und medizinischen Postern' },
+    en: { src: '/assets/images/clinic-treatment-room.webp', alt: 'Practice treatment room with table and medical charts' },
+    zh: { src: '/assets/images/clinic-treatment-room.webp', alt: '诊所治疗室实景 — 治疗床与人体经络图' },
   },
 };
