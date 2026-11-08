@@ -20,7 +20,7 @@ const creds = isAbout ? CREDENTIALS_ABOUT : CREDENTIALS;
     <span class="badge badge-confirm" style="margin-top: 10px;">{PORTRAIT.badge[locale]}</span>
   </div>
   <div class="pract-ed-body">
-    <span class="eyebrow">{D.eyebrow[locale]}</span>
+    {!isAbout && <span class="eyebrow">{D.eyebrow[locale]}</span>}
     <h2 class="pract-ed-name">{isAbout ? D.bodyTitle[locale] : D.title[locale]}</h2>
     {D.paragraphs.map((p) => (
       <>

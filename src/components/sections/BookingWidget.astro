@@ -15,7 +15,7 @@ const notesLabel = variant === 'page' ? S.fields.notesPage[locale] : S.fields.no
       <h3>{D.widgetTitle[locale]}</h3>
       <p>{PRACTICE.name} · {locale === 'zh' ? '蘇黎世 Seebach' : 'Zürich-Seebach'}</p>
     </div>
-    <div class="badge badge-info" style="background: rgba(255,255,255,0.15); color: #fff;">
+    <div class="badge badge-info booking-demo-badge">
       <Icon name="calendar" size={16} /> {D.widgetBadge[locale]}
     </div>
   </div>
@@ -30,7 +30,7 @@ const notesLabel = variant === 'page' ? S.fields.notesPage[locale] : S.fields.no
 
   <div class="booking-body">
     <div class="booking-step-panel" data-step="1">
-      <h4 style="margin-bottom: 1rem;">{D.step1Heading[locale]}</h4>
+      <h4 class="booking-step-title">{D.step1Heading[locale]}</h4>
       <div class="booking-service-options">
         {D.services.map((s, i) => (
           <div class:list={['service-card-select', { 'is-selected': i === 0 }]} data-service={s.id}>
@@ -44,7 +44,7 @@ const notesLabel = variant === 'page' ? S.fields.notesPage[locale] : S.fields.no
     </div>
 
     <div class="booking-step-panel" data-step="2" style="display: none;">
-      <h4 style="margin-bottom: 1rem;">{D.step2Heading[locale]}</h4>
+      <h4 class="booking-step-title">{D.step2Heading[locale]}</h4>
       <div class="booking-calendar-row">
         <div>
           <strong style="font-size: 14px; display: block; margin-bottom: 8px;">{S.monthLabel[locale]}</strong>
@@ -72,12 +72,12 @@ const notesLabel = variant === 'page' ? S.fields.notesPage[locale] : S.fields.no
     </div>
 
     <div class="booking-step-panel" data-step="3" style="display: none;">
-      <h4 style="margin-bottom: 1rem;">{D.step3Heading[locale]}</h4>
+      <h4 class="booking-step-title">{D.step3Heading[locale]}</h4>
       <div class="form-group">
         <label class="form-label" for="booking-name">{S.fields.name[locale]} <span class="required">*</span></label>
         <input type="text" id="booking-name" class="form-control" placeholder={D.namePlaceholder[locale]} required />
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+      <div class="booking-field-grid">
         <div class="form-group">
           <label class="form-label" for="booking-phone">{S.fields.phone[locale]} <span class="required">*</span></label>
           <input type="tel" id="booking-phone" class="form-control" placeholder="+41 79 123 45 67" required />
@@ -94,13 +94,13 @@ const notesLabel = variant === 'page' ? S.fields.notesPage[locale] : S.fields.no
     </div>
 
     <div class="booking-step-panel" data-step="4" style="display: none;">
-      <h4 style="margin-bottom: 1rem;">{D.step4Heading[locale]}</h4>
-      <div style="background: var(--color-surface-subtle); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
+      <h4 class="booking-step-title">{D.step4Heading[locale]}</h4>
+      <div class="booking-summary">
         <Rev when={D.summaryServiceRev?.[locale]} />
-        <p style="margin-bottom: 6px;"><strong>{S.summaryLabels.service[locale]}</strong> <span class="js-summary-service">{D.summaryService[locale]}</span></p>
-        <p style="margin-bottom: 6px;"><strong>{S.summaryLabels.datetime[locale]}</strong> <span class="js-summary-datetime">{D.summaryDatetime[locale]}</span></p>
-        <p style="margin-bottom: 6px;"><strong>{S.summaryLabels.location[locale]}</strong> {S.locationText}</p>
-        <p style="margin-bottom: 0;"><strong>{S.summaryLabels.patient[locale]}</strong> <span class="js-summary-patient">—</span></p>
+        <p class="booking-summary-row"><strong>{S.summaryLabels.service[locale]}</strong> <span class="js-summary-service">{D.summaryService[locale]}</span></p>
+        <p class="booking-summary-row"><strong>{S.summaryLabels.datetime[locale]}</strong> <span class="js-summary-datetime">{D.summaryDatetime[locale]}</span></p>
+        <p class="booking-summary-row"><strong>{S.summaryLabels.location[locale]}</strong> {S.locationText}</p>
+        <p class="booking-summary-row"><strong>{S.summaryLabels.patient[locale]}</strong> <span class="js-summary-patient">—</span></p>
       </div>
 
       <div class="demo-notice-banner">
@@ -109,7 +109,7 @@ const notesLabel = variant === 'page' ? S.fields.notesPage[locale] : S.fields.no
       </div>
     </div>
 
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
+    <div class="booking-nav">
       <button type="button" class="btn btn-secondary js-booking-prev" style="visibility: hidden;">
         <Icon name="chevron-left" size={18} /> <span class="js-prev-label">{S.prev[locale]}</span>
       </button>
