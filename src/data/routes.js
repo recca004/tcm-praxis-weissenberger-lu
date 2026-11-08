@@ -1,5 +1,5 @@
 export const LOCALES = ['de', 'en', 'zh'];
-export const LANG_TAG = { de: 'de-CH', en: 'en', zh: 'zh-Hant' };
+export const LANG_TAG = { de: 'de-CH', en: 'en', zh: 'zh-CN' };
 export const LOCAL_NAME = { de: 'Zürich', en: 'Zurich', zh: '蘇黎世' };
 
 export const ROUTES = {

@@ -35,7 +35,7 @@ test.describe('routes', () => {
   test('hreflang + canonical present', async ({ page }) => {
     await page.goto('/de/');
     await expect(page.locator('link[hreflang="de-CH"]')).toHaveCount(1);
-    await expect(page.locator('link[hreflang="zh-Hant"]')).toHaveCount(1);
+    await expect(page.locator('link[hreflang="zh-CN"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.tcm-weissenberger-lu.ch/de/');
   });
 });
@@ -59,7 +59,7 @@ test.describe('homepage content', () => {
     await expect(page.locator('h1')).toContainText('Traditional Chinese Medicine');
     await page.goto('/zh/');
     await expect(page.locator('.accordion-item')).toHaveCount(5);
-    await expect(page.locator('html')).toHaveAttribute('lang', 'zh-Hant');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
   });
 });
 

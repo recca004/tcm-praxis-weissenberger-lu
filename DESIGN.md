@@ -23,42 +23,62 @@ colors:
   sage-badge: "#E3EDE8"
   sage-badge-ink: "#235449"
 typography:
+  # Desktop targets; clamp() gives mobile and tablet a smaller size.
+  # Font files are self-hosted WOFF2 and licensed for commercial use (Google Fonts / OFL).
   display:
-    fontFamily: "'Source Serif 4', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', Georgia, serif"
-    fontSize: "clamp(2.4rem, 4.6vw, 3.9rem)"
+    fontFamily: "'Cormorant Garamond', Georgia, serif"
+    fontSize: "clamp(2.5rem, 5.3vw, 4.75rem)" # 40–76px; desktop aim 64–76px
     fontWeight: 500
-    lineHeight: 1.12
+    lineHeight: 1.1
     letterSpacing: "-0.01em"
   headline:
-    fontFamily: "'Source Serif 4', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', Georgia, serif"
-    fontSize: "2.375rem"
+    fontFamily: "'Cormorant Garamond', Georgia, serif"
+    fontSize: "clamp(2rem, 3.8vw, 3.25rem)" # 32–52px; desktop aim 44–52px
     fontWeight: 500
-    lineHeight: 1.2
+    lineHeight: 1.15
     letterSpacing: "-0.01em"
   title:
-    fontFamily: "'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-    fontSize: "1.5rem"
+    fontFamily: "'Cormorant Garamond', Georgia, serif"
+    fontSize: "clamp(1.5rem, 2.4vw, 2rem)" # 24–32px; desktop aim 28–32px
     fontWeight: 600
-    lineHeight: 1.3
-    letterSpacing: "-0.015em"
+    lineHeight: 1.2
+    letterSpacing: "-0.01em"
   body:
-    fontFamily: "'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-    fontSize: "1.0625rem"
+    fontFamily: "'DM Sans', Arial, sans-serif"
+    fontSize: "1.0625rem" # 17px; can rise to 18px for long-form reading
     fontWeight: 400
-    lineHeight: 1.62
+    lineHeight: 1.6
+    letterSpacing: "0em"
+  nav:
+    fontFamily: "'DM Sans', Arial, sans-serif"
+    fontSize: "0.9375rem" # 15px
+    fontWeight: 500
+    lineHeight: 1.4
     letterSpacing: "0em"
   action:
-    fontFamily: "'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-    fontSize: "0.9375rem"
+    fontFamily: "'DM Sans', Arial, sans-serif"
+    fontSize: "0.9375rem" # 15px; 16px on larger buttons
     fontWeight: 600
     lineHeight: 1.4
     letterSpacing: "0em"
   label:
-    fontFamily: "'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-    fontSize: "0.8125rem"
-    fontWeight: 700
+    fontFamily: "'DM Sans', Arial, sans-serif"
+    fontSize: "0.8125rem" # 13px; 14px where room allows
+    fontWeight: 500
     lineHeight: 1.4
-    letterSpacing: "0.08em"
+    letterSpacing: "0.04em"
+  chinese-headline:
+    fontFamily: "'Noto Serif SC', 'Songti SC', serif"
+    fontSize: "clamp(1.875rem, 3.5vw, 3rem)" # 30–48px; desktop aim 36–48px
+    fontWeight: 500
+    lineHeight: 1.3
+    letterSpacing: "0em"
+  chinese-body:
+    fontFamily: "'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif"
+    fontSize: "1.0625rem" # 17px; target 16–18px
+    fontWeight: 400
+    lineHeight: 1.7
+    letterSpacing: "0em"
 rounded:
   sm: "6px"
   md: "10px"
@@ -137,19 +157,19 @@ components:
 
 The site should feel like sitting across from Min in her practice: unhurried, warm, and precise. Nothing here is loud. The page breathes on a warm cream floor, surfaces rise in white with a hairline border and the softest green-tinted shadow, and a single deep botanical green carries every action and heading. Ornament is nearly absent; what remains — sage icon wells, a chamomile accent, gently rounded corners — reads as the apothecary cabinet, not the hospital corridor.
 
-The editorial layer is led by Source Serif 4: hero headlines, section titles, the statement moment and the numbered treatment index are set in a quiet text serif, while body copy, navigation, forms and controls stay in Source Sans 3. The serif does the "consultation room" work — calm authority, print-like confidence — the sans does the "clinic admin" work.
+The editorial layer is led by Cormorant Garamond: hero headlines, section titles, the statement moment and the numbered treatment index are set in a quiet text serif, while body copy, navigation, forms and controls stay in DM Sans. The serif does the "consultation room" work — calm authority, print-like confidence — the sans does the "clinic admin" work.
 
 Density is generous and calm. Components are **refined and restrained**: quiet surfaces, hairline borders, subtle state shifts — confidence through precision rather than weight or saturation. The palette is deliberately desaturated; type does most of the hierarchy work. Confirmed visual rejections: large-hospital or institutional stock aesthetics, hard drop shadows, saturated "wellness-brand" color, and anything that makes a one-person practice look like a clinic chain.
 
 **Key Characteristics:**
 - Warm cream page floor; white is reserved for content surfaces, never the page itself.
 - One botanical green does all the work — CTAs, links, headings, selection states.
-- Source Serif 4 leads display type (h1/h2, statement, index numerals); Source Sans 3 carries everything else.
+- Cormorant Garamond leads Latin display type (h1/h2/h3, statement, index numerals); DM Sans carries Latin body copy, navigation and controls.
 - Hairline borders plus ambient quiet shadows; hover deepens the shadow, nothing more.
 - Editorial numbered rows instead of card grids for treatments and process steps.
 - Softly rounded corners (6–24 px) everywhere; pills only for toggles and step markers.
 - Tabular numerals on every price and time.
-- Trilingual by design: Latin type in Source Serif 4 / Source Sans 3, Chinese in a dedicated Traditional Chinese stack with its own line-height.
+- Trilingual by design: Latin type in Cormorant Garamond / DM Sans; Simplified Chinese uses Noto Serif SC headings and Noto Sans SC body, with its own line-height.
 
 ## Colors
 
@@ -189,23 +209,37 @@ A muted botanical palette on a warm paper floor — green is scarce and therefor
 
 ## Typography
 
-**Display Font:** Source Serif 4 — h1, h2, the statement moment, treatment-index titles and numerals, editorial step titles, pillar numerals. Weight 400–500, never bold; `-0.01em` letter-spacing. Chinese falls through to the TC stack inside `--font-display`.
-**Body Font:** Source Sans 3 — all reading text, navigation, buttons, forms, tables, captions.
-**Chinese Font:** Traditional Chinese is the binding commitment (zh-Hant); stack `'Noto Sans TC'`, `PingFang TC`, `Microsoft JhengHei`, `Heiti TC`, sans-serif at 1.75 line-height.
-**Unused:** `JetBrains Mono` is declared but applied nowhere; keep it out of components unless a real use appears.
+**Approved font system (8 November 2026):**
+- **Latin heading font:** [Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) — German/English H1, H2, H3, editorial statements, numbered treatment rows. Weight 500 for H1/H2, 600 for H3.
+- **Latin UI and body font:** [DM Sans](https://fonts.google.com/specimen/DM+Sans) — German/English paragraphs, navigation, buttons, forms, tables, captions. 400 body, 500 menu/labels, 600 buttons.
+- **Simplified Chinese heading font:** [Noto Serif SC](https://fonts.google.com/noto/specimen/Noto+Serif+SC) — Chinese H1/H2/H3, weight 500 (600 only when really needed).
+- **Simplified Chinese body font:** [Noto Sans SC](https://fonts.google.com/noto/specimen/Noto+Sans+SC) — Chinese paragraphs, menus, buttons, forms and booking UI, weight 400–600.
+- **Language contract:** German `de-CH`, English `en`, Simplified Chinese `zh-CN` / `zh-Hans`. Do not use `Noto Sans TC`, `zh-Hant`, or Traditional Chinese copy for this project.
+- **Licensing and delivery:** Use Google Fonts / SIL Open Font License releases approved for commercial websites. Host WOFF2 files locally on Hostpoint, keep licence notices with source assets, load only used weights and scripts, and check language glyph coverage. Use `font-display: swap` and preload only critical first-screen font files.
+- **Fallbacks:** Cormorant Garamond → Georgia → serif; DM Sans → Arial → sans-serif; Noto Serif SC → Songti SC → serif; Noto Sans SC → PingFang SC → Microsoft YaHei → sans-serif.
+- **Unused:** `JetBrains Mono` is not part of the design and must not be loaded without a real need.
 
-**Character:** a text serif at modest weights reads as calm clinical authority; headings are never heavier than 500 in serif, body never heavier than 400.
+### Type hierarchy
 
-### Hierarchy
-- **Display** (serif, 500, clamp 38–62 px, -0.01em, 1.12 lh): hero H1s only — one per page.
-- **Headline** (serif, 500, 38 px, 1.2 lh): section H2s, always in Apothecary Deep.
-- **Title** (sans, 600, 24 px, 1.3 lh): card titles, H3s.
-- **Subtitle** (sans, 600, 20 px, 1.35 lh): H4s, booking step titles.
-- **Lead** (400, 19 px, 1.55 lh, Muted Lichen): section intros beneath headlines.
-- **Body** (400, 17 px, 1.62 lh): all reading text; long blocks constrained to the 760 px narrow container (~65–75 ch).
-- **Action** (600, 15 px): buttons, nav links, card action links, time slots.
-- **Label** (700, 13 px, +0.08em, uppercase): eyebrows, table headers, form labels (+0.04em), badges.
-- **Chinese body** (same size, 1.75 lh): `html[lang="zh"]` bumps line-height and swaps the family; never force Latin metrics onto Chinese lines.
+| Element | Font | Desktop size | Weight | Line height |
+|---|---|---:|---:|---:|
+| Hero H1 | Cormorant Garamond | 64–76px | 500 | 1.1 |
+| Section H2 | Cormorant Garamond | 44–52px | 500 | 1.15 |
+| Card / editorial H3 | Cormorant Garamond | 28–32px | 600 | 1.2 |
+| Body | DM Sans | 17–18px | 400 | 1.6 |
+| Main navigation | DM Sans | 14–15px | 500 | 1.4 |
+| Booking buttons | DM Sans | 15–16px | 600 | 1.4 |
+| Captions and labels | DM Sans | 13–14px | 500 | 1.4 |
+| Chinese headings | Noto Serif SC | 36–48px | 500 | 1.3 |
+| Chinese body | Noto Sans SC | 16–18px | 400 | 1.7 |
+
+- Responsive H1/H2/H3 sizes use the `clamp()` values in front matter, not fixed desktop sizes. Check 320px, 375px, 768px, 1024px and wide desktop.
+- **Lead text:** DM Sans 19px/1.55, Muted Lichen. Keep long paragraphs within the 760px narrow container (~65–75 Latin characters per line).
+- **H4 / booking step title:** DM Sans 20px/1.35, weight 600. H3 is serif unless the element is an interface label rather than an editorial heading.
+- **Labels:** Default DM Sans 500, 13–14px; use uppercase eyebrows sparingly in Latin text, no forced uppercase or tracking for Chinese text.
+- **Price/number consistency:** keep `font-variant-numeric: tabular-nums` on prices, dates, times and phone numbers where supported.
+- **Chinese scope:** Apply the Chinese heading/body families on `html[lang="zh-CN"]` or `html[lang^="zh-Hans"]` (and `:lang(zh-CN)` within mixed-language content). Do not let the Latin serif be a Chinese fallback; assign Chinese heading family directly.
+- **Amelia:** Match fonts for visible booking UI, including forms and buttons; verify plugin styles and font support across DE/EN/zh-CN. Avoid modifying plugin source files.
 
 ### Eyebrow policy
 Eyebrows are used sparingly — the hero and genuinely new contexts get one. Sections whose headings already name the topic ("Individuelle TCM-Behandlungen", "Preise & Krankenkasse", "Häufig gestellte Fragen") carry no eyebrow. `SectionHeader` renders an eyebrow only when one is passed.
@@ -214,6 +248,8 @@ Eyebrows are used sparingly — the hero and genuinely new contexts get one. Sec
 **The Tabular Figures Rule.** Every price, duration, time slot, and phone number sets `font-variant-numeric: tabular-nums`. Figures in money and time never jitter.
 
 **The One Display Rule.** Only the page's hero headline gets Display size. Section headlines stop at Headline; hierarchy comes from spacing and the serif/sans split, not from bigger type.
+
+**The Two-Script Rule.** Use Cormorant Garamond + DM Sans for German/English, and Noto Serif SC + Noto Sans SC for Simplified Chinese. All scripts should feel like one design without forcing Latin spacing and casing on Chinese text.
 
 ## Layout
 
@@ -228,7 +264,7 @@ An 8 px spacing grid (4 px half-step at `space-1`) over a 1200 px container, wit
 - **Booking band (home):** a single quiet `booking-band` panel — left-aligned heading, short copy, primary + phone-fallback buttons — instead of embedding the full widget on the homepage.
 - **Header:** 76 px desktop / 64–68 px mobile, sticky, translucent Rice Paper (`rgba(250,248,243,0.94)` + backdrop blur) that turns near-white with a hairline bottom border and soft shadow on scroll.
 - **Breakpoints:** collapse below 1024 px (drawer nav, stacked grids); single-column below 768 px; tightening pass at 375 px; design must survive 320 px without horizontal scroll.
-- **Chinese pages** get wider line-height (1.75) and their own per-language spacing checks; do not assume Latin line counts.
+- **Simplified Chinese pages** get wider body line-height (1.7) and their own per-language spacing checks; do not assume Latin line counts.
 
 ## Elevation & Depth
 
@@ -289,7 +325,7 @@ Refined and restrained — compact, confident, no drama.
 - **Outline:** transparent, 1 px Apothecary Green border; hover fills Apothecary Green + white text. Used for phone-fallback CTAs.
 - **Text:** bare Apothecary Green link-styled button; hover deepens.
 - **Interaction:** the step-and-press motion from the Motion section; focus uses the global green focus ring.
-- **CTA wording:** one primary verb phrase everywhere — `Termin buchen` / `Book Appointment` / `預約就診`; phone fallbacks say `Telefonisch anfragen` (the number lives in `tel:` href, not the label).
+- **CTA wording:** one primary verb phrase everywhere — `Termin buchen` / `Book Appointment` / `预约就诊`; phone fallbacks say `Telefonisch anfragen` (the number lives in `tel:` href, not the label).
 
 ### Badges & Chips
 - **Style:** tiny uppercase Label type, `2px 8px` padding, 6 px radius.
@@ -298,8 +334,8 @@ Refined and restrained — compact, confident, no drama.
 
 ### Cards & Editorial Rows
 - **Treatment card:** white, 1 px Hairline, 16 px radius, `space-8` padding; sage icon well flips to Apothecary Green with white icon on hover; hover = ambient → lift shadow, border to Sage.
-- **Treatment index row:** `01`-style serif italic sage numeral + serif title + hairline rule + green arrow link; hover fills Linen, arrow nudges. Used on the treatments page and homepage index.
-- **Timeline / editorial steps:** serif italic numeral above a hairline, sans title + body — print-like process steps on First Visit and About.
+- **Treatment index row:** `01`-style Cormorant Garamond italic sage numeral + Cormorant Garamond title + hairline rule + green arrow link; hover fills Linen, arrow nudges. Used on the treatments page and homepage index.
+- **Timeline / editorial steps:** Cormorant Garamond italic numeral above a hairline, DM Sans UI title + body — print-like process steps on First Visit and About.
 - **Insurance/info card:** same card recipe with checklist rows of small green icons.
 - **Portrait placeholder:** diagonal Linen→Sage Wash gradient panel, white silhouette circle — stands in until the approved photo lands; keep it, don't fake a photo.
 - **Practitioner editorial (`pract-ed`):** same 690+486 grid as the hero — serif name/philosophy left, portrait slot right; credential list below with `[CONFIRM]` badges.
@@ -340,8 +376,8 @@ The 4-step Amelia-shaped prototype — treat it as the most important surface on
 - **Do** pair the 1 px Hairline border with the Ambient shadow on every card — the border is what keeps the soft shadow from looking muddy.
 - **Do** set prices, durations, times, and phone numbers in Tabular Figures.
 - **Do** keep `[CONFIRM]` badges in the Amber pair until the client verifies the fact; the badge is a workflow tool, not a style choice.
-- **Do** set h1/h2 and editorial titles in Source Serif 4 at weight 400–500; keep controls, nav and body in Source Sans 3.
-- **Do** give Chinese pages their own stack and line-height (1.75), and ship Noto Sans TC once the zh-Hant re-translation lands.
+- **Do** use Cormorant Garamond 500 for Latin H1/H2 and 600 for H3; use DM Sans for Latin controls, navigation and body.
+- **Do** use Noto Serif SC for Simplified Chinese headings and Noto Sans SC for body/UI at 1.7 body line-height; verify all `zh-CN` translations.
 - **Do** use the 2 px selectable-card pattern for any choice the user must commit to (service picker, future filters).
 - **Do** keep the hero on a `min-height` — never a fixed `height` — so content always grows past the fold instead of clipping under the header.
 - **Do** keep every animation skippable: content must be fully readable with JavaScript disabled and under `prefers-reduced-motion`.
@@ -352,7 +388,7 @@ The 4-step Amelia-shaped prototype — treat it as the most important surface on
 - **Don't** use Sage for small text or borders alone to signal errors; it's decorative and fails contrast at small sizes.
 - **Don't** use the pill radius on buttons or cards — pills are for toggles and step markers.
 - **Don't** apply gradients anywhere except the CTA banner (and the portrait placeholder's quiet two-tone).
-- **Don't** ship Simplified glyphs on the Chinese pages — Traditional Chinese is binding (zh-Hant); update the font stack and copy together.
+- **Don't** ship Traditional Chinese fonts or copy for the confirmed Simplified Chinese (`zh-CN`) locale; check real Chinese text and booking screens.
 - **Don't** add stock-hospital or clinical-institution imagery; approved real photos or the labeled placeholder, nothing else.
 - **Don't** put captions or description rows under images — approval labels sit inside the frame corner.
 - **Don't** add scroll-linked animations, parallax or shader scenes — this is a service page; the word-highlight moment is the only scroll-aware effect.

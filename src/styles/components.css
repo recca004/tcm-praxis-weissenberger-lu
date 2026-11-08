@@ -957,16 +957,23 @@
    Premium direction: Quiet Consultation Room (design/quiet-consultation)
    ========================================================================== */
 
-/* Serif display on h1/h2 — Latin faces lead, Chinese falls to the TC stack. */
+/* Serif display — Cormorant Garamond leads Latin headings (500 h1/h2, 600 h3);
+   Chinese headings resolve to Noto Serif SC via html[lang="zh-CN"] in base.css. */
 h1, h2 {
   font-family: var(--font-display);
   font-weight: 500;
   letter-spacing: -0.01em;
 }
 
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
 .hero-title {
-  font-size: clamp(2.4rem, 4.6vw, 3.9rem);
-  line-height: 1.12;
+  font-size: clamp(2.5rem, 5.3vw, 4.75rem);
+  line-height: 1.1;
 }
 
 /* Editorial treatment index — hairline rows, no cards */
