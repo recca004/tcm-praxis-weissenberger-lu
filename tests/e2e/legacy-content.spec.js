@@ -32,7 +32,7 @@ test.describe('symptoms pages', () => {
       const bookingLinks = page.locator(`.pillar-body a[href$="${loc === 'de' ? '/termin-buchen/' : loc === 'en' ? '/book-appointment/' : '/yuyue/'}"]`);
       await expect(bookingLinks).toHaveCount(4);
       const treatmentsHref = loc === 'de' ? '/de/behandlungen/' : loc === 'en' ? '/en/treatments/' : '/zh/liaofa/';
-      await expect(page.locator(`a.card-action-link[href="${treatmentsHref}"]`)).toBeVisible();
+      await expect(page.locator(`a.card-action-link[href="${treatmentsHref}"]`).first()).toBeVisible();
       // personal consultation CTA closes the page
       await expect(page.locator('.cta-banner')).toHaveCount(1);
       // medical-review markers present on drafted copy

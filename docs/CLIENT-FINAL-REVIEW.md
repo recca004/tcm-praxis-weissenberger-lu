@@ -89,3 +89,10 @@ Bitte notieren Sie hier Änderungswünsche — ich setze sie anschliessend um.
 - Konflikt gefunden: Alte Website zeigte Mobilnummer 078 790 88 69 — Entwurf nutzt +41 78 899 92 88. Bitte richtige Nummer bestätigen.
 - Öffnungszeiten: Alte Website listete zusätzlich "Sonntag geschlossen" — bitte bestätigen.
 - Weiterhin offen: Mobilnummer, Öffnungszeiten, Preise, Diplome/Mitgliedschaften (siehe CLIENT-APPROVAL.md).
+
+
+---
+
+## Nachtrag — Krankenkassen-Logo & erweiterte Beschwerden (Nov 2026)
+- Zwei-reihiges Logo-Karussell gebaut (Vorschau via ?preview-insurers). KPT + Groupe Mutuel SVGs von offiziellen Websites geladen — bitte Nutzungserlaubnis bestätigen; CSS/SWICA/Sanitas/Visana Logos fehlen noch (offizielle Dateien nötig). Kein Versicherer gilt als bestätigt, bevor Sie freigeben.
+- Beschwerden-Seite um 4 Themengruppen erweitert (Helsana/NCCIH-basiert, neutrale Formulierung). Bitte medizinisch prüfen: Asthma, Neurologie, Psychosomatik, Raucherentwöhnung, Geburtsvorbereitung nur in Ihrem Leistungsumfang?

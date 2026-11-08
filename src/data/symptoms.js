@@ -101,4 +101,68 @@ export const SYMPTOMS_PAGE = {
       zh: '查看九种中医疗法',
     },
   },
+  // Extended topics (Helsana acupuncture overview + NCCIH safety review,
+  // paraphrased). Neutral wording only — these are topics people sometimes
+  // raise in consultations, not promised treatments. All locales flagged
+  // for Min's clinical review.
+  extra: {
+    heading: {
+      de: 'Weitere Anliegen rund um Akupunktur',
+      en: 'Other Concerns Discussed in Acupuncture Consultations',
+      zh: '针灸咨询中的其他常见问题',
+    },
+    groups: [
+      {
+        icon: 'activity',
+        title: { de: 'Schmerz & Bewegung', en: 'Pain & Movement', zh: '疼痛与活动' },
+        items: {
+          de: ['Kopfschmerzen', 'Gelenkschmerzen', 'Nacken- & Wirbelsäulenbeschwerden', 'Bewegungsapparat-Beschwerden', 'Verstauchungen', 'Muskel- & Sehnenverletzungen', 'Sehnenscheidenentzündung', 'Schleimbeutelentzündung'],
+          en: ['Headaches', 'Joint pain', 'Neck & spinal complaints', 'Musculoskeletal concerns', 'Sprains', 'Muscle & tendon injuries', 'Tendinitis', 'Bursitis'],
+          zh: ['头痛', '关节疼痛', '颈肩与脊柱不适', '运动系统不适', '扭伤', '肌肉与肌腱损伤', '肌腱炎', '滑囊炎'],
+        },
+      },
+      {
+        icon: 'moon',
+        title: { de: 'Schlaf, Energie & Wohlbefinden', en: 'Sleep, Energy & Wellbeing', zh: '睡眠、精力与情绪' },
+        items: {
+          de: ['Schlafprobleme', 'Stress', 'Burnout', 'Müdigkeit am Tag', 'Erschöpfung & Schwäche', 'Konzentrationsschwierigkeiten', 'Stimmungsbezogene Anliegen'],
+          en: ['Sleep problems', 'Stress', 'Burnout', 'Daytime sleepiness', 'Fatigue & weakness', 'Difficulty concentrating', 'Mood-related concerns'],
+          zh: ['睡眠问题', '压力', '倦怠', '日间嗜睡', '疲劳乏力', '注意力难集中', '情绪相关困扰'],
+        },
+      },
+      {
+        icon: 'leaf',
+        title: { de: 'Allergie & Atmung', en: 'Allergies & Breathing', zh: '过敏与呼吸' },
+        items: {
+          de: ['Allergische Beschwerden', 'Asthma (begleitend — ersetzt keine ärztliche Behandlung)'],
+          en: ['Allergic conditions', 'Asthma (complementary — never a substitute for medical care)'],
+          zh: ['过敏性不适', '哮喘（仅作辅助调理——不能替代正规医疗）'],
+        },
+      },
+      {
+        icon: 'clipboard-list',
+        title: { de: 'Weitere Beratungsthemen', en: 'Further Consultation Topics', zh: '其他咨询主题' },
+        items: {
+          de: ['Neurologische Anliegen (nur ärztlich abgeklärt)', 'Psychosomatische Beschwerden', 'Raucherentwöhnung (begleitend)', 'Geburtsvorbereitung (nur nach Rücksprache)'],
+          en: ['Neurological concerns (medically assessed only)', 'Psychosomatic concerns', 'Smoking cessation (supportive)', 'Childbirth preparation (by arrangement only)'],
+          zh: ['神经系统相关问题（需经医生评估）', '心身相关不适', '戒烟（辅助调理）', '孕前调理（需另行沟通）'],
+        },
+      },
+    ],
+    note: {
+      de: 'Diese Themen werden in der Akupunktur-Beratung gelegentlich besprochen. Ob eine Behandlung für Sie infrage kommt, wird individuell abgeklärt — Akupunktur ersetzt keine ärztliche Abklärung oder Behandlung.',
+      en: 'These topics are sometimes discussed during an acupuncture consultation. Suitability is assessed individually — acupuncture does not replace medical assessment or treatment.',
+      zh: '以上主题偶尔会在针灸咨询中提及。是否适合接受治疗须个案评估——针灸不能替代正规医学诊断与治疗。',
+    },
+    link: {
+      de: 'Mehr zur Akupunktur-Behandlung',
+      en: 'About acupuncture treatment',
+      zh: '了解针灸治疗',
+    },
+    sourceLabel: {
+      de: 'Quellen: Helsana · NCCIH',
+      en: 'Sources: Helsana · NCCIH',
+      zh: '参考来源：Helsana · NCCIH',
+    },
+  },
 };

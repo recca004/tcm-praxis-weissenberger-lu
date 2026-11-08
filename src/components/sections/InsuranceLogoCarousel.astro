@@ -1,26 +1,77 @@
 ---
-// Insurance logo carousel — renders ONLY approved insurers with local logo
-// files. With zero approved entries the component outputs nothing.
+// Insurer logo wall — two calm looping rows, grey until hover.
+// Public renders ONLY insurers where Min approved BOTH reimbursement and
+// logo display. With zero approved entries the wall renders inert: images
+// carry data-src (never fetched) and the block stays hidden until the
+// internal design preview is opened with ?preview-insurers, where it is
+// clearly labelled as unapproved.
+import Icon from '../Icon.astro';
 import { INSURERS } from '../../data/insurers.js';
 const { locale } = Astro.props;
-const active = INSURERS.filter((i) => i.approved && i.logo);
-const altLabel = { de: 'Logo', en: 'logo', zh: '标志' };
+const approved = INSURERS.filter((i) => i.approved && i.logo);
+const previewList = INSURERS.filter((i) => i.logo || i.logoPending);
+const isPreview = approved.length === 0 && previewList.length > 0;
+const items = approved.length ? approved : previewList;
+const imgAttrs = (i) => (approved.length ? { src: i.logo } : { 'data-src': i.logo });
+const L = {
+  wall: { de: 'Krankenkassen', en: 'Health insurers', zh: '保险公司' },
+  pause: { de: 'Logolauf anhalten', en: 'Pause logo scroll', zh: '暂停标志滚动' },
+  play: { de: 'Logolauf abspielen', en: 'Play logo scroll', zh: '播放标志滚动' },
+  banner: {
+    de: 'INTERNE DESIGN-VORSCHAU — noch nicht von der Praxis freigegeben',
+    en: 'INTERNAL DESIGN PREVIEW — not yet approved by the practice',
+    zh: '内部设计预览 — 尚未获诊所批准',
+  },
+};
+const rows = [items, [...items].reverse()];
 ---
-{active.length > 0 && (
-  <div class="ins-carousel" role="region" aria-label="Versicherer">
-    <div class="ins-track">
-      {active.map((i) => (
-        <a href={i.url} target="_blank" rel="noopener noreferrer" class="ins-item">
-          <img src={i.logo} alt={`${i.name} ${altLabel[locale]}`} height="28" loading="lazy" />
-        </a>
+{items.length > 0 && (
+  <div class:list={['ins-wall-wrap', { 'ins-wall-preview': isPreview }]}>
+    {isPreview && <p class="ins-preview-banner">{L.banner[locale]}</p>}
+    <div class="ins-wall" role="region" aria-label={L.wall[locale]}>
+      {rows.map((row, r) => (
+        <div class="ins-row">
+          <div class="ins-track" data-dir={r === 1 ? 'reverse' : 'forward'}>
+            {row.map((i) => (
+              <a href={i.url} target="_blank" rel="noopener noreferrer" class="ins-item">
+                {i.logo ? <img {...imgAttrs(i)} alt={i.name} loading="lazy" /> : <span class="ins-name">{i.name} <em class="ins-pending">(Logo offen)</em></span>}
+              </a>
+            ))}
+          </div>
+          <div class="ins-track" data-dir={r === 1 ? 'reverse' : 'forward'} aria-hidden="true">
+            {row.map((i) => (
+              <span class="ins-item" tabindex="-1">
+                {i.logo ? <img {...imgAttrs(i)} alt="" loading="lazy" /> : <span class="ins-name">{i.name}</span>}
+              </span>
+            ))}
+          </div>
+        </div>
       ))}
-    </div>
-    <div class="ins-track" aria-hidden="true">
-      {active.map((i) => (
-        <span class="ins-item" tabindex="-1">
-          <img src={i.logo} alt="" height="28" loading="lazy" />
-        </span>
-      ))}
+      <button type="button" class="ins-pause" aria-pressed="false" data-label-pause={L.pause[locale]} data-label-play={L.play[locale]} aria-label={L.pause[locale]}>
+        <Icon name="circle" size={12} />
+      </button>
     </div>
   </div>
 )}
+<script is:inline>
+  (function () {
+    // Internal design preview — opt-in via ?preview-insurers. Activating it
+    // swaps data-src→src (only then are logo files requested) and unhides.
+    var preview = new URLSearchParams(location.search).has('preview-insurers');
+    document.querySelectorAll('.ins-wall-wrap.ins-wall-preview').forEach((wrap) => {
+      if (preview) {
+        wrap.querySelectorAll('img[data-src]').forEach((img) => { img.src = img.dataset.src; img.removeAttribute('data-src'); });
+        wrap.classList.remove('ins-wall-preview');
+      }
+    });
+    document.querySelectorAll('.ins-wall').forEach((wall) => {
+      var btn = wall.querySelector('.ins-pause');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        var paused = wall.classList.toggle('is-paused');
+        btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+        btn.setAttribute('aria-label', paused ? btn.dataset.labelPlay : btn.dataset.labelPause);
+      });
+    });
+  })();
+</script>

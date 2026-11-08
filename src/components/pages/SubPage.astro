@@ -94,6 +94,27 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
             </div>
           ))}
         </div>
+        <div class="sym-extra">
+          <h2 class="sym-extra-title">{SYMPTOMS_PAGE.extra.heading[locale]} <Rev when={true} /></h2>
+          <div class="sym-extra-grid">
+            {SYMPTOMS_PAGE.extra.groups.map((g) => (
+              <div class="sym-extra-group">
+                <h3><Icon name={g.icon} size={18} /> {g.title[locale]}</h3>
+                <ul>
+                  {g.items[locale].map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p class="sym-extra-note">{SYMPTOMS_PAGE.extra.note[locale]}</p>
+          <p class="sym-extra-links">
+            <a href={ROUTES.treatments[locale]} class="card-action-link">{SYMPTOMS_PAGE.extra.link[locale]} <Icon name="arrow-up-right" size={15} /></a>
+            <span class="sym-extra-src">{SYMPTOMS_PAGE.extra.sourceLabel[locale]}:
+              {' '}<a href="https://www.helsana.ch/fr/prives/savoir/medecine-complementaire/acupuncture.html" target="_blank" rel="noopener noreferrer">Helsana</a>
+              {' · '}<a href="https://www.nccih.nih.gov/health/acupuncture-effectiveness-and-safety" target="_blank" rel="noopener noreferrer">NCCIH</a>
+            </span>
+          </p>
+        </div>
         <div style="margin-bottom: var(--space-12); text-align: center;">
           <p style="color: var(--color-muted); font-size: var(--text-sm); margin-bottom: var(--space-2);">{SYMPTOMS_PAGE.methods.text[locale]}</p>
           <a href={ROUTES.treatments[locale]} class="card-action-link">{SYMPTOMS_PAGE.methods.link[locale]} <Icon name="arrow-up-right" size={15} /></a>

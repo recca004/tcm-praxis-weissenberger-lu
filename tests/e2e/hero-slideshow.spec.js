@@ -75,7 +75,7 @@ test.describe('trust + insurance gating', () => {
   });
   test('insurance carousel hidden until insurers approved', async ({ page }) => {
     await page.goto('/de/');
-    await expect(page.locator('.ins-carousel')).toHaveCount(0);
-    await expect(page.locator('text=Zusatzversicherung & Kostenübernahme')).toBeVisible();
+    await expect(page.locator('.ins-wall-wrap')).toBeHidden();
+    await expect(page.locator('text=Krankenkassen & Zusatzversicherung')).toBeVisible();
   });
 });
