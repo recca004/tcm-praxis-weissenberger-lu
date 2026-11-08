@@ -1,6 +1,7 @@
 ---
-import { LANG_TAG } from '../data/routes.js';
+import { LANG_TAG, ROUTES } from '../data/routes.js';
 import { SITE_URL } from '../data/site.js';
+import { OG_IMAGE, OG_IMAGE_DIMS, OG_IMAGE_ALT, OG_LOCALE, buildJsonLd } from '../data/seo.js';
 import Header from '../components/Header.astro';
 import MobileMenu from '../components/MobileMenu.astro';
 import Footer from '../components/Footer.astro';
@@ -18,6 +19,8 @@ const langLinks = [
   { locale: 'zh', label: '中文', title: '中文', hreflang: 'zh-CN', href: Astro.props.zhHref },
 ];
 const canonical = SITE + Astro.props.canonicalPath;
+const ogImage = SITE + OG_IMAGE;
+const jsonLd = buildJsonLd({ pageId, locale, canonical, routes: ROUTES });
 ---
 <!doctype html>
 <html lang={LANG_TAG[locale]} data-type="service" data-radius="soft" data-buttons="solid" data-motion="quiet">
@@ -34,6 +37,22 @@ const canonical = SITE + Astro.props.canonicalPath;
     {langLinks.map((l) => <link rel="alternate" hreflang={l.hreflang} href={SITE + l.href} />)}
     <link rel="alternate" hreflang="x-default" href={`${SITE}/de/`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TCM Praxis Weissenberger-Lu" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content={String(OG_IMAGE_DIMS.width)} />
+    <meta property="og:image:height" content={String(OG_IMAGE_DIMS.height)} />
+    <meta property="og:image:alt" content={OG_IMAGE_ALT[locale]} />
+    <meta property="og:locale" content={OG_LOCALE[locale]} />
+    {langLinks.filter((l) => l.locale !== locale).map((l) => <meta property="og:locale:alternate" content={OG_LOCALE[l.locale]} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
   </head>
   <body>
     <Header locale={locale} pageId={pageId} langLinks={langLinks} />

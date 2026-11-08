@@ -1496,18 +1496,75 @@ h3 {
 }
 
 /* Contact map — privacy-gated embed */
+/* Contact page — practice details + transport | enquiry form, then a
+   full-width privacy-gated map. */
+.contact-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: var(--space-12);
+  align-items: start;
+  margin-bottom: var(--space-16);
+}
+
+.contact-transit {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.contact-transit-title {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-4);
+}
+
+.contact-transit-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+.contact-transit-list li {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+}
+
+.contact-transit-list li svg,
+.contact-transit-list li i {
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .contact-cols { grid-template-columns: 1fr; gap: var(--space-10); }
+}
+
 .contact-map { position: relative; width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--color-border); overflow: hidden; background: var(--color-surface); box-shadow: var(--shadow-subtle); }
-.contact-map iframe { display: block; width: 100%; height: 440px; border: 0; }
-.contact-map-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-3); min-height: 440px; padding: var(--space-8); text-align: center; }
+.contact-map iframe { display: block; width: 100%; height: 460px; border: 0; opacity: 0; transition: opacity 0.5s ease; }
+.contact-map iframe.is-loaded { opacity: 1; }
+.contact-map-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-3); min-height: 460px; padding: var(--space-8); text-align: center; }
 .contact-map-pin { color: var(--color-primary); }
 .contact-map-addr { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-primary-dark); margin: 0; }
 .contact-map-note { font-size: var(--text-xs); color: var(--color-muted); max-width: 38ch; margin: 0; }
 .contact-map-ext { display: inline-flex; align-items: center; gap: 0.35rem; font-size: var(--text-sm); font-weight: 600; color: var(--color-primary); text-decoration: none; }
 .contact-map-ext:hover { color: var(--color-primary-dark); text-decoration: underline; }
-.contact-map-row { display: grid; grid-template-columns: 63fr 37fr; gap: var(--space-8); align-items: stretch; }
-@media (max-width: 900px) {
-  .contact-map-row { grid-template-columns: 1fr; }
-  .contact-map iframe, .contact-map-placeholder { height: auto; min-height: 340px; }
+@media (max-width: 1024px) {
+  .contact-map iframe { height: 400px; }
+  .contact-map-placeholder { min-height: 400px; }
+}
+
+@media (max-width: 640px) {
+  .contact-map iframe { height: 340px; }
+  .contact-map-placeholder { min-height: 340px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-map iframe { transition: none; }
 }
 
 /* Hero slideshow — crossfade inside the 4:5 frame */

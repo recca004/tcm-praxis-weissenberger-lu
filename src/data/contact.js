@@ -81,6 +81,8 @@ export const TRANSIT = {
     },
     {
       icon: 'accessibility',
+      // Unconfirmed — show only after Min approves the step-free access claim.
+      pending: true,
       html: {
         de: '<strong>Barrierefreier Zugang:</strong> Die Praxis ist über Lift oder ebenerdig erreichbar.',
         en: '<strong>Step-free access:</strong> The practice is reachable by lift or at ground level.',

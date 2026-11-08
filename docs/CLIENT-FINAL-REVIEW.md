@@ -80,3 +80,12 @@ Damit wir die Abschnitte wahrheitsgemäss und datenschutzkonform veröffentliche
 ## Rückmeldung je Seite
 
 Bitte notieren Sie hier Änderungswünsche — ich setze sie anschliessend um.
+
+---
+
+## Nachtrag — Final Pass (Nov 2026, feature/contact-seo-gsap-final)
+- Kontaktseite neu strukturiert: Praxisdaten + ÖV/Parken links, Formular rechts, Karte volle Breite.
+- SEO zentralisiert: eindeutige Titles/Descriptions, Canonical, hreflang, OG, JSON-LD (MedicalBusiness/Breadcrumb/Person), robots.txt, Sitemap — Vorschau weiterhin noindex.
+- Konflikt gefunden: Alte Website zeigte Mobilnummer 078 790 88 69 — Entwurf nutzt +41 78 899 92 88. Bitte richtige Nummer bestätigen.
+- Öffnungszeiten: Alte Website listete zusätzlich "Sonntag geschlossen" — bitte bestätigen.
+- Weiterhin offen: Mobilnummer, Öffnungszeiten, Preise, Diplome/Mitgliedschaften (siehe CLIENT-APPROVAL.md).

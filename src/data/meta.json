@@ -10,13 +10,13 @@
     },
     "zh": {
       "title": "苏黎世 Seebach 中医与针灸 | TCM Praxis Weissenberger-Lu",
-      "desc": "苏黎世 Seebach 中医诊所：由瑞士联邦中医师 Min Weissenberger-Lu 主理，提供专业针灸、中药调理、推拿、拔罐及综合体质辨证。支援瑞士补充医疗保险（VVG）。"
+      "desc": "苏黎世 Seebach 中医诊所：由执业中医师 Min Weissenberger-Lu 主理，提供专业针灸、中药调理、推拿、拔罐及综合体质辨证，出具 Tarif 590 报销凭证。"
     }
   },
   "about": {
     "de": {
       "title": "Über Min Weissenberger-Lu | TCM Praxis Zürich",
-      "desc": "Lernen Sie Min Weissenberger-Lu kennen. Eidg. Diplomierte TCM-Therapeutin in Zürich-Seebach mit Erfahrung in Akupunktur und Kräutermedizin."
+      "desc": "Lernen Sie Min Weissenberger-Lu kennen. EMR-registrierte TCM-Therapeutin in Zürich-Seebach mit Erfahrung in Akupunktur und Kräutermedizin."
     },
     "en": {
       "title": "Meet Min Weissenberger-Lu | TCM Zurich-Seebach",
@@ -24,7 +24,7 @@
     },
     "zh": {
       "title": "认识 Min Weissenberger-Lu | 苏黎世中医诊所",
-      "desc": "了解主治中医师 Min Weissenberger-Lu。瑞士联邦认证中医师，擅长传统针灸、体质辨证与中药调理，提供中文、德语、英语三语服务。"
+      "desc": "了解主治中医师 Min Weissenberger-Lu。瑞士 EMR 注册执业中医师，擅长传统针灸、体质辨证与中药调理，提供中文、德语、英语三语服务。"
     }
   },
   "treatments": {
@@ -85,16 +85,16 @@
   },
   "booking": {
     "de": {
-      "title": "Termin buchen | TCM Praxis Weissenberger-Lu Zürich",
-      "desc": "Buchen Sie Ihren TCM- oder Akupunkturtermin online bei Min Weissenberger-Lu in Zürich-Seebach."
+      "title": "Termin anfragen | TCM Praxis Weissenberger-Lu Zürich",
+      "desc": "Termin bei Min Weissenberger-Lu in Zürich-Seebach anfragen — interaktive Demo des Buchungsablaufs, oder direkt anrufen: 043 300 99 32."
     },
     "en": {
-      "title": "Book an Appointment | TCM Praxis Weissenberger-Lu",
-      "desc": "Book your TCM or acupuncture appointment online with Min Weissenberger-Lu in Zurich-Seebach."
+      "title": "Request an Appointment | TCM Praxis Weissenberger-Lu",
+      "desc": "Request a TCM or acupuncture appointment with Min Weissenberger-Lu in Zurich-Seebach — interactive booking demo, or call 043 300 99 32."
     },
     "zh": {
       "title": "预约就诊 | 苏黎世 Seebach | TCM Weissenberger-Lu",
-      "desc": "苏黎世 Seebach 中医与针灸线上预约：选择初诊或复诊，自选就诊时间，体验流畅便捷的预约服务。"
+      "desc": "苏黎世 Seebach 中医与针灸预约咨询：在线体验预约流程演示，或致电 043 300 99 32 直接预约就诊。"
     }
   },
   "contact": {

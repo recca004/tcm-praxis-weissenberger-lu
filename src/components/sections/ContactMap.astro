@@ -36,6 +36,7 @@ const EMBED = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.632209
       f.loading = 'lazy';
       f.allowFullscreen = true;
       f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      f.addEventListener('load', () => f.classList.add('is-loaded'), { once: true });
       wrap.replaceChildren(f);
     }, { once: true });
   });
