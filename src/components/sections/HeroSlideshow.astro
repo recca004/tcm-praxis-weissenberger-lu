@@ -1,0 +1,65 @@
+---
+// Hero slideshow — 3 practice photos, calm 7s crossfade, accessible controls.
+import Icon from '../Icon.astro';
+const { locale, slides } = Astro.props;
+const T = {
+  prev: { de: 'Vorheriges Bild', en: 'Previous image', zh: '上一张' },
+  next: { de: 'Nächstes Bild', en: 'Next image', zh: '下一张' },
+  pause: { de: 'Diashow pausieren', en: 'Pause slideshow', zh: '暂停轮播' },
+  play: { de: 'Diashow abspielen', en: 'Play slideshow', zh: '播放轮播' },
+  goto: { de: 'Bild {n} anzeigen', en: 'Show image {n}', zh: '显示第 {n} 张' },
+};
+---
+<div class="hero-slideshow" data-slideshow>
+  {slides.map((s, i) => (
+    <img
+      class:list={['hero-slide', { 'is-active': i === 0 }]}
+      src={s.src}
+      alt={s.alt[locale]}
+      style={`object-position:${s.pos};`}
+      {...(i === 0 ? { fetchpriority: 'high' } : { loading: 'lazy' })}
+      aria-hidden={i === 0 ? 'false' : 'true'}
+    />
+  ))}
+  <div class="hero-slide-ui">
+    <button type="button" class="hero-slide-btn" data-prev aria-label={T.prev[locale]}><Icon name="chevron-left" size={18} /></button>
+    <div class="hero-slide-dots" role="tablist">
+      {slides.map((_, i) => (
+        <button type="button" class:list={['hero-slide-dot', { 'is-active': i === 0 }]} data-goto={i} aria-label={T.goto[locale].replace('{n}', i + 1)} aria-pressed={i === 0 ? 'true' : 'false'} />
+      ))}
+    </div>
+    <button type="button" class="hero-slide-btn" data-next aria-label={T.next[locale]}><Icon name="chevron-right" size={18} /></button>
+    <button type="button" class="hero-slide-btn hero-slide-pause" data-pause aria-label={T.pause[locale]} data-label-pause={T.pause[locale]} data-label-play={T.play[locale]} aria-pressed="false"><Icon name="circle" size={14} /></button>
+  </div>
+</div>
+<script>
+  document.querySelectorAll('[data-slideshow]').forEach((root) => {
+    const slides = [...root.querySelectorAll('.hero-slide')];
+    const dots = [...root.querySelectorAll('.hero-slide-dot')];
+    const pauseBtn = root.querySelector('[data-pause]');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let i = 0, timer = null, paused = reduced;
+    const show = (n) => {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => { s.classList.toggle('is-active', k === i); s.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
+      dots.forEach((d, k) => { d.classList.toggle('is-active', k === i); d.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+    };
+    const start = () => { if (!paused && !timer) timer = setInterval(() => show(i + 1), 7000); };
+    const stop = () => { clearInterval(timer); timer = null; };
+    const setPaused = (p) => {
+      paused = p; stop(); if (!p) start();
+      pauseBtn?.setAttribute('aria-pressed', p ? 'true' : 'false');
+      pauseBtn?.setAttribute('aria-label', p ? pauseBtn.dataset.labelPlay : pauseBtn.dataset.labelPause);
+    };
+    root.querySelector('[data-prev]').addEventListener('click', () => { show(i - 1); });
+    root.querySelector('[data-next]').addEventListener('click', () => { show(i + 1); });
+    dots.forEach((d, k) => d.addEventListener('click', () => show(k)));
+    pauseBtn?.addEventListener('click', () => setPaused(!paused));
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(i - 1);
+      if (e.key === 'ArrowRight') show(i + 1);
+    });
+    document.addEventListener('visibilitychange', () => { document.hidden ? stop() : start(); });
+    setPaused(paused);
+  });
+</script>

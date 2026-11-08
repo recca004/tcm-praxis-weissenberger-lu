@@ -1,0 +1,17 @@
+---
+// Compact editorial trust row — only approved, verifiable facts.
+import Icon from '../Icon.astro';
+import { HOMEPAGE_TRUST } from '../../data/home.js';
+const { locale } = Astro.props;
+---
+<div class="home-trust">
+  {HOMEPAGE_TRUST.map((t) => (
+    <div class="home-trust-item">
+      <Icon name={t.icon} size={18} class="home-trust-icon" />
+      <div>
+        <dt>{t.h[locale]}</dt>
+        <dd>{t.p[locale]}</dd>
+      </div>
+    </div>
+  ))}
+</div>

@@ -1,0 +1,26 @@
+---
+// Insurance logo carousel — renders ONLY approved insurers with local logo
+// files. With zero approved entries the component outputs nothing.
+import { INSURERS } from '../../data/insurers.js';
+const { locale } = Astro.props;
+const active = INSURERS.filter((i) => i.approved && i.logo);
+const altLabel = { de: 'Logo', en: 'logo', zh: '标志' };
+---
+{active.length > 0 && (
+  <div class="ins-carousel" role="region" aria-label="Versicherer">
+    <div class="ins-track">
+      {active.map((i) => (
+        <a href={i.url} target="_blank" rel="noopener noreferrer" class="ins-item">
+          <img src={i.logo} alt={`${i.name} ${altLabel[locale]}`} height="28" loading="lazy" />
+        </a>
+      ))}
+    </div>
+    <div class="ins-track" aria-hidden="true">
+      {active.map((i) => (
+        <span class="ins-item" tabindex="-1">
+          <img src={i.logo} alt="" height="28" loading="lazy" />
+        </span>
+      ))}
+    </div>
+  </div>
+)}

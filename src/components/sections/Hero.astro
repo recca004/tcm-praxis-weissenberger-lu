@@ -1,6 +1,7 @@
 ---
 import { ROUTES } from '../../data/routes.js';
-import { HERO, TRUST_ITEMS } from '../../data/home.js';
+import { HERO, TRUST_ITEMS, HERO_SLIDES } from '../../data/home.js';
+import HeroSlideshow from './HeroSlideshow.astro';
 const { locale } = Astro.props;
 const D = HERO;
 ---
@@ -26,8 +27,7 @@ const D = HERO;
       </div>
       <figure class="hero-media-wrapper">
         <div class="hero-image-frame">
-          <img src="/assets/images/clinic-room-orchids.webp" srcset="/assets/images/clinic-room-orchids.webp 1500w" sizes="(max-width: 640px) 100vw, 600px" alt={D.imageAlt[locale]} fetchpriority="high" />
-          <span class="hero-photo-badge">{D.badge[locale]}</span>
+          <HeroSlideshow locale={locale} slides={HERO_SLIDES} />
         </div>
       </figure>
     </div>
