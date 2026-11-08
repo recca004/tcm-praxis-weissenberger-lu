@@ -33,26 +33,28 @@ const T = {
   </div>
 </div>
 <script>
-  document.querySelectorAll('[data-slideshow]').forEach((root) => {
+  document.querySelectorAll<HTMLElement>('[data-slideshow]').forEach((root) => {
     const slides = [...root.querySelectorAll('.hero-slide')];
     const dots = [...root.querySelectorAll('.hero-slide-dot')];
-    const pauseBtn = root.querySelector('[data-pause]');
+    const pauseBtn = root.querySelector<HTMLElement>('[data-pause]');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let i = 0, timer = null, paused = reduced;
+    let i = 0, timer: number | undefined, paused = reduced;
     const show = (n) => {
       i = (n + slides.length) % slides.length;
       slides.forEach((s, k) => { s.classList.toggle('is-active', k === i); s.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
       dots.forEach((d, k) => { d.classList.toggle('is-active', k === i); d.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
     };
-    const start = () => { if (!paused && !timer) timer = setInterval(() => show(i + 1), 7000); };
-    const stop = () => { clearInterval(timer); timer = null; };
+    const start = () => { if (!paused && !timer) timer = window.setInterval(() => show(i + 1), 7000); };
+    const stop = () => { window.clearInterval(timer); timer = undefined; };
     const setPaused = (p) => {
       paused = p; stop(); if (!p) start();
-      pauseBtn?.setAttribute('aria-pressed', p ? 'true' : 'false');
-      pauseBtn?.setAttribute('aria-label', p ? pauseBtn.dataset.labelPlay : pauseBtn.dataset.labelPause);
+      if (pauseBtn) {
+        pauseBtn.setAttribute('aria-pressed', p ? 'true' : 'false');
+        pauseBtn.setAttribute('aria-label', p ? (pauseBtn.dataset.labelPlay ?? '') : (pauseBtn.dataset.labelPause ?? ''));
+      }
     };
-    root.querySelector('[data-prev]').addEventListener('click', () => { show(i - 1); });
-    root.querySelector('[data-next]').addEventListener('click', () => { show(i + 1); });
+    root.querySelector('[data-prev]')?.addEventListener('click', () => { show(i - 1); });
+    root.querySelector('[data-next]')?.addEventListener('click', () => { show(i + 1); });
     dots.forEach((d, k) => d.addEventListener('click', () => show(k)));
     pauseBtn?.addEventListener('click', () => setPaused(!paused));
     root.addEventListener('keydown', (e) => {

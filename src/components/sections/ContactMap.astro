@@ -28,11 +28,11 @@ const EMBED = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.632209
   </div>
 </div>
 <script>
-  document.querySelectorAll('.contact-map').forEach((wrap) => {
+  document.querySelectorAll<HTMLElement>('.contact-map').forEach((wrap) => {
     wrap.querySelector('.contact-map-load')?.addEventListener('click', () => {
       const f = document.createElement('iframe');
-      f.src = wrap.dataset.embed;
-      f.title = wrap.dataset.title;
+      f.src = wrap.dataset.embed ?? '';
+      f.title = wrap.dataset.title ?? '';
       f.loading = 'lazy';
       f.allowFullscreen = true;
       f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
