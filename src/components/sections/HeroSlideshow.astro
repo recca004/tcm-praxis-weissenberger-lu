@@ -23,7 +23,7 @@ const T = {
   ))}
   <div class="hero-slide-ui">
     <button type="button" class="hero-slide-btn" data-prev aria-label={T.prev[locale]}><Icon name="chevron-left" size={18} /></button>
-    <div class="hero-slide-dots" role="tablist">
+    <div class="hero-slide-dots" role="group">
       {slides.map((_, i) => (
         <button type="button" class:list={['hero-slide-dot', { 'is-active': i === 0 }]} data-goto={i} aria-label={T.goto[locale].replace('{n}', i + 1)} aria-pressed={i === 0 ? 'true' : 'false'} />
       ))}

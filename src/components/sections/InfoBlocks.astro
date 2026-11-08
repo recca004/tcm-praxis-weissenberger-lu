@@ -8,7 +8,7 @@ const { blocks, locale } = Astro.props;
   {blocks.map((b) => (
     <div class="ed-info-block">
       <div class="ed-info-icon" aria-hidden="true"><Icon name={b.icon} /></div>
-      <h3 class="ed-info-title">{b.title[locale]}</h3>
+      <h2 class="ed-info-title">{b.title[locale]}</h2>
       {b.textHtml && <p class="ed-info-text" set:html={b.textHtml[locale]} />}
       {b.itemsHtml && (
         <ul class="ed-info-items">

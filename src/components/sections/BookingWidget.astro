@@ -20,9 +20,9 @@ const notesLabel = variant === 'page' ? S.fields.notesPage[locale] : S.fields.no
     </div>
   </div>
 
-  <div class="booking-steps-bar" role="tablist">
+  <div class="booking-steps-bar">
     {S.stepTabs[locale].map((tab, i) => (
-      <button class:list={['booking-step-tab', { 'is-active': i === 0 }]} data-step={i + 1} role="tab" type="button">
+      <button class:list={['booking-step-tab', { 'is-active': i === 0 }]} data-step={i + 1} type="button">
         <span>{tab}</span>
       </button>
     ))}
@@ -30,21 +30,21 @@ const notesLabel = variant === 'page' ? S.fields.notesPage[locale] : S.fields.no
 
   <div class="booking-body">
     <div class="booking-step-panel" data-step="1">
-      <h4 class="booking-step-title">{D.step1Heading[locale]}</h4>
+      <h2 class="booking-step-title">{D.step1Heading[locale]}</h2>
       <div class="booking-service-options">
         {D.services.map((s, i) => (
-          <div class:list={['service-card-select', { 'is-selected': i === 0 }]} data-service={s.id}>
+          <button type="button" class:list={['service-card-select', { 'is-selected': i === 0 }]} data-service={s.id} aria-pressed={i === 0 ? 'true' : 'false'}>
             <Rev when={s.rev?.[locale]} />
-            <h4>{s.title[locale]}</h4>
+            <span class="service-card-title">{s.title[locale]}</span>
             <Rev when={s.rev?.[locale]} />
-            <p class="service-card-meta">{s.meta[locale]}</p>
-          </div>
+            <span class="service-card-meta">{s.meta[locale]}</span>
+          </button>
         ))}
       </div>
     </div>
 
     <div class="booking-step-panel" data-step="2" style="display: none;">
-      <h4 class="booking-step-title">{D.step2Heading[locale]}</h4>
+      <h2 class="booking-step-title">{D.step2Heading[locale]}</h2>
       <div class="booking-calendar-row">
         <div>
           <strong style="font-size: 14px; display: block; margin-bottom: 8px;">{S.monthLabel[locale]}</strong>
@@ -72,7 +72,7 @@ const notesLabel = variant === 'page' ? S.fields.notesPage[locale] : S.fields.no
     </div>
 
     <div class="booking-step-panel" data-step="3" style="display: none;">
-      <h4 class="booking-step-title">{D.step3Heading[locale]}</h4>
+      <h2 class="booking-step-title">{D.step3Heading[locale]}</h2>
       <div class="form-group">
         <label class="form-label" for="booking-name">{S.fields.name[locale]} <span class="required">*</span></label>
         <input type="text" id="booking-name" class="form-control" placeholder={D.namePlaceholder[locale]} required />
@@ -94,7 +94,7 @@ const notesLabel = variant === 'page' ? S.fields.notesPage[locale] : S.fields.no
     </div>
 
     <div class="booking-step-panel" data-step="4" style="display: none;">
-      <h4 class="booking-step-title">{D.step4Heading[locale]}</h4>
+      <h2 class="booking-step-title">{D.step4Heading[locale]}</h2>
       <div class="booking-summary">
         <Rev when={D.summaryServiceRev?.[locale]} />
         <p class="booking-summary-row"><strong>{S.summaryLabels.service[locale]}</strong> <span class="js-summary-service">{D.summaryService[locale]}</span></p>

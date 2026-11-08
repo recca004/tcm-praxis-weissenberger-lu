@@ -57,7 +57,7 @@ const rows = [items, [...items].reverse()];
   (function () {
     // Internal design preview — opt-in via ?preview-insurers. Activating it
     // swaps data-src→src (only then are logo files requested) and unhides.
-    var preview = new URLSearchParams(location.search).has('preview-insurers');
+    var preview = new URLSearchParams(location.search).has('preview-insurers') && (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
     document.querySelectorAll('.ins-wall-wrap.ins-wall-preview').forEach((wrap) => {
       if (preview) {
         wrap.querySelectorAll('img[data-src]').forEach((img) => { img.src = img.dataset.src; img.removeAttribute('data-src'); });

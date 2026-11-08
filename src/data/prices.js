@@ -57,9 +57,9 @@ export const PRICES_HOME = {
     eyebrow: { de: 'Krankenkassen-Deckung', en: 'Swiss Health Insurance', zh: '瑞士医保报销说明' },
     title: { de: 'Zusatzversicherung (VVG)', en: 'Supplementary Coverage (VVG)', zh: '补充医疗保险 (VVG)' },
     text: {
-      de: 'Die obligatorische Grundversicherung übernimmt komplementärmedizinische Behandlungen von Naturheilpraktikern in der Regel nicht. Viele Schweizer Krankenkassen beteiligen sich jedoch über die freiwillige Zusatzversicherung.',
-      en: 'Basic health insurance (KVG) generally does not cover natural healthcare. However, most Swiss supplementary insurance plans (VVG) reimburse a substantial portion of TCM treatments.',
-      zh: '瑞士基本医疗保险 (KVG) 通常不涵盖自然疗法，但绝大多数瑞士保险公司的附加险 (VVG) 均可报销很大比例的中医治疗费用。',
+      de: 'Die obligatorische Grundversicherung übernimmt komplementärmedizinische Behandlungen von Naturheilpraktikern in der Regel nicht. Ob und in welchem Umfang eine Zusatzversicherung (VVG) Kosten übernimmt, hängt von Ihrer individuellen Police ab — bitte klären Sie dies direkt mit Ihrer Krankenkasse.',
+      en: 'Basic health insurance (KVG) generally does not cover naturopathic treatment. Whether — and how much — a supplementary plan (VVG) reimburses depends on your individual policy. Please confirm coverage directly with your insurer before your appointment.',
+      zh: '瑞士基本医疗保险 (KVG) 通常不涵盖自然疗法。附加医疗保险 (VVG) 是否报销及报销比例取决于您的具体保险方案，就诊前请直接向保险公司确认。',
     },
     steps: [
       {

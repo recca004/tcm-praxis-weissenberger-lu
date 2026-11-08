@@ -44,6 +44,7 @@ export function initBookingWidget() {
       const stepNum = parseInt(tab.dataset.step, 10);
       tab.classList.toggle('is-active', stepNum === state.step);
       tab.classList.toggle('is-completed', stepNum < state.step);
+      tab.setAttribute('aria-current', stepNum === state.step ? 'step' : 'false');
     });
 
     panels.forEach((panel) => {
@@ -76,11 +77,13 @@ export function initBookingWidget() {
   }
 
   serviceCards.forEach((card) => {
+    card.setAttribute('aria-pressed', card.classList.contains('is-selected') ? 'true' : 'false');
     card.addEventListener('click', () => {
-      serviceCards.forEach((c) => c.classList.remove('is-selected'));
+      serviceCards.forEach((c) => { c.classList.remove('is-selected'); c.setAttribute('aria-pressed', 'false'); });
       card.classList.add('is-selected');
+      card.setAttribute('aria-pressed', 'true');
       state.service = card.dataset.service || 'initial';
-      state.serviceTitle = card.querySelector('h4')?.textContent || 'Behandlung';
+      state.serviceTitle = card.querySelector('.service-card-title')?.textContent || 'Behandlung';
       updateView();
     });
   });

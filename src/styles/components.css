@@ -689,6 +689,14 @@
 }
 
 .service-card-select {
+  appearance: none;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  display: block;
   border: 2px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-5);
@@ -707,7 +715,7 @@
   background-color: var(--color-sage-light);
 }
 
-.service-card-select h4 {
+.service-card-select h4, .service-card-title {
   font-size: var(--text-base);
   margin-bottom: 4px;
 }
@@ -1672,3 +1680,11 @@ h3 {
 .sym-extra-src a { color: var(--color-primary); text-decoration: none; border-bottom: 1px solid var(--color-border); }
 .sym-extra-src a:hover { color: var(--color-primary-dark); border-bottom-color: var(--color-primary-dark); }
 @media (max-width: 860px) { .sym-extra-grid { grid-template-columns: 1fr; } }
+
+
+/* Contact form — visible demo-only notice shown before the visitor types */
+.form-demo-note {
+  font-size: var(--text-xs); color: var(--color-muted);
+  border-left: 3px solid var(--color-chamomile, #D9C7A7);
+  padding-left: var(--space-3); margin-bottom: var(--space-6); line-height: 1.6;
+}

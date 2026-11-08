@@ -107,10 +107,10 @@ function initContactForms() {
       if (feedbackEl) {
         feedbackEl.style.display = 'block';
         feedbackEl.className = 'notice-box form-submission-feedback';
-        feedbackEl.innerHTML = `<strong>${successMsg}</strong>`;
+        feedbackEl.innerHTML = `<strong>${successMsg}</strong><br><a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a>`;
       }
 
-      form.reset();
+      // Fields are intentionally kept so the visitor can copy or resend the text via email.
     });
   });
 }

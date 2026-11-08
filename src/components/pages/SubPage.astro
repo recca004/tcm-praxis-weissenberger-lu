@@ -46,7 +46,7 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
     {pageId === 'firstVisit' ? (
       <div class="grid-2" style="align-items: center; margin-bottom: var(--space-16);">
         <SectionHeader eyebrow={HEADER.d.eyebrow[locale]} title={HEADER.d.title[locale]} lead={HEADER.d.lead?.[locale]} level="h1" rev={HEADER.d.rev?.[locale] || []} />
-        <img src="/assets/images/clinic-waiting-area.webp" alt={{de:'Wartebereich der Praxis mit zwei Sesseln',en:'Practice waiting area with two chairs',zh:'诊所候诊区 — 两把座椅'}[locale]} loading="eager" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:var(--radius-lg);border:1px solid var(--color-border);" />
+        <img src="/assets/images/clinic-waiting-area.webp" width="1500" height="987" alt={{de:'Wartebereich der Praxis mit zwei Sesseln',en:'Practice waiting area with two chairs',zh:'诊所候诊区 — 两把座椅'}[locale]} loading="eager" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:var(--radius-lg);border:1px solid var(--color-border);" />
       </div>
     ) : pageId === 'about' ? null : (
       <SectionHeader eyebrow={HEADER.d.eyebrow[locale]} title={HEADER.d.title[locale]} lead={HEADER.d.lead?.[locale]} level="h1" center={HEADER.center} rev={HEADER.d.rev?.[locale] || []} />
@@ -69,7 +69,7 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
               ))}
             </ul>
           </div>
-          <img src={DIAGNOSTIC.image[locale].src} alt={DIAGNOSTIC.image[locale].alt} loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius: var(--radius-lg); border: 1px solid var(--color-border);" />
+          <img src={DIAGNOSTIC.image[locale].src} width="1500" height="1000" alt={DIAGNOSTIC.image[locale].alt} loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius: var(--radius-lg); border: 1px solid var(--color-border);" />
         </div>
         <CTABanner locale={locale} pageId="treatments" />
       </>
@@ -77,6 +77,7 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
 
     {pageId === 'symptoms' && (
       <>
+        <h2 class="sr-only">{{de:'Die vier häufigsten Anliegen',en:'The four most common concerns',zh:'四类最常见健康问题'}[locale]}</h2>
         <div class="pillars-ed" style="margin-bottom: var(--space-10);">
           {SYMPTOMS_PAGE.concerns.map((c, i) => (
             <div class="pillar-row">
@@ -126,6 +127,7 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
     {pageId === 'about' && (
       <>
         <PractitionerEditorial locale={locale} variant="about" />
+        <h2 class="sr-only">{{de:'Behandlungsansatz & Praxiswerte',en:'Treatment approach & practice values',zh:'诊疗理念与实践价值'}[locale]}</h2>
         <div class="pillars-ed" style="margin-bottom: var(--space-16);">
           {ABOUT_PAGE.pillars.map((p, i) => (
             <div class="pillar-row">

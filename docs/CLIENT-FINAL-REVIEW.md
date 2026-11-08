@@ -96,3 +96,14 @@ Bitte notieren Sie hier Änderungswünsche — ich setze sie anschliessend um.
 ## Nachtrag — Krankenkassen-Logo & erweiterte Beschwerden (Nov 2026)
 - Zwei-reihiges Logo-Karussell gebaut (Vorschau via ?preview-insurers). KPT + Groupe Mutuel SVGs von offiziellen Websites geladen — bitte Nutzungserlaubnis bestätigen; CSS/SWICA/Sanitas/Visana Logos fehlen noch (offizielle Dateien nötig). Kein Versicherer gilt als bestätigt, bevor Sie freigeben.
 - Beschwerden-Seite um 4 Themengruppen erweitert (Helsana/NCCIH-basiert, neutrale Formulierung). Bitte medizinisch prüfen: Asthma, Neurologie, Psychosomatik, Raucherentwöhnung, Geburtsvorbereitung nur in Ihrem Leistungsumfang?
+
+
+---
+
+## Nachtrag — Final Handoff QA (Nov 2026, feature/final-client-handoff-qa)
+- Versicherungstexte neutralisiert (keine Zusage über Deckungsgrad).
+- Kontaktformular zeigt Demo-Hinweis VOR Eingabe; Text bleibt erhalten + E-Mail-Link.
+- Buchungsauswahl jetzt tastaturbedienbar (echte Buttons, aria-pressed/aria-current).
+- Überschriftenstruktur H1→H2→H3 korrigiert; Bildmaße ergänzt; Slideshow-Punkte semantisch.
+- Logo-Vorschau nur noch lokal (?preview-insurers funktioniert NICHT auf der öffentlichen Vorschau).
+- Ihre Entscheidungen offen: Mobilnummer (078 790 88 69 oder +41 78 899 92 88?), Öffnungszeiten, Preise, Diplome, Versicherer-Liste + Logo-Erlaubnis, Barrierefreiheit, ICD-11/KI.
