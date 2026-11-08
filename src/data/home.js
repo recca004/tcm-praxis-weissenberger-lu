@@ -63,25 +63,8 @@ export const HOMEPAGE_TRUST = [
     p: { de: 'Von Akupunktur bis Ohr-Akupunktur — wie auf der Visitenkarte', en: 'From acupuncture to ear acupuncture — as listed on the practice card', zh: '针灸至耳针 — 与诊所名片所列一致' } },
   { icon: 'map-pin', h: { de: 'Zürich-Seebach', en: 'Zurich-Seebach', zh: '苏黎世 Seebach' },
     p: { de: 'Schaffhauserstrasse 466 · Tram 14 / Bus 768', en: 'Schaffhauserstrasse 466 · Tram 14 / Bus 768', zh: 'Schaffhauserstrasse 466 · 14路电车 / 768路巴士' } },
-  { icon: 'languages', h: { de: 'Drei Sprachen', en: 'Three Languages', zh: '三种接诊语言' },
-    p: { de: 'Deutsch, Englisch und Chinesisch', en: 'German, English and Chinese', zh: '德语、英语与中文' } },
 ];
-
 export const TRUST_ITEMS = [
-  {
-    icon: 'shield-check',
-    h: 'Min Weissenberger-Lu',
-    badge: {
-      de: '[Qualifikation zur Freigabe]',
-      en: '[Awaiting approval]',
-      zh: '[资质待确认]',
-    },
-    p: {
-      de: 'Eidg. Diplomierte TCM-Therapeutin',
-      en: 'Swiss Federal Diploma in TCM',
-      zh: '瑞士联邦认证中医师',
-    },
-  },
   {
     icon: 'check-circle-2',
     h: {
@@ -91,30 +74,23 @@ export const TRUST_ITEMS = [
     },
     badge: { de: '[Status in Abklärung]', en: '[CONFIRM]', zh: '[CONFIRM]' },
     p: {
-      de: 'Über Zusatzversicherung (VVG) abrechenbar',
-      en: 'Recognised via Supplementary Health Insurance (VVG)',
-      zh: '可通过附加医疗保险 (VVG) 报销',
+      de: 'Kostenübernahme abhängig von Ihrer Zusatzversicherung',
+      en: 'Coverage depends on your supplementary insurance',
+      zh: '报销取决于您的附加医疗保险',
     },
+    rev: { zh: true },
   },
   {
     icon: 'map-pin',
     h: { de: 'Zürich-Seebach', en: 'Zurich-Seebach', zh: '诊所地址' },
     p: {
       de: 'Schaffhauserstrasse 466 · Tram 14 / Bus 768 ab Oerlikon',
-      en: 'Schaffhauserstrasse 466 · Tram 14 / Bus 768 from Oerlikon',
-      zh: '苏黎世 Seebach · 14路有轨电车 / 768路巴士直达',
-    },
-  },
-  {
-    icon: 'languages',
-    h: { de: 'Sprachen', en: 'Consultation Languages', zh: '接诊语言' },
-    p: {
-      de: 'Konsultationen auf Deutsch, Englisch und Chinesisch',
-      en: 'Consultations conducted in German, English, and Chinese',
-      zh: '支援中文（普通话）、德语及英语接诊交流',
+      en: 'Schaffhauserstrasse 466 · Tram 14 / Bus 768 via Oerlikon',
+      zh: 'Schaffhauserstrasse 466 · 14路电车 / 768路巴士',
     },
   },
 ];
+
 
 // Quiet statement moment — reuses existing approved sentences verbatim.
 export const STATEMENT = {

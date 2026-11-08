@@ -70,7 +70,7 @@ test.describe('hero slideshow', () => {
 test.describe('trust + insurance gating', () => {
   test('trust row shows 4 approved facts', async ({ page }) => {
     await page.goto('/de/');
-    await expect(page.locator('.home-trust-item')).toHaveCount(4);
+    await expect(page.locator('.home-trust-item')).toHaveCount(3);
     await expect(page.locator('.home-trust')).toContainText('Persönliche Betreuung');
   });
   test('insurance carousel hidden until insurers approved', async ({ page }) => {

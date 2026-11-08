@@ -35,9 +35,9 @@ export const CREDENTIALS = [
   },
   {
     icon: 'clock-3',
-    de: 'Über 15 Jahre Praxiserfahrung',
-    en: '15+ Years Clinical Practice',
-    zh: '逾15年临床实践经验',
+    de: 'Praxis seit 2021 in Zürich-Seebach',
+    en: 'Practising since 2021 in Zurich-Seebach',
+    zh: '自2021年起于苏黎世 Seebach 执业',
   },
 ];
 
@@ -57,18 +57,18 @@ export const CREDENTIALS_ABOUT = [
   },
   {
     icon: 'clock-3',
-    de: 'Über 15 Jahre Berufspraxis',
-    en: 'Over 15 Years Clinical Experience',
-    zh: '逾15年临床实践沉淀',
+    de: 'EMR-registriert seit Oktober 2021',
+    en: 'EMR registered since October 2021',
+    zh: '自2021年10月起登记于 EMR',
   },
 ];
 
 export const PRACTITIONER_HOME = {
   eyebrow: { de: 'Ihre Therapeutin', en: 'Your Practitioner', zh: '您的主治医师' },
   title: {
-    de: 'Persönliche Zuwendung und fundierte Erfahrung',
-    en: 'Dedicated Care and In‑Depth Experience',
-    zh: '专业敬业 · 悉心守护您的身心健康',
+    de: 'Persönliche Betreuung mit Zeit für Sie',
+    en: 'Personal Care, With Time to Listen',
+    zh: '悉心守护 · 耐心倾听 [REVIEW-MIN-ZH-CN]',
   },
   paragraphs: [
     {

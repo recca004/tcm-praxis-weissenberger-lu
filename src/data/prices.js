@@ -156,9 +156,9 @@ export const PRICES_PAGE = {
         zh: '瑞士补充医疗保险 (VVG) 报销政策',
       },
       textHtml: {
-        de: 'In der Schweiz werden Behandlungen der Traditionellen Chinesischen Medizin bei Naturheilpraktikern von der <strong>freiwilligen Zusatzversicherung (VVG)</strong> übernommen.',
-        en: 'In Switzerland, basic mandatory health insurance (KVG) does not cover naturopathic practitioners. However, if you hold <strong>supplementary insurance for complementary medicine (VVG)</strong>, the insurer typically covers 70% to 90% of treatment costs.',
-        zh: '在瑞士，由自然疗法师开展的中医疗法主要通过<strong>商业附加医疗保险（VVG）</strong>进行报销。通常报销比例在70%至90%之间。',
+        de: 'In der Schweiz werden Behandlungen der Traditionellen Chinesischen Medizin bei Naturheilpraktikern gegebenenfalls über die <strong>freiwillige Zusatzversicherung (VVG)</strong> übernommen. Ob Ihre Kasse die Behandlungskosten trägt, hängt von Ihrem Vertrag, der Behandlung und der Anerkennung der Therapeutin ab. Bitte klären Sie dies vorab mit Ihrer Krankenkasse.',
+        en: 'In Switzerland, basic mandatory health insurance (KVG) does not cover naturopathic practitioners. However, if you hold <strong>supplementary insurance for complementary medicine (VVG)</strong>, coverage depends on your policy, the treatment and your insurer’s recognition of the practitioner. Please confirm reimbursement directly with your insurer before your appointment.',
+        zh: '在瑞士，由自然疗法师开展的中医疗法主要通过<strong>商业附加医疗保险（VVG）</strong>进行报销。是否报销及报销比例因保险方案、治疗项目与医师资质认可而异，就诊前请直接向保险公司确认。',
       },
       itemsHtml: [
         {

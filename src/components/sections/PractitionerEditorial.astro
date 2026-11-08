@@ -25,15 +25,22 @@ const creds = isAbout ? CREDENTIALS_ABOUT : CREDENTIALS;
         <p>{p[locale]}</p>
       </>
     ))}
-    <ul class="pract-ed-creds">
-      {creds.map((c) => (
-        <li><Icon name={c.icon} size={18} /><span>{c[locale]}</span> <span class="badge badge-confirm">[CONFIRM]</span></li>
-      ))}
-    </ul>
-    <div class="practitioner-languages">
-      <Icon name="languages" />
-      <span set:html={D.languagesHtml[locale]} />
-    </div>
+    {isAbout && (
+      <>
+        <ul class="pract-ed-creds">
+          {creds.map((c) => (
+            <li><Icon name={c.icon} size={18} /><span>{c[locale]}</span> <span class="badge badge-confirm">[CONFIRM]</span></li>
+          ))}
+        </ul>
+        <div class="practitioner-languages">
+          <Icon name="languages" />
+          <span set:html={D.languagesHtml[locale]} />
+        </div>
+        <a href="https://emr.ch/de/therapeut/min.weissenberger-lu" target="_blank" rel="noopener noreferrer" class="card-action-link" style="margin-top: var(--space-3); display: inline-flex; align-items: center; gap: 0.35rem;">
+          {({de:'Offizielles EMR-Profil',en:'Official EMR profile',zh:'EMR 官方执业档案'})[locale]} <Icon name="external-link" size={15} />
+        </a>
+      </>
+    )}
     {!isAbout && (
       <div class="pract-ed-actions">
         <a href={ROUTES.about[locale]} class="btn btn-secondary">{D.moreBtn[locale]}</a>

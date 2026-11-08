@@ -97,11 +97,11 @@ function initContactForms() {
       const lang = document.documentElement.lang || 'de';
       const feedbackEl = form.querySelector('.form-submission-feedback');
 
-      let successMsg = 'Vielen Dank für Ihre Anfrage. Wir werden uns baldmöglichst bei Ihnen melden. (Hinweis: Dies ist ein Prototyp.)';
+      let successMsg = 'Vorschau: Ihre Nachricht wurde nicht versendet. Bitte kontaktieren Sie uns telefonisch oder per E-Mail. (Dies ist ein Design-Prototyp.)';
       if (lang === 'en') {
-        successMsg = 'Thank you for your enquiry. We will get back to you shortly. (Note: This is a design prototype.)';
+        successMsg = 'Preview: your message was not sent. Please reach us by phone or email. (This is a design prototype.)';
       } else if (lang.startsWith('zh')) {
-        successMsg = '感谢您的咨询，我们将尽快与您取得联络。（提示：当前为原型展示。）';
+        successMsg = '预览提示：您的留言尚未发送，请通过电话或电子邮件与我们联系。（此为设计原型。）';
       }
 
       if (feedbackEl) {
