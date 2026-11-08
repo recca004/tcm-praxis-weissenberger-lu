@@ -43,7 +43,7 @@ test.describe('routes', () => {
 test.describe('homepage content', () => {
   test('all sections render', async ({ page }) => {
     await page.goto('/de/');
-    await expect(page.locator('.t-index-row')).toHaveCount(6);
+    await expect(page.locator('.t-index-row')).toHaveCount(5);
     await expect(page.locator('.hero-fact')).toHaveCount(4);
     await expect(page.locator('.timeline-step')).toHaveCount(3);
     await expect(page.locator('.accordion-item')).toHaveCount(6);

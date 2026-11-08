@@ -32,7 +32,7 @@ const anchors = { de: { treatments: 'behandlungen', booking: 'online-termin', co
 <section class="section section-treatments" id={anchors.treatments}>
   <div class="container">
     <SectionHeader title={TREATMENTS_SECTION.title[locale]} lead={TREATMENTS_SECTION.lead[locale]} rev={TREATMENTS_SECTION.rev?.[locale] || []} />
-    <TreatmentIndex locale={locale} />
+    <TreatmentIndex locale={locale} limit={5} />
     <div style="margin-top: 2.5rem;">
       <a href={ROUTES.treatments[locale]} class="btn btn-secondary">{HERO.secondary[locale]} <Icon name="arrow-up-right" size={16} /></a>
     </div>

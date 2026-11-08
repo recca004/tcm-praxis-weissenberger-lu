@@ -7,14 +7,15 @@ import Rev from '../Rev.astro';
 import { TREATMENTS, TREATMENTS_PAGE } from '../../data/treatments.js';
 import { ROUTES } from '../../data/routes.js';
 
-const { locale, variant = 'preview' } = Astro.props;
+const { locale, variant = 'preview', limit = 0 } = Astro.props;
 const isPage = variant === 'page';
 const linkLabel = isPage ? TREATMENTS_PAGE.cardLink[locale] : TREATMENTS_PAGE.cardLinkHome[locale];
 /** @param {number} n */
 const pad = (n) => String(n + 1).padStart(2, '0');
+const items = limit > 0 ? TREATMENTS.slice(0, limit) : TREATMENTS;
 ---
 <div class:list={['t-index', { 't-index-page': isPage }]}>
-  {TREATMENTS.map((t, i) => (
+  {items.map((t, i) => (
     <div class="t-index-row">
       <span class="t-index-num" aria-hidden="true">{pad(i)}</span>
       {isPage && (

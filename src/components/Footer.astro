@@ -1,20 +1,21 @@
 ---
 import { MapPin, Phone, Mail } from '@lucide/astro';
+import Logo from './Logo.astro';
 import { ROUTES, NAV, I18N } from '../data/routes.js';
 const { locale } = Astro.props;
 const T = {
   de: { tag: 'Traditionelle Chinesische Medizin in Zürich-Seebach. Persönliche Behandlung bei Min Weissenberger-Lu.', nav: 'Navigation', treat: 'Behandlungen', contact: 'Kontakt', legal: 'Rechtliches',
-    treatments: ['Akupunktur','Chinesische Kräutertherapie','Tuina-Massage','Schröpfen','Moxibustion','TCM-Beratung & Diagnostik'],
+    treatments: ['Akupunktur','Tuina','Schröpfen','Kräutertherapie','Gua Sha','Moxa','Elektro-Akupunktur','Ohr-Akupunktur','Pflaumenblütennadel-Behandlung'],
     legalLinks: [['/de/datenschutz/','Datenschutz'],['/de/impressum/','Impressum']],
     contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zürich'],['phone','+41 78 899 92 88'],['mail','info@tcm-weissenberger-lu.ch']],
     note: '© 2026 TCM Praxis Weissenberger-Lu · Alle Angaben ohne Gewähr [Inhalte zur Freigabe]' },
   en: { tag: 'Traditional Chinese Medicine in Zurich-Seebach. Personal treatment with Min Weissenberger-Lu.', nav: 'Navigation', treat: 'Treatments', contact: 'Contact', legal: 'Legal',
-    treatments: ['Acupuncture','Chinese Herbal Medicine','Tuina Massage','Cupping','Moxibustion','TCM Consultation'],
+    treatments: ['Acupuncture','Tuina','Cupping','Herbal Medicine','Gua Sha','Moxibustion','Electro-Acupuncture','Ear Acupuncture','Plum Blossom Needle'],
     legalLinks: [['/en/privacy-policy/','Privacy Policy'],['/en/imprint/','Imprint']],
     contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zurich'],['phone','+41 78 899 92 88'],['mail','info@tcm-weissenberger-lu.ch']],
     note: '© 2026 TCM Praxis Weissenberger-Lu · Content pending client approval' },
   zh: { tag: '苏黎世 Seebach 传统中医诊所 · 由中医师 Min Weissenberger-Lu 亲自诊治。', nav: '网站导航', treat: '治疗项目', contact: '联络方式', legal: '法律资讯',
-    treatments: ['针灸','中药调理','经络推拿','拔罐','艾灸','中医咨询'],
+    treatments: ['针灸','推拿','拔罐','中草药治疗','刮痧','艾灸','电针','耳针','梅花针治疗'],
     legalLinks: [['/zh/yinsi/','隐私政策'],['/zh/falv-shengming/','法律声明']],
     contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zürich'],['phone','+41 78 899 92 88'],['mail','info@tcm-weissenberger-lu.ch']],
     note: '© 2026 TCM Praxis Weissenberger-Lu · 内容待客户审核' },

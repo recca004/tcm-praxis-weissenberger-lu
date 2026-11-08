@@ -1439,3 +1439,8 @@ h3 {
   color: var(--color-muted);
   line-height: 1.65;
 }
+
+/* Brand logo — compact variant drops the supporting line via viewBox crop */
+.brand-logo { display: block; height: 40px; width: auto; }
+.brand-logo--compact { clip-path: inset(0 0 18px 0); }
+@media (max-width: 480px) { .brand-logo { height: 32px; } }
