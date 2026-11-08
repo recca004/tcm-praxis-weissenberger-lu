@@ -160,9 +160,9 @@ export const SYMPTOMS_PAGE = {
       zh: '了解针灸治疗',
     },
     sourceLabel: {
-      de: 'Quellen: Helsana · NCCIH',
-      en: 'Sources: Helsana · NCCIH',
-      zh: '参考来源：Helsana · NCCIH',
+      de: 'Fachquellen',
+      en: 'Reference sources',
+      zh: '参考来源',
     },
   },
 };

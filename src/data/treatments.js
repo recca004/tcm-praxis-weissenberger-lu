@@ -173,9 +173,9 @@ export const TREATMENTS_PAGE = {
   eyebrow: { de: 'Therapieübersicht', en: 'Therapeutic Services', zh: '专业特色诊疗' },
   title: { de: 'TCM-Behandlungen in Zürich-Seebach', en: 'TCM Treatments in Zurich-Seebach', zh: '中医治疗项目 · 苏黎世 Seebach' },
   lead: {
-    de: 'Die Traditionelle Chinesische Medizin bietet ein vielseitiges Spektrum an bewährten Methoden. Erfahren Sie hier mehr über unsere sechs Behandlungsformen.',
-    en: 'Traditional Chinese Medicine provides a proven spectrum of time-tested healing modalities. Learn about our six core therapies below.',
-    zh: '涵盖传统针灸、经典经方、传统推拿、拔罐与艾灸等多种疗法，因人辨证，标本兼顾。',
+    de: 'Die Traditionelle Chinesische Medizin bietet ein vielseitiges Spektrum an bewährten Methoden. Erfahren Sie hier mehr über unsere neun Behandlungsmethoden.',
+    en: 'Traditional Chinese Medicine provides a proven spectrum of time-tested healing modalities. Learn about our nine treatment methods below.',
+    zh: '涵盖传统针灸、道地经方、经络推拿、拔罐与艾灸等九项特色疗法，因人辨证，标本兼顾。',
   },
   rev: { zh: ['eyebrow', 'lead'] },
   cardLink: { de: 'Termin buchen', en: 'Book appointment', zh: '预约咨询' },

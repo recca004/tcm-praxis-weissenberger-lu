@@ -71,9 +71,9 @@ function initHeadingEntrances() {
   });
 }
 
-// Light one-time scroll reveal for treatment/symptom/about rows.
+// Light one-time scroll reveal for treatment/symptom/about rows and key content blocks.
 function initRowReveals() {
-  const rows = gsap.utils.toArray('.t-index-row, .pillar-row');
+  const rows = gsap.utils.toArray('.t-index-row, .pillar-row, .sym-extra-group, .timeline-step, .ed-info-block');
   if (!rows.length) return;
   ScrollTrigger.batch(rows, {
     start: 'top 92%',
