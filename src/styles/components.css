@@ -1106,11 +1106,14 @@ h3 {
   order: 1;
 }
 
-.pract-ed-photo--real {
+.pract-ed-photo.pract-ed-photo--real {
   position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
   padding: 0;
+  display: block;
+  background: none;
+  text-align: left;
 }
 
 .pract-ed-photo--real img {
@@ -1441,6 +1444,20 @@ h3 {
 }
 
 /* Brand logo — compact variant drops the supporting line via viewBox crop */
-.brand-logo { display: block; height: 40px; width: auto; }
+.brand-logo { display: block; height: 44px; width: auto; }
 .brand-logo--compact { clip-path: inset(0 0 18px 0); }
-@media (max-width: 480px) { .brand-logo { height: 32px; } }
+@media (max-width: 480px) { .brand-logo { height: 34px; } }
+
+/* Treatments diagnostic — open editorial layout (hairline, no card) */
+.diagnostic-open {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-10);
+  margin-bottom: var(--space-16);
+}
+@media (max-width: 768px) {
+  .diagnostic-open { grid-template-columns: 1fr; gap: var(--space-6); }
+}

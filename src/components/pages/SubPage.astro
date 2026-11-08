@@ -39,30 +39,33 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
 ) : (
   <div class="container page-top">
     <BackLink locale={locale} />
-    <SectionHeader eyebrow={HEADER.d.eyebrow[locale]} title={HEADER.d.title[locale]} lead={HEADER.d.lead?.[locale]} level="h1" center={HEADER.center} rev={HEADER.d.rev?.[locale] || []} />
+    {pageId === 'firstVisit' ? (
+      <div class="grid-2" style="align-items: center; margin-bottom: var(--space-16);">
+        <SectionHeader eyebrow={HEADER.d.eyebrow[locale]} title={HEADER.d.title[locale]} lead={HEADER.d.lead?.[locale]} level="h1" rev={HEADER.d.rev?.[locale] || []} />
+        <img src="/assets/images/clinic-waiting-area.webp" alt={{de:'Wartebereich der Praxis mit zwei Sesseln',en:'Practice waiting area with two chairs',zh:'诊所候诊区 — 两把座椅'}[locale]} loading="eager" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:var(--radius-lg);border:1px solid var(--color-border);" />
+      </div>
+    ) : (
+      <SectionHeader eyebrow={HEADER.d.eyebrow[locale]} title={HEADER.d.title[locale]} lead={HEADER.d.lead?.[locale]} level="h1" center={HEADER.center} rev={HEADER.d.rev?.[locale] || []} />
+    )}
 
     {pageId === 'treatments' && (
       <>
         <TreatmentIndex locale={locale} variant="page" />
-        <div class="ed-panel-xl" style="margin-bottom: var(--space-16);">
-          <div class="grid-2" style="align-items: center;">
-            <div>
-              <h2>{DIAGNOSTIC.title[locale]}</h2>
-              <Rev when={(DIAGNOSTIC.rev?.[locale] || []).includes('lead')} />
-              <p>{DIAGNOSTIC.lead[locale]}</p>
-              <ul style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
-                {DIAGNOSTIC.items.map((item) => (
-                  <li style="display: flex; gap: 0.5rem; align-items: flex-start; font-size: var(--text-sm);">
-                    <Icon name="check-circle-2" size={18} class="check-icon" />
-                    <span set:html={item[locale]} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <img src={DIAGNOSTIC.image[locale].src} alt={DIAGNOSTIC.image[locale].alt} loading="lazy" style="border-radius: var(--radius-lg); border: 1px solid var(--color-border);" />
-            </div>
+        <div class="diagnostic-open">
+          <div>
+            <h2>{DIAGNOSTIC.title[locale]}</h2>
+            <Rev when={(DIAGNOSTIC.rev?.[locale] || []).includes('lead')} />
+            <p>{DIAGNOSTIC.lead[locale]}</p>
+            <ul style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+              {DIAGNOSTIC.items.map((item) => (
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start; font-size: var(--text-sm);">
+                  <Icon name="check-circle-2" size={18} class="check-icon" />
+                  <span set:html={item[locale]} />
+                </li>
+              ))}
+            </ul>
           </div>
+          <img src={DIAGNOSTIC.image[locale].src} alt={DIAGNOSTIC.image[locale].alt} loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius: var(--radius-lg); border: 1px solid var(--color-border);" />
         </div>
         <CTABanner locale={locale} pageId="treatments" />
       </>
@@ -90,7 +93,6 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
 
     {pageId === 'firstVisit' && (
       <>
-        <img src="/assets/images/clinic-waiting-area.webp" alt={{de:'Wartebereich der Praxis mit zwei Sesseln',en:'Practice waiting area with two chairs',zh:'诊所候诊区 — 两把座椅'}[locale]} loading="lazy" style="width:100%;max-width:680px;margin:0 auto var(--space-10);display:block;border-radius:var(--radius-lg);border:1px solid var(--color-border);" />
         <StepsTimeline steps={FIRST_VISIT_PAGE.steps} locale={locale} titleTag="h2" pageStyle editorial />
         <div style="margin-bottom: var(--space-16);">
           <InfoBlocks blocks={FIRST_VISIT_PAGE.boxes} locale={locale} />
@@ -125,19 +127,19 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
     )}
 
     {pageId === 'contact' && (
-      <div class="grid-2" style="margin-bottom: var(--space-16);">
-        <div>
-          <div class="ed-panel" style="margin-bottom: var(--space-6);">
+      <>
+        <div class="grid-2" style="margin-bottom: var(--space-10); align-items: start;">
+          <div class="ed-panel">
             <h2 style="font-size: var(--text-xl); margin-bottom: 1.25rem;">{CONTACT_PAGE.cardTitle[locale]}</h2>
             <ContactDetails locale={locale} variant="page" mapsLabel={CONTACT_PAGE.mapsBtn[locale]} />
           </div>
-          <img src="/assets/images/clinic-reception.webp" alt={{de:'Empfangsbereich der TCM Praxis Weissenberger-Lu in Zürich-Seebach',en:'Reception area of TCM Praxis Weissenberger-Lu in Zurich-Seebach',zh:'诊所接待区实景 — 苏黎世 Seebach'}[locale]} loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;margin-bottom:var(--space-6);border-radius:var(--radius-lg);border:1px solid var(--color-border);" />
-          <TransitCard locale={locale} />
-        </div>
-        <div>
           <ContactForm locale={locale} variant="page" />
         </div>
-      </div>
+        <div class="grid-2" style="margin-bottom: var(--space-16); align-items: start;">
+          <img src="/assets/images/clinic-reception.webp" alt={{de:'Empfangsbereich der TCM Praxis Weissenberger-Lu in Zürich-Seebach',en:'Reception area of TCM Praxis Weissenberger-Lu in Zurich-Seebach',zh:'诊所接待区实景 — 苏黎世 Seebach'}[locale]} loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:var(--radius-lg);border:1px solid var(--color-border);" />
+          <TransitCard locale={locale} />
+        </div>
+      </>
     )}
   </div>
 )}

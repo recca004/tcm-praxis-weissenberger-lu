@@ -67,7 +67,7 @@ export const PRACTITIONER_HOME = {
   eyebrow: { de: 'Ihre Therapeutin', en: 'Your Practitioner', zh: '您的主治医师' },
   title: {
     de: 'Persönliche Zuwendung und fundierte Erfahrung',
-    en: 'Dedicated Care and In-Depth Experience',
+    en: 'Dedicated Care and In‑Depth Experience',
     zh: '专业敬业 · 悉心守护您的身心健康',
   },
   paragraphs: [

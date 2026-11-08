@@ -63,7 +63,7 @@ export const FIRST_VISIT_PAGE = {
   rev: { zh: ['lead'] },
   steps: [
     {
-      title: { de: '1. Vorbereitung & Ankunft', en: '1. Scheduling & Arrival', zh: '1. 预约与行前准备' },
+      title: { de: 'Vorbereitung & Ankunft', en: 'Scheduling & Arrival', zh: '预约与行前准备' },
       desc: {
         de: 'Kommen Sie bitte einige Minuten vor Ihrem Termin an. Tragen Sie lockere, bequeme Kleidung, bei der sich Ärmel und Hosenbeine leicht hochrollen lassen.',
         en: 'Book your appointment online or by phone. Please arrive about 5–10 minutes early so you can settle in comfortably.',
@@ -72,7 +72,7 @@ export const FIRST_VISIT_PAGE = {
       rev: {},
     },
     {
-      title: { de: '2. Anamnese & TCM-Diagnose', en: '2. Medical Intake & Assessment', zh: '2. 四诊辨析与沟通' },
+      title: { de: 'Anamnese & TCM-Diagnose', en: 'Medical Intake & Assessment', zh: '四诊辨析与沟通' },
       desc: {
         de: 'In einem ausführlichen Gespräch (ca. 30–45 Minuten) beleuchten wir Ihre Vorgeschichte, Beschwerden und Gewohnheiten. Ergänzt durch Zungen- und Pulsdiagnose.',
         en: 'We spend 30–45 minutes exploring your health history, current complaints, and lifestyle. This includes tongue and pulse diagnostics.',
@@ -81,7 +81,7 @@ export const FIRST_VISIT_PAGE = {
       rev: {},
     },
     {
-      title: { de: '3. Erste Behandlung & Besprechung', en: '3. Treatment & Planning', zh: '3. 首次治疗与调养建议' },
+      title: { de: 'Erste Behandlung & Besprechung', en: 'Treatment & Planning', zh: '首次治疗与调养建议' },
       desc: {
         de: 'Anschliessend folgt Ihre erste Behandlung (z.B. sanfte Akupunktur). Wir besprechen gemeinsam das empfohlene Vorgehen und beantworten all Ihre Fragen.',
         en: 'You receive your first targeted therapy (such as gentle acupuncture) and discuss the proposed follow-up schedule and recommendations.',
