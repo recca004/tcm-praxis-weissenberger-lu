@@ -5,7 +5,15 @@ import { ROUTES } from '../../data/routes.js';
 import { PRACTICE } from '../../data/site.js';
 const { locale, pageId, inSection = false } = Astro.props;
 const D = CTA[pageId];
-const secondaryHref = D.secondary === 'phone' ? PRACTICE.phoneHref : ROUTES.contact[locale];
+// Primary action: 'landline' renders the confirmed landline number;
+// anything else is a label object leading to the booking page.
+const primaryIsLandline = D.primary === 'landline';
+const primaryHref = primaryIsLandline ? PRACTICE.landlineHref : ROUTES.booking[locale];
+const primaryLabel = primaryIsLandline ? D.primaryLabel[locale] : D.primary[locale];
+// Secondary action: 'phone' | 'contact' | 'booking'.
+const secondaryHref =
+  D.secondary === 'phone' ? PRACTICE.phoneHref :
+  D.secondary === 'booking' ? ROUTES.booking[locale] : ROUTES.contact[locale];
 const SecondaryIcon = D.secondary === 'phone';
 ---
 {inSection ? (
@@ -15,11 +23,12 @@ const SecondaryIcon = D.secondary === 'phone';
         <h2>{D.title[locale]}</h2>
         <p>{D.text[locale]}</p>
         <div class="cta-banner-buttons">
-          <a href={ROUTES.booking[locale]} class="btn btn-secondary btn-lg">{D.primary[locale]}</a>
+          <a href={primaryHref} class="btn btn-secondary btn-lg">{primaryIsLandline && <Icon name="phone" size={18} />} {primaryLabel}</a>
           <a href={secondaryHref} class="btn btn-outline btn-lg cta-phone-fallback">
             {SecondaryIcon && <Icon name="phone" size={18} />} {D.secondaryLabel[locale]}
           </a>
         </div>
+        {D.footnote && <p class="cta-banner-foot"><Icon name="map-pin" size={14} /> {D.footnote[locale]}</p>}
       </div>
     </div>
   </section>
@@ -28,10 +37,11 @@ const SecondaryIcon = D.secondary === 'phone';
     <h2>{D.title[locale]}</h2>
     <p>{D.text[locale]}</p>
     <div class="cta-banner-buttons">
-      <a href={ROUTES.booking[locale]} class="btn btn-secondary btn-lg">{D.primary[locale]}</a>
+      <a href={primaryHref} class="btn btn-secondary btn-lg">{primaryIsLandline && <Icon name="phone" size={18} />} {primaryLabel}</a>
       <a href={secondaryHref} class="btn btn-outline btn-lg cta-phone-fallback">
         {SecondaryIcon && <Icon name="phone" size={18} />} {D.secondaryLabel[locale]}
       </a>
     </div>
+    {D.footnote && <p class="cta-banner-foot"><Icon name="map-pin" size={14} /> {D.footnote[locale]}</p>}
   </div>
 )}

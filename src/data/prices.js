@@ -1,4 +1,42 @@
-// Pricing & insurance content. All CHF values are draft markers — [CONFIRM] preserved.
+// Pricing & insurance content — single source for the Prices page and the
+// homepage overview. CHF amounts are Min's proposed figures (Nov 2026
+// reference screenshots) — `pending` keeps the review marker visible until
+// she confirms them in writing.
+
+export const PRICE_PENDING_LABEL = {
+  de: 'Betrag zur Freigabe',
+  en: 'Amount pending approval',
+  zh: '金额待确认',
+};
+
+export const PRICE_BLOCKS = [
+  {
+    id: 'initial',
+    title: { de: 'Erstbehandlung', en: 'Initial Treatment', zh: '首次治疗' },
+    price: 'CHF 200',
+    duration: { de: 'ca. 90 Minuten', en: 'approx. 90 minutes', zh: '约 90 分钟' },
+    desc: {
+      de: 'Ausführliches Erstgespräch, TCM-Diagnostik mit Zungen- und Pulsbeurteilung sowie individuell abgestimmte Behandlung.',
+      en: 'Detailed initial consultation, TCM diagnostics with tongue and pulse assessment, and an individually tailored treatment.',
+      zh: '详尽的初诊问诊，包括舌诊与脉诊等中医辨证评估，以及量身定制的治疗方案。',
+    },
+    pending: true,
+    rev: { zh: ['desc'] },
+  },
+  {
+    id: 'followup',
+    title: { de: 'Folgebehandlung', en: 'Follow-up Treatment', zh: '复诊治疗' },
+    price: 'CHF 150',
+    duration: { de: 'ca. 60 Minuten', en: 'approx. 60 minutes', zh: '约 60 分钟' },
+    desc: {
+      de: 'Verlaufskontrolle und individuell angepasste Behandlung, beispielsweise mit Akupunktur und ergänzenden TCM-Methoden.',
+      en: 'Progress review and individually adjusted treatment, for example with acupuncture and complementary TCM methods.',
+      zh: '复诊病情跟踪与个体化调整的治疗，例如针灸及配合其他中医疗法。',
+    },
+    pending: true,
+    rev: { zh: ['desc'] },
+  },
+];
 
 export const PRICES_HOME = {
   eyebrow: { de: 'Transparenz & Kosten', en: 'Fair & Transparent', zh: '透明收费' },
@@ -8,51 +46,16 @@ export const PRICES_HOME = {
     zh: '收费标准与医疗保险',
   },
   text: {
-    de: 'Die Abrechnung erfolgt in der Regel nach dem schweizerischen Tarif 590 für komplementärmedizinische Leistungen.',
-    en: 'Treatments are billed according to Swiss Tariff 590 for complementary medicine.',
-    zh: '各项中医诊疗费用均依据瑞士 Tarif 590 标准计费，明细清晰透明。',
+    de: 'Individuelle Behandlung nach den Grundsätzen der Traditionellen Chinesischen Medizin — mit klaren, transparenten Preisen.',
+    en: 'Individual treatment based on the principles of Traditional Chinese Medicine — with clear, transparent pricing.',
+    zh: '遵循传统中医诊疗原则的个性化治疗，价格清晰透明。',
   },
   rev: { zh: ['text'] },
-  tableHead: {
-    de: ['Leistung', 'Dauer', 'Ansatz (CHF)'],
-    en: ['Service', 'Duration', 'Fee (CHF)'],
-    zh: ['诊疗项目', '就诊时长', '费用参考 (CHF)'],
+  link: {
+    de: 'Alle Details zu Preisen & Versicherung',
+    en: 'Full pricing & insurance details',
+    zh: '查看收费与保险详情',
   },
-  rows: [
-    {
-      title: { de: 'Erstkonsultation & Behandlung', en: 'Initial Consultation & Treatment', zh: '首次辨证问诊与针灸治疗' },
-      desc: {
-        de: 'Ausführliche Anamnese, Zungen-/Pulsdiagnose & Akupunktur',
-        en: 'Complete intake, tongue/pulse diagnosis & acupuncture',
-        zh: '包含详尽健康档案、舌脉诊断及首次治疗',
-      },
-      duration: { de: 'ca. 75–90 Min.', en: 'approx. 75–90 min', zh: '约 75–90 分钟' },
-      price: { de: '[CHF zur Freigabe durch Min]', en: '[CHF awaiting approval · Guideline 150–180]', zh: '[价格待确认 · 参考值 150–180 CHF]' },
-      rev: { zh: true },
-    },
-    {
-      title: { de: 'Folgebehandlung TCM', en: 'Follow-up TCM Session', zh: '复诊针灸 / 中医综合治疗' },
-      desc: {
-        de: 'Akupunktur, Moxibustion oder Schröpfen nach Befund',
-        en: 'Acupuncture, moxibustion, or cupping based on progress',
-        zh: '根据病情随访进展进行针灸、艾灸或拔罐',
-      },
-      duration: { de: 'ca. 60 Min.', en: 'approx. 60 min', zh: '约 60 分钟' },
-      price: { de: '[CHF zur Freigabe durch Min]', en: '[CHF awaiting approval · Guideline 140–160]', zh: '[价格待确认 · 参考值 140–160 CHF]' },
-      rev: { zh: true },
-    },
-    {
-      title: { de: 'Kräuterberatung / Rezeptur', en: 'Herbal Consultation', zh: '中医辨证与中药方配制' },
-      desc: {
-        de: 'Individuelle Rezepturanpassung (exkl. Kräuterkosten der Apotheke)',
-        en: 'Custom recipe formulation (herbs billed separately by pharmacy)',
-        zh: '定制药方（中草药颗粒费用由瑞士药房另计）',
-      },
-      duration: { de: 'ca. 30 Min.', en: 'approx. 30 min', zh: '约 30 分钟' },
-      price: { de: '[CHF zur Freigabe durch Min]', en: '[CHF awaiting approval]', zh: '[价格待确认]' },
-      rev: { zh: true },
-    },
-  ],
   insurance: {
     eyebrow: { de: 'Krankenkassen-Deckung', en: 'Swiss Health Insurance', zh: '瑞士医保报销说明' },
     title: { de: 'Zusatzversicherung (VVG)', en: 'Supplementary Coverage (VVG)', zh: '补充医疗保险 (VVG)' },
@@ -87,118 +90,88 @@ export const PRICES_HOME = {
 };
 
 export const PRICES_PAGE = {
-  eyebrow: { de: 'Kostentransparenz', en: 'Financial Clarity', zh: '明细与报销' },
-  title: { de: 'Preise & Krankenkasse', en: 'Prices & Insurance Coverage', zh: '收费标准与瑞士医保报销' },
+  eyebrow: { de: 'Kostentransparenz', en: 'Financial Clarity', zh: '收费透明' },
+  title: { de: 'Preise & Krankenkassen', en: 'Prices & Insurance', zh: '收费与医疗保险' },
   lead: {
-    de: 'Transparente Honorare und Abrechnung komplementärmedizinischer Leistungen nach dem schweizerischen Tarif 590.',
-    en: 'Transparent treatment pricing and Swiss Tariff 590 billing guidelines for complementary medicine.',
-    zh: '各项中医诊疗均采用瑞士统一补充医学计费体系（Tarif 590）规范核算，账目透明清晰。',
+    de: 'Individuelle Behandlung nach den Grundsätzen der Traditionellen Chinesischen Medizin. Wir nehmen uns Zeit für eine sorgfältige Anamnese und persönliche Betreuung.',
+    en: 'Individual treatment based on the principles of Traditional Chinese Medicine. We take time for a careful medical history and personal care.',
+    zh: '遵循传统中医诊疗原则，为您提供个性化的治疗。我们会耐心进行细致的问诊与个人化的照护。',
   },
   rev: { zh: ['lead'] },
-  tableHead: {
-    de: ['Leistung / Konsultation', 'Dauer', 'Honorar (CHF)', 'Abrechnung'],
-    en: ['Service / Consultation', 'Duration', 'Fee (CHF)', 'Billing Standard'],
-    zh: ['治疗与咨询项目', '建议时长', '费用参考 (CHF)', '计费规范'],
+  pricesH2: { de: 'Unsere Preise', en: 'Our Treatment Prices', zh: '治疗费用' },
+  herbsNote: {
+    de: 'Chinesische Arzneimittel und allfällige zusätzliche Leistungen werden, sofern anwendbar, separat ausgewiesen. Bitte Kosten vorab erfragen.',
+    en: 'Chinese herbal medicines and any additional services are itemised separately where applicable. Please enquire about costs in advance.',
+    zh: '中草药及其他可能产生的额外服务费用将另行单独列明，具体费用请提前咨询。',
   },
-  rows: [
-    {
-      title: { de: 'Erstkonsultation inkl. Befunderhebung & Behandlung', en: 'Initial Consultation & Treatment', zh: '初诊详查与首次针灸治疗' },
-      desc: {
-        de: 'Umfassende Anamnese, Zungen- und Pulsdiagnose, Besprechung der Behandlungsstrategie sowie erste Akupunkturbehandlung.',
-        en: 'Complete diagnostic interview, tongue and pulse evaluation, and first acupuncture treatment.',
-        zh: '全面病史采集、舌苔脉象四诊辨证、调理方案拟定及首次针灸治疗。',
-      },
-      duration: { de: 'ca. 75–90 Min.', en: 'approx. 75–90 min', zh: '约 75–90 分钟' },
-      price: { de: '[CHF zur Freigabe durch Min · Richtwert ca. 150–180]', en: '[CHF awaiting client approval · Guideline 150–180]', zh: '[价格待确认 · 参考值 150–180 CHF]' },
-      rev: { zh: true },
+  herbsRev: { zh: true },
+  insurance: {
+    h2: { de: 'Krankenkassen & Kostenübernahme', en: 'Health Insurance & Reimbursement', zh: '医疗保险与费用报销' },
+    text: {
+      de: 'Ob und in welchem Umfang Ihre Krankenkasse die Kosten für eine TCM-Behandlung übernimmt, hängt von Ihrer Zusatzversicherung, der Behandlungsmethode, der Anerkennung der Therapeutin durch die Versicherung sowie den Regeln und Limiten Ihrer Kasse ab. Bitte klären Sie die Kostenübernahme vor Ihrem Termin direkt mit Ihrer Versicherung.',
+      en: 'Whether and to what extent your health insurer covers TCM treatment depends on your supplementary insurance policy, the treatment method, the insurer’s recognition of the practitioner, and the insurer’s own rules and limits. Please confirm coverage with your insurer before your appointment.',
+      zh: '您的补充医疗保险是否报销以及报销比例，取决于您的保险方案、治疗项目、保险公司对治疗师的认可程度，以及保险公司的具体条款与限额。就诊前请直接向您的保险公司确认。',
     },
-    {
-      title: { de: 'Folgebehandlung Akupunktur / TCM', en: 'Follow-up TCM Session', zh: '中医复诊治疗（针灸／艾灸／拔罐）' },
-      desc: {
-        de: 'Kurzes Verlaufsgespräch, Kontrolle von Zunge und Puls, gezielte Akupunktur, Moxibustion oder Schröpfen je nach individuellem Therapiefortschritt.',
-        en: 'Progress review, tongue/pulse check, and targeted acupuncture, moxibustion, or cupping.',
-        zh: '脉舌复查、阶段调理评估，以及针对当前病机的针灸施术或拔罐艾灸。',
-      },
-      duration: { de: 'ca. 60 Min.', en: 'approx. 60 min', zh: '约 60 分钟' },
-      price: { de: '[CHF zur Freigabe durch Min · Richtwert ca. 140–160]', en: '[CHF awaiting client approval · Guideline 140–160]', zh: '[价格待确认 · 参考值 140–160 CHF]' },
-      rev: { zh: true },
+    disclaimer: {
+      de: 'Eine Kostenübernahme kann nicht zugesichert werden. Die Entscheidung liegt allein bei Ihrer Krankenkasse und Ihrer persönlichen Police.',
+      en: 'Reimbursement cannot be guaranteed. The decision rests solely with your insurer and your individual policy.',
+      zh: '我们无法保证费用一定获得报销，报销结果完全取决于您的保险公司及个人保单条款。',
     },
-    {
-      title: { de: 'Tuina-Massage (Medizinische Massage)', en: 'Medical Tuina Massage', zh: '中医经络推拿理疗' },
-      desc: {
-        de: 'Manuelle Meridiantherapie und Mobilisation zur Lösung von Verspannungen und Schmerzzuständen.',
-        en: 'Manual meridian bodywork and joint mobilization for pain relief and tension release.',
-        zh: '循经揉捏、点穴松解与关节活动，舒经活络，改善慢性劳损与肌筋酸痛。',
-      },
-      duration: { de: 'ca. 60 Min.', en: 'approx. 60 min', zh: '约 60 分钟' },
-      price: { de: '[CHF zur Freigabe durch Min · Richtwert ca. 140–160]', en: '[CHF awaiting client approval · Guideline 140–160]', zh: '[价格待确认 · 参考值 140–160 CHF]' },
-      rev: { zh: true },
+    rev: { zh: ['text', 'disclaimer'] },
+  },
+  insurersExample: {
+    label: {
+      de: 'Beispiele von Krankenkassen',
+      en: 'Examples of Swiss Health Insurers',
+      zh: '瑞士保险公司示例',
     },
-    {
-      title: { de: 'Kräuterberatung & Rezepturerstellung', en: 'Herbal Prescription Formulation', zh: '中药处方咨询与调配' },
-      desc: {
-        de: 'Individuelle Zusammenstellung traditioneller Rezepturen. Die eigentlichen Kräuter werden von der Partner-Fachapotheke separat verrechnet.',
-        en: 'Personalized botanical recipe. (Herbal granulate costs billed directly by the pharmacy.)',
-        zh: '辨证拟定中草药经方。（药材及颗粒制品由瑞士合作药房单独结算出具发票。）',
-      },
-      duration: { de: 'ca. 30 Min.', en: 'approx. 30 min', zh: '约 30 分钟' },
-      price: { de: '[CHF zur Freigabe durch Min]', en: '[CHF awaiting client approval]', zh: '[价格待确认]' },
-      rev: { zh: true },
+    note: {
+      de: 'Krankenkassen mit Zusatzversicherungen für Komplementärmedizin. Die Auflistung bedeutet weder eine Anerkennung der Praxis noch eine Kostenübernahme-Zusage — massgeblich ist Ihre persönliche Police.',
+      en: 'Insurers offering supplementary plans that may cover complementary medicine. Listing does not imply recognition by the practice or guaranteed reimbursement — your individual policy is decisive.',
+      zh: '以下为提供补充医疗保险的瑞士保险公司示例，列名不代表诊所已获得其认可或承诺报销，请以您的个人保单条款为准。',
     },
-  ],
-  billingBadge: 'Tarif 590',
-  cards: [
-    {
-      icon: 'shield-check',
-      title: {
-        de: 'Kostenübernahme durch die Krankenkasse',
-        en: 'Swiss Supplementary Health Insurance (VVG)',
-        zh: '瑞士补充医疗保险 (VVG) 报销政策',
-      },
-      textHtml: {
-        de: 'In der Schweiz werden Behandlungen der Traditionellen Chinesischen Medizin bei Naturheilpraktikern gegebenenfalls über die <strong>freiwillige Zusatzversicherung (VVG)</strong> übernommen. Ob Ihre Kasse die Behandlungskosten trägt, hängt von Ihrem Vertrag, der Behandlung und der Anerkennung der Therapeutin ab. Bitte klären Sie dies vorab mit Ihrer Krankenkasse.',
-        en: 'In Switzerland, basic mandatory health insurance (KVG) does not cover naturopathic practitioners. However, if you hold <strong>supplementary insurance for complementary medicine (VVG)</strong>, coverage depends on your policy, the treatment and your insurer’s recognition of the practitioner. Please confirm reimbursement directly with your insurer before your appointment.',
-        zh: '在瑞士，由自然疗法师开展的中医疗法主要通过<strong>商业附加医疗保险（VVG）</strong>进行报销。是否报销及报销比例因保险方案、治疗项目与医师资质认可而异，就诊前请直接向保险公司确认。',
-      },
-      itemsHtml: [
-        {
-          de: '<strong>Qualitätslabels:</strong> Min Weissenberger-Lu verfügt über die erforderlichen Registrierungen (EMR / ASCA / SBO-TCM) <span class="badge badge-confirm">[CONFIRM]</span>.',
-          en: '<strong>Accreditations:</strong> Min Weissenberger-Lu holds the necessary Swiss recognitions (EMR / ASCA / SBO-TCM) <span class="badge badge-confirm">[CONFIRM]</span>.',
-          zh: '<strong>执业资质认证：</strong>中医师 Min Weissenberger-Lu 具备瑞士经验医学登记机构（EMR / ASCA / SBO-TCM）的合规注册资格 <span class="badge badge-confirm">[CONFIRM]</span>。',
+    badge: {
+      de: 'Liste zur Freigabe',
+      en: 'List pending approval',
+      zh: '名单待确认',
+    },
+    rev: { zh: ['note'] },
+  },
+  reimburse: {
+    h2: {
+      de: 'So funktioniert die Rückerstattung',
+      en: 'How Reimbursement Works',
+      zh: '报销流程',
+    },
+    steps: [
+      {
+        title: { de: 'Vorab prüfen', en: 'Check in advance', zh: '提前确认' },
+        desc: {
+          de: 'Fragen Sie Ihre Zusatzversicherung nach der Kostenübernahme für die gewünschte TCM-Behandlung bei unserer Praxis.',
+          en: 'Ask your supplementary insurer about cost coverage for the desired TCM treatment at our practice.',
+          zh: '就诊前请向您的补充保险公司咨询所选中医治疗项目的报销事宜。',
         },
-        {
-          de: '<strong>Abrechnung:</strong> Sie erhalten einen standardisierten Rückforderungsbeleg nach Tarif 590, den Sie einfach bei Ihrer Krankenkasse zur Rückvergütung einreichen.',
-          en: '<strong>Reimbursement receipt:</strong> You will receive a standard Tariff 590 invoice with claim voucher to submit to your insurer.',
-          zh: '<strong>正规报销单据：</strong>诊所出具标准 Tarif 590 退费证明（Rückforderungsbeleg），您直接拍照或邮寄至保险公司即可。',
-        },
-      ],
-      rev: {},
-    },
-    {
-      icon: 'credit-card',
-      title: {
-        de: 'Zahlung & Stornierungsregelung',
-        en: 'Payment & Cancellation Terms',
-        zh: '支付方式与预约守则',
+        rev: { zh: true },
       },
-      textHtml: {
-        de: 'Transparenz und Verlässlichkeit für beide Seiten:',
-        en: 'Simple, transparent administrative processes:',
-        zh: '便捷规范的结算与守约机制：',
+      {
+        title: { de: 'Behandlung', en: 'Treatment', zh: '就诊治疗' },
+        desc: {
+          de: 'Sie erhalten eine individuelle Behandlung und, sofern von der Praxis bestätigt, eine Rechnung nach dem Schweizer Tarif 590.',
+          en: 'You receive an individual treatment and, once confirmed by the practice, an invoice under Swiss Tariff 590.',
+          zh: '您将获得个性化治疗；经诊所确认后，可开具符合瑞士 Tarif 590 标准的账单。',
+        },
+        badge: { de: 'Tarif 590 zur Freigabe', en: 'Tariff 590 pending', zh: 'Tarif 590 待确认' },
+        rev: { zh: true },
       },
-      itemsHtml: [
-        {
-          de: '<strong>Zahlungsarten:</strong> Bezahlung per Rechnung, TWINT oder Barzahlung nach Vereinbarung <span class="badge badge-confirm">[CONFIRM]</span>.',
-          en: '<strong>Payment methods:</strong> Bank transfer invoice, TWINT, or cash payment upon agreement <span class="badge badge-confirm">[CONFIRM]</span>.',
-          zh: '<strong>支付途径：</strong>支援银行账单转账、TWINT 快捷支付或现金结算 <span class="badge badge-confirm">[CONFIRM]</span>。',
+      {
+        title: { de: 'Einreichen', en: 'Submit', zh: '提交报销' },
+        desc: {
+          de: 'Reichen Sie den Rückforderungsbeleg bei Ihrer Versicherung ein. Die Erstattung richtet sich nach Ihrer Police.',
+          en: 'Submit the claim voucher to your insurance company. Reimbursement depends on your policy.',
+          zh: '请将报销凭证提交给您的保险公司，实际报销金额以您的保单为准。',
         },
-        {
-          de: '<strong>Absagefrist (24 Stunden):</strong> Bitte sagen Sie Termine mindestens 24 Stunden im Voraus ab, damit wir den Zeitraum anderen Patienten zur Verfügung stellen können.',
-          en: '<strong>24-hour notice:</strong> Please provide at least 24 hours notice for cancellations to avoid being billed for the reserved slot.',
-          zh: '<strong>提前24小时取消制度：</strong>如需改约或取消，请至少提前24小时通知，未按时取消的预约可能产生相应费用。',
-        },
-      ],
-      rev: {},
-    },
-  ],
+        rev: { zh: true },
+      },
+    ],
+  },
 };

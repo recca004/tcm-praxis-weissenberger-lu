@@ -1,0 +1,21 @@
+---
+// Two clear treatment-price blocks — Min's proposed layout. Amounts carry a
+// pending-approval badge until she confirms them in writing.
+import Rev from '../Rev.astro';
+import { PRICE_BLOCKS, PRICE_PENDING_LABEL } from '../../data/prices.js';
+const { locale, compact = false } = Astro.props;
+---
+<div class:list={['price-blocks', { 'price-blocks--compact': compact }]}>
+  {PRICE_BLOCKS.map((b) => (
+    <div class="price-block">
+      <h3 class="price-block-title">{b.title[locale]}</h3>
+      <div class="price-block-figure">
+        <span class="price-block-chf">{b.price}</span>
+        <span class="price-block-duration">{b.duration[locale]}</span>
+        {b.pending && <span class="badge badge-confirm">{PRICE_PENDING_LABEL[locale]}</span>}
+      </div>
+      <Rev when={(b.rev?.[locale] || []).includes('desc')} />
+      <p class="price-block-desc">{b.desc[locale]}</p>
+    </div>
+  ))}
+</div>

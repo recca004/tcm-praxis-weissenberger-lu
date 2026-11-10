@@ -5,7 +5,7 @@ import SectionHeader from '../SectionHeader.astro';
 import TreatmentIndex from '../sections/TreatmentIndex.astro';
 import PractitionerEditorial from '../sections/PractitionerEditorial.astro';
 import StepsTimeline from '../sections/StepsTimeline.astro';
-import PriceTable from '../sections/PriceTable.astro';
+import PriceBlocks from '../sections/PriceBlocks.astro';
 import InfoBlocks from '../sections/InfoBlocks.astro';
 import BookingWidget from '../sections/BookingWidget.astro';
 import ContactDetails from '../sections/ContactDetails.astro';
@@ -21,6 +21,7 @@ import { SYMPTOMS_PAGE } from '../../data/symptoms.js';
 import { ABOUT_PAGE } from '../../data/practitioner.js';
 import { FIRST_VISIT_PAGE } from '../../data/firstVisit.js';
 import { PRICES_PAGE } from '../../data/prices.js';
+import { INSURERS } from '../../data/insurers.js';
 import { BOOKING } from '../../data/booking.js';
 import { CONTACT_PAGE, MAP_SECTION } from '../../data/contact.js';
 import { PRACTICE } from '../../data/site.js';
@@ -157,10 +158,34 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
 
     {pageId === 'prices' && (
       <div class="prices-page">
-        <PriceTable locale={locale} head={PRICES_PAGE.tableHead[locale]} rows={PRICES_PAGE.rows} showBilling billingBadge={PRICES_PAGE.billingBadge} open />
-        <div style="margin-bottom: var(--space-16);">
-          <InfoBlocks blocks={PRICES_PAGE.cards} locale={locale} />
+        <h2 class="prices-h2">{PRICES_PAGE.pricesH2[locale]}</h2>
+        <PriceBlocks locale={locale} />
+        <p class="price-note">
+          <Icon name="info" size={16} />
+          <Rev when={PRICES_PAGE.herbsRev?.[locale]} />
+          <span>{PRICES_PAGE.herbsNote[locale]}</span>
+        </p>
+
+        <h2 class="prices-h2">{PRICES_PAGE.insurance.h2[locale]}</h2>
+        <Rev when={(PRICES_PAGE.insurance.rev?.[locale] || []).includes('text')} />
+        <p class="prices-ins-text">{PRICES_PAGE.insurance.text[locale]}</p>
+
+        <div class="ins-review">
+          <h3 class="ins-review-title">
+            {PRICES_PAGE.insurersExample.label[locale]}
+            <span class="badge badge-confirm">{PRICES_PAGE.insurersExample.badge[locale]}</span>
+          </h3>
+          <ul class="ins-name-list">
+            {INSURERS.map((i) => <li>{i.name}</li>)}
+          </ul>
+          <Rev when={(PRICES_PAGE.insurersExample.rev?.[locale] || []).includes('note')} />
+          <p class="ins-note">{PRICES_PAGE.insurersExample.note[locale]}</p>
         </div>
+        <Rev when={(PRICES_PAGE.insurance.rev?.[locale] || []).includes('disclaimer')} />
+        <p class="price-disclaimer">{PRICES_PAGE.insurance.disclaimer[locale]}</p>
+
+        <h2 class="prices-h2">{PRICES_PAGE.reimburse.h2[locale]}</h2>
+        <StepsTimeline steps={PRICES_PAGE.reimburse.steps} locale={locale} editorial />
         <CTABanner locale={locale} pageId="prices" />
       </div>
     )}

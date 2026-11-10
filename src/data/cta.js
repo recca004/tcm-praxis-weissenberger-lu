@@ -81,17 +81,23 @@ export const CTA = {
   },
   prices: {
     title: {
-      de: 'Haben Sie Fragen zur Kostenübernahme?',
-      en: 'Questions about coverage or pricing?',
-      zh: '对费用或保险报销仍有疑问？',
+      de: 'Wir freuen uns auf Sie',
+      en: 'We look forward to welcoming you',
+      zh: '期待您的光临',
     },
     text: {
-      de: 'Kontaktieren Sie uns gerne vorab oder buchen Sie direkt Ihren Termin online.',
-      en: 'Feel free to reach out before your visit or book your session online.',
-      zh: '欢迎随时通过电话或留言与我们沟通，我们将热忱解答。',
+      de: 'Fragen zu Preisen oder zum ersten Termin? Wir helfen Ihnen gerne weiter.',
+      en: 'Questions about prices or your first appointment? We are happy to help.',
+      zh: '对价格或首次就诊有疑问？我们很乐意为您解答。',
     },
-    primary: { de: 'Termin buchen', en: 'Book Appointment', zh: '预约就诊' },
-    secondary: 'contact',
-    secondaryLabel: { de: 'Frage stellen', en: 'Ask a Question', zh: '咨询问题' },
+    primary: 'landline',
+    primaryLabel: { de: '043 300 99 32 anrufen', en: 'Call 043 300 99 32', zh: '拨打 043 300 99 32' },
+    secondary: 'booking',
+    secondaryLabel: { de: 'Termin buchen', en: 'Book Appointment', zh: '预约就诊' },
+    footnote: {
+      de: 'Zürich-Seebach · TCM Praxis Weissenberger-Lu',
+      en: 'Zurich-Seebach · TCM Praxis Weissenberger-Lu',
+      zh: 'Zürich-Seebach · TCM Praxis Weissenberger-Lu',
+    },
   },
 };

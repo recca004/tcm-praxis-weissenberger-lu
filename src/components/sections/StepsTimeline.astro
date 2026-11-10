@@ -13,6 +13,7 @@ const Tag = titleTag;
         : <Tag class="step-title">{s.title[locale]}</Tag>}
       <Rev when={s.rev?.[locale]} />
       <p class="step-desc">{s.desc[locale]}</p>
+      {s.badge && <span class="badge badge-confirm step-badge">{s.badge[locale]}</span>}
     </div>
   ))}
 </div>

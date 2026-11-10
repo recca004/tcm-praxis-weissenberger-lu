@@ -1,13 +1,21 @@
-// Insurer candidates for the homepage logo carousel.
-// `approved` flips to true ONLY after Min confirms (a) reimbursement and
-// (b) permission to display the logo. Until then nothing renders publicly.
+// Insurer candidates for the homepage logo carousel and the Prices page
+// name list. `approved` flips to true ONLY after Min confirms (a)
+// reimbursement and (b) permission to display the logo/name. Until then
+// nothing renders publicly as a recognition claim — the Prices page shows
+// the names strictly as examples with a pending-approval marker.
 export const INSURERS = [
-  { id: 'css', name: 'CSS Krankenversicherung', url: 'https://www.css.ch/', logo: null, approved: false, logoPending: true },
+  { id: 'helsana', name: 'Helsana', url: 'https://www.helsana.ch/', logo: null, approved: false, logoPending: true },
+  { id: 'css', name: 'CSS', url: 'https://www.css.ch/', logo: null, approved: false, logoPending: true },
   { id: 'swica', name: 'SWICA', url: 'https://www.swica.ch/', logo: null, approved: false, logoPending: true },
   { id: 'sanitas', name: 'Sanitas', url: 'https://www.sanitas.com/', logo: null, approved: false, logoPending: true },
+  { id: 'sympany', name: 'Sympany', url: 'https://www.sympany.ch/', logo: null, approved: false, logoPending: true },
+  { id: 'concordia', name: 'CONCORDIA', url: 'https://www.concordia.ch/', logo: null, approved: false, logoPending: true },
   { id: 'visana', name: 'Visana', url: 'https://www.visana.ch/', logo: null, approved: false, logoPending: true },
-  { id: 'kpt', name: 'KPT', url: 'https://www.kpt.ch/', logo: '/assets/insurers/kpt.svg', approved: false },
+  { id: 'egk', name: 'EGK', url: 'https://www.egk.ch/', logo: null, approved: false, logoPending: true },
   { id: 'mutuel', name: 'Groupe Mutuel', url: 'https://www.groupemutuel.ch/', logo: '/assets/insurers/mutuel.svg', approved: false },
+  { id: 'kpt', name: 'KPT', url: 'https://www.kpt.ch/', logo: '/assets/insurers/kpt.svg', approved: false },
+  { id: 'oekk', name: 'ÖKK', url: 'https://www.oekk.ch/', logo: null, approved: false, logoPending: true },
+  { id: 'atupri', name: 'Atupri', url: 'https://www.atupri.ch/', logo: null, approved: false, logoPending: true },
 ];
 
 export const INSURANCE_SECTION = {
