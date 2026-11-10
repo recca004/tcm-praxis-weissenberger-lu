@@ -1,6 +1,5 @@
 ---
 import { MapPin, Phone, Mail } from '@lucide/astro';
-import Logo from './Logo.astro';
 import { ROUTES, NAV, I18N } from '../data/routes.js';
 import { PRACTICE } from '../data/site.js';
 const { locale } = Astro.props;
@@ -26,7 +25,17 @@ const T = {
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <h2>TCM Praxis Weissenberger-Lu</h2>
+        <a href={ROUTES.home[locale]} class="footer-brand-link" aria-label={I18N.homeAria[locale]}>
+          <img
+            src="/assets/brand/tcm-official-logo-footer.webp"
+            alt="TCM Praxis Weissenberger-Lu — Traditionelle Chinesische Medizin · 陸氏中醫"
+            width="720"
+            height="505"
+            class="footer-brand-logo"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
         <p>{T.tag}</p>
       </div>
       <div class="footer-col">

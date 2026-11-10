@@ -1,21 +1,24 @@
 ---
-// Original brand mark: WL monogram (leaf stem + wave) + Cormorant wordmark.
-// Inline SVG so the site's loaded Cormorant Garamond / DM Sans apply.
-const { light = false, compact = false, height = 40 } = Astro.props;
-const ink = light ? '#FAF8F3' : '#1E433B';
-const sub = light ? '#D9C7A7' : '#384C44';
-const leaf = light ? '#9CC3B8' : '#28584E';
+// Official client brand lockup: the yin-yang / acupuncture-needle symbol
+// extracted from Min's supplied artwork, plus the practice name typeset in
+// the site fonts using the artwork's own colours (green #1B9B55, dark
+// #264B4C, subtitle #678182). The tagline is hidden by CSS below 1200px so
+// the header stays compact.
 ---
-<svg viewBox="0 0 560 84" height={height} role="img" aria-label="TCM Weissenberger-Lu — Praxis für Traditionelle Chinesische Medizin" class:list={['brand-logo', { 'brand-logo--compact': compact }]}>
-  <g fill="none" stroke={ink} stroke-linecap="round" transform="translate(8,8)">
-    <path d="M6 16 C10 30 15 46 20 52 C25 46 30 30 32 22 C34 30 39 46 44 52 C50 42 54 22 56 10" stroke-width="4.6"/>
-    <path d="M8 60 Q20 55 32 60 T58 60" stroke-width="3"/>
-  </g>
-  <g fill={leaf} transform="translate(8,8)">
-    <path d="M56 10 C58 2 65 1 66 6 C67 11 59 14 56 10 Z"/>
-    <path d="M52 20 C53 13 60 12 61 17 C62 22 54 25 52 20 Z"/>
-    <path d="M46 12 C44 5 51 3 53 8 C54 13 47 16 46 12 Z"/>
-  </g>
-  <text x="88" y="42" font-family="var(--font-display)" font-weight="600" font-size="34" fill={ink} letter-spacing="0.5">TCM Weissenberger-Lu</text>
-  <text x="89" y="66" font-family="var(--font-sans)" font-weight="400" font-size="14.5" fill={sub} letter-spacing="0.3" class="brand-logo-sub">Praxis für Traditionelle Chinesische Medizin</text>
-</svg>
+<span class="brand-lockup">
+  <img
+    src="/assets/brand/tcm-official-symbol.webp"
+    alt=""
+    width="362"
+    height="480"
+    class="brand-lockup-symbol"
+    loading="eager"
+    decoding="async"
+  />
+  <span class="brand-lockup-text">
+    <span class="brand-lockup-name"
+      ><span class="brand-lockup-green">TCM&nbsp;Praxis</span> Weissenberger-Lu</span
+    >
+    <span class="brand-lockup-sub">Traditionelle Chinesische Medizin</span>
+  </span>
+</span>

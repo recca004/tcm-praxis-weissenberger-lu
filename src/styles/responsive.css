@@ -5,14 +5,29 @@
  */
 
 /* ==========================================================================
-   Desktop / Large Screens (1024px - 1440px)
+   Desktop / Large Screens (≥1440px) — the full nav row (brand lockup +
+   links + actions) measures ~1300px, so the drawer takes over below 1440px
+   to keep every header control on-screen.
    ========================================================================== */
-@media (min-width: 1024px) {
+@media (min-width: 1440px) {
   .site-nav {
     display: flex;
   }
   .mobile-menu-toggle {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   Below 1440px — nav row collapses into the mobile drawer
+   ========================================================================== */
+@media (max-width: 1439px) {
+  .site-nav {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
   }
 }
 
@@ -23,14 +38,6 @@
   :root {
     --header-height: 68px;
     --text-hero: clamp(2rem, 3.8vw, 2.5rem);
-  }
-
-  .site-nav {
-    display: none; /* Collapses into mobile drawer */
-  }
-
-  .mobile-menu-toggle {
-    display: flex;
   }
 
   .hero-grid {

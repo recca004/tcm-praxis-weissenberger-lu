@@ -10,7 +10,10 @@ const currentHref = ROUTES[pageId][locale];
 <div class="mobile-menu-overlay" aria-hidden="true">
   <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label={I18N.menuAria[locale]}>
     <div class="mobile-menu-header">
-      <span class="brand-title">{I18N.menuTitle[locale]}</span>
+      <span class="brand-title mobile-menu-brand">
+        <img src="/assets/brand/tcm-official-symbol.webp" alt="" width="362" height="480" class="mobile-menu-symbol" loading="lazy" decoding="async" />
+        {I18N.menuTitle[locale]}
+      </span>
       <button class="mobile-menu-close btn btn-secondary btn-sm" type="button" aria-label={I18N.menuClose[locale]}>
         <X size={20} stroke-width={1.8} />
       </button>

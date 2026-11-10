@@ -52,6 +52,7 @@ test.describe('symptoms pages', () => {
   });
 
   test('desktop nav and footer link to the symptoms page', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/de/');
     await expect(page.locator('.site-nav a[href="/de/beschwerden/"]')).toBeVisible();
     await expect(page.locator('.site-footer a[href="/de/beschwerden/"]')).toBeVisible();
