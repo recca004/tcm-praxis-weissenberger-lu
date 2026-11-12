@@ -56,14 +56,6 @@ export const HERO_SLIDES = [
   },
 ];
 
-export const HOMEPAGE_TRUST = [
-  { icon: 'user', h: { de: 'Persönliche Betreuung', en: 'Personal Care', zh: '一对一亲诊' },
-    p: { de: 'Behandlung direkt bei Min Weissenberger-Lu', en: 'Direct treatment with Min Weissenberger-Lu', zh: '由 Min Weissenberger-Lu 亲自诊治' } },
-  { icon: 'leaf', h: { de: 'Neun Behandlungsmethoden', en: 'Nine Treatment Methods', zh: '九种中医疗法' },
-    p: { de: 'Von Akupunktur bis Ohr-Akupunktur — wie auf der Visitenkarte', en: 'From acupuncture to ear acupuncture — as listed on the practice card', zh: '针灸至耳针 — 与诊所名片所列一致' } },
-  { icon: 'map-pin', h: { de: 'Zürich-Seebach', en: 'Zurich-Seebach', zh: '苏黎世 Seebach' },
-    p: { de: 'Schaffhauserstrasse 466 · Tram 14 / Bus 768', en: 'Schaffhauserstrasse 466 · Tram 14 / Bus 768', zh: 'Schaffhauserstrasse 466 · 14路电车 / 768路巴士' } },
-];
 export const TRUST_ITEMS = [
   {
     icon: 'check-circle-2',

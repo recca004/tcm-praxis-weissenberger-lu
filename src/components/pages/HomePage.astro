@@ -12,7 +12,6 @@ import BookingBand from '../sections/BookingBand.astro';
 import ContactDetails from '../sections/ContactDetails.astro';
 import ContactForm from '../sections/ContactForm.astro';
 import CTABanner from '../sections/CTABanner.astro';
-import HomepageTrust from '../sections/HomepageTrust.astro';
 import InsuranceLogoCarousel from '../sections/InsuranceLogoCarousel.astro';
 import Icon from '../Icon.astro';
 import Rev from '../Rev.astro';
@@ -29,12 +28,6 @@ const { locale } = Astro.props;
 const anchors = { de: { treatments: 'behandlungen', booking: 'online-termin', contact: 'kontakt' }, en: { treatments: 'treatments', booking: 'booking', contact: 'contact' }, zh: { treatments: 'liaofa', booking: 'yuyue', contact: 'lianxi' } }[locale];
 ---
 <Hero locale={locale} />
-
-<section class="section" style="padding-top: 0;">
-  <div class="container">
-    <HomepageTrust locale={locale} />
-  </div>
-</section>
 
 <StatementMoment locale={locale} />
 
