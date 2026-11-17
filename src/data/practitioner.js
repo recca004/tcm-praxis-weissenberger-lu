@@ -4,8 +4,8 @@
 export const PORTRAIT = {
   name: 'Min Weissenberger-Lu',
   sublabel: {
-    de: 'TCM-Therapeutin in Zürich-Seebach',
-    en: 'TCM Practitioner in Zurich-Seebach',
+    de: 'Dipl. TCM Therapeutin in Zürich-Seebach',
+    en: 'Dipl. TCM Therapist in Zurich-Seebach',
     zh: '苏黎世 Seebach 执业中医师',
   },
   alt: {
@@ -23,8 +23,8 @@ export const PORTRAIT = {
 export const CREDENTIALS = [
   {
     icon: 'award',
-    de: 'Eidg. Diplom TCM-Therapeutin',
-    en: 'Swiss Federal Diploma TCM',
+    de: 'Dipl. TCM Therapeutin',
+    en: 'Dipl. TCM Therapist',
     zh: '瑞士联邦认证中医师',
   },
   {
@@ -169,4 +169,16 @@ export const ABOUT_PAGE = {
       rev: { zh: true },
     },
   ],
+};
+
+// Google patient reviews — shown at the bottom of the About page.
+// The button links to the practice's Google listing (see site.js).
+export const REVIEWS = {
+  eyebrow: { de: 'Patientenstimmen', en: 'Patient Voices' },
+  title: { de: 'Patientenbewertungen', en: 'Patient Reviews' },
+  text: {
+    de: 'Lesen Sie die Erfahrungen unserer Patientinnen und Patienten auf Google.',
+    en: 'Read what our patients say about their experience on Google.',
+  },
+  btn: { de: 'Alle Google-Bewertungen ansehen', en: 'See all Google reviews' },
 };

@@ -1,6 +1,7 @@
 ---
 import { ROUTES } from '../../data/routes.js';
 import { HERO, TRUST_ITEMS, HERO_SLIDES } from '../../data/home.js';
+import Icon from '../Icon.astro';
 import HeroSlideshow from './HeroSlideshow.astro';
 const { locale } = Astro.props;
 const D = HERO;
@@ -12,6 +13,7 @@ const D = HERO;
         <span class="eyebrow">{D.eyebrow[locale]}</span>
         <h1 class="hero-title">{D.title[locale]}</h1>
         <p class="lead">{D.lead[locale]}</p>
+        <p class="hero-address"><Icon name="map-pin" size={15} /> {D.address[locale]}</p>
         <div class="hero-actions">
           <a href={ROUTES.booking[locale]} class="btn btn-primary btn-lg">{D.primary[locale]}</a>
           <a href={ROUTES.treatments[locale]} class="btn btn-secondary btn-lg">{D.secondary[locale]}</a>

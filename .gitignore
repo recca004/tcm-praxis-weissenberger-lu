@@ -24,3 +24,6 @@ docs/screenshots/audit/
 docs/screenshots/reference/
 .taste-skill/
 assets-private/
+
+# Local work artifacts — contains credentials, never commit
+.work/

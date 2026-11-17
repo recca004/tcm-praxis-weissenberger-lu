@@ -23,7 +23,7 @@ const m = (meta as Record<string, Record<string, { title: string; desc: string }
 ---
 <BaseLayout
   locale={locale} pageId={pageId} title={m.title} desc={m.desc}
-  deHref={ROUTES[pageId].de} enHref={ROUTES[pageId].en} zhHref={ROUTES[pageId].zh}
+  deHref={ROUTES[pageId].de} enHref={ROUTES[pageId].en}
   canonicalPath={ROUTES[pageId][locale]}>
   {pageId === 'home' ? <HomePage locale={locale} /> : <SubPage locale={locale} pageId={pageId} />}
 </BaseLayout>

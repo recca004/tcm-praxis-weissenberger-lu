@@ -1,4 +1,4 @@
-export const LOCALES = ['de', 'en', 'zh'];
+export const LOCALES = ['de', 'en'];
 export const LANG_TAG = { de: 'de-CH', en: 'en', zh: 'zh-CN' };
 export const LOCAL_NAME = { de: 'Zürich', en: 'Zurich', zh: '苏黎世' };
 
@@ -45,8 +45,8 @@ export const I18N = {
     en: [['/en/', 'Home'], ['/en/treatments/', 'Treatments'], ['/en/symptoms/', 'Symptoms'], ['/en/about-min/', 'About Min'], ['/en/first-visit/', 'First Visit'], ['/en/prices-insurance/', 'Prices & Insurance'], ['/en/contact/', 'Contact & Directions']],
     zh: [['/zh/', '首页'], ['/zh/liaofa/', '治疗项目'], ['/zh/changjian-jiankang-wenti/', '常见健康问题'], ['/zh/guanyu-min/', '认识 Min'], ['/zh/shouci-jiuzhen/', '首次就诊'], ['/zh/feiyong-baoxian/', '收费与保险'], ['/zh/lianxi/', '联络方式与交通']],
   },
-  phone: '+41 78 899 92 88',
-  phoneHref: 'tel:+41788999288',
+  phone: '+41 78 790 88 69',
+  phoneHref: 'tel:+41787908869',
   landlineLabel: { de: 'Festnetz', en: 'Landline', zh: '固定电话' },
   mobileLabel: { de: 'Mobil', en: 'Mobile', zh: '手机' },
 };

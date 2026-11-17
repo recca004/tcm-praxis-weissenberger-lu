@@ -18,13 +18,13 @@ import Icon from '../Icon.astro';
 import Rev from '../Rev.astro';
 import { TREATMENTS_PAGE, DIAGNOSTIC } from '../../data/treatments.js';
 import { SYMPTOMS_PAGE } from '../../data/symptoms.js';
-import { ABOUT_PAGE } from '../../data/practitioner.js';
+import { ABOUT_PAGE, REVIEWS } from '../../data/practitioner.js';
 import { FIRST_VISIT_PAGE } from '../../data/firstVisit.js';
-import { PRICES_PAGE } from '../../data/prices.js';
+import { PRICES_PAGE, VOUCHERS } from '../../data/prices.js';
 import { INSURERS } from '../../data/insurers.js';
 import { BOOKING } from '../../data/booking.js';
 import { CONTACT_PAGE, MAP_SECTION } from '../../data/contact.js';
-import { PRACTICE } from '../../data/site.js';
+import { PRACTICE, GOOGLE_REVIEWS_URL } from '../../data/site.js';
 import { ROUTES } from '../../data/routes.js';
 
 const { locale, pageId } = Astro.props;
@@ -142,6 +142,14 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
             </div>
           ))}
         </div>
+        <section class="reviews-block" aria-labelledby="reviews-h2">
+          <span class="eyebrow">{REVIEWS.eyebrow[locale]}</span>
+          <h2 id="reviews-h2">{REVIEWS.title[locale]}</h2>
+          <p>{REVIEWS.text[locale]}</p>
+          <a href={GOOGLE_REVIEWS_URL} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            {REVIEWS.btn[locale]} <Icon name="external-link" size={16} />
+          </a>
+        </section>
         <CTABanner locale={locale} pageId="about" />
       </>
     )}
@@ -186,6 +194,21 @@ const isLegal = pageId === 'privacy' || pageId === 'imprint';
 
         <h2 class="prices-h2">{PRICES_PAGE.reimburse.h2[locale]}</h2>
         <StepsTimeline steps={PRICES_PAGE.reimburse.steps} locale={locale} editorial />
+
+        <h2 class="prices-h2">{VOUCHERS.h2[locale]}</h2>
+        <p class="prices-ins-text">{VOUCHERS.text[locale]}</p>
+        <div class="voucher-grid">
+          {VOUCHERS.amounts.map((amount) => (
+            <div class="voucher-card">
+              <Icon name="gift" size={24} class="voucher-icon" />
+              <span class="voucher-amount">{amount}</span>
+            </div>
+          ))}
+        </div>
+        <div class="voucher-cta">
+          <a href={ROUTES.contact[locale]} class="btn btn-primary">{VOUCHERS.cta[locale]}</a>
+          <p class="voucher-note">{VOUCHERS.note[locale]}</p>
+        </div>
         <CTABanner locale={locale} pageId="prices" />
       </div>
     )}

@@ -17,9 +17,9 @@ export const LEGAL = {
       {
         h: { de: '1. Verantwortliche Stelle', en: '1. Data Controller', zh: '1. 资料控制方主体' },
         html: {
-          de: 'Verantwortlich für die Datenbearbeitungen auf dieser Website im Sinne des Bundesgesetzes über den Datenschutz (DSG) ist:<br /><br /><strong>TCM Praxis Weissenberger-Lu</strong><br />Min Weissenberger-Lu<br />Schaffhauserstrasse 466<br />8052 Zürich, Schweiz<br />E-Mail: <a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a><br />Telefon: +41 78 899 92 88 <span class="badge badge-confirm">[CONFIRM]</span>',
-          en: 'The responsible entity for data processing on this website under the Swiss Federal Act on Data Protection (FADP) is:<br /><br /><strong>TCM Praxis Weissenberger-Lu</strong><br />Min Weissenberger-Lu<br />Schaffhauserstrasse 466<br />8052 Zurich, Switzerland<br />Email: <a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a><br />Phone: +41 78 899 92 88 <span class="badge badge-confirm">[CONFIRM]</span>',
-          zh: '根据瑞士《联邦资料保护法》（DSG），本网站的资料处理责任主体为：<br /><br /><strong>TCM Praxis Weissenberger-Lu</strong><br />Min Weissenberger-Lu<br />Schaffhauserstrasse 466<br />8052 Zürich, Switzerland<br />电子邮箱：<a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a><br />联络电话：+41 78 899 92 88 <span class="badge badge-confirm">[CONFIRM]</span>',
+          de: 'Verantwortlich für die Datenbearbeitungen auf dieser Website im Sinne des Bundesgesetzes über den Datenschutz (DSG) ist:<br /><br /><strong>TCM Praxis Weissenberger-Lu</strong><br />Min Weissenberger-Lu<br />Schaffhauserstrasse 466<br />8052 Zürich, Schweiz<br />E-Mail: <a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a><br />Telefon: +41 78 790 88 69',
+          en: 'The responsible entity for data processing on this website under the Swiss Federal Act on Data Protection (FADP) is:<br /><br /><strong>TCM Praxis Weissenberger-Lu</strong><br />Min Weissenberger-Lu<br />Schaffhauserstrasse 466<br />8052 Zurich, Switzerland<br />Email: <a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a><br />Phone: +41 78 790 88 69',
+          zh: '根据瑞士《联邦资料保护法》（DSG），本网站的资料处理责任主体为：<br /><br /><strong>TCM Praxis Weissenberger-Lu</strong><br />Min Weissenberger-Lu<br />Schaffhauserstrasse 466<br />8052 Zürich, Switzerland<br />电子邮箱：<a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a><br />联络电话：+41 78 790 88 69',
         },
       },
       {
@@ -73,17 +73,17 @@ export const LEGAL = {
       {
         h: { de: 'Praxisbetreiberin', en: 'Practice Operator', zh: '诊所经营主体' },
         html: {
-          de: '<strong>TCM Praxis Weissenberger-Lu</strong><br />Min Weissenberger-Lu<br />Schaffhauserstrasse 466<br />8052 Zürich, Schweiz<br />E-Mail: <a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a><br />Telefon: +41 78 899 92 88 <span class="badge badge-confirm">[CONFIRM]</span><br />Web: https://www.tcm-weissenberger-lu.ch',
-          en: '<strong>TCM Praxis Weissenberger-Lu</strong><br />Min Weissenberger-Lu<br />Schaffhauserstrasse 466<br />8052 Zurich, Switzerland<br />Email: <a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a><br />Telephone: +41 78 899 92 88 <span class="badge badge-confirm">[CONFIRM]</span><br />Website: https://www.tcm-weissenberger-lu.ch',
-          zh: '<strong>TCM Praxis Weissenberger-Lu</strong><br />负责人：Min Weissenberger-Lu<br />地址：Schaffhauserstrasse 466, 8052 Zürich, Switzerland<br />电子邮箱：<a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a><br />联络电话：+41 78 899 92 88 <span class="badge badge-confirm">[CONFIRM]</span><br />官方网站：https://www.tcm-weissenberger-lu.ch',
+          de: '<strong>TCM Praxis Weissenberger-Lu</strong><br />Min Weissenberger-Lu<br />Schaffhauserstrasse 466<br />8052 Zürich, Schweiz<br />E-Mail: <a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a><br />Telefon: +41 78 790 88 69<br />Web: https://www.tcm-weissenberger-lu.ch',
+          en: '<strong>TCM Praxis Weissenberger-Lu</strong><br />Min Weissenberger-Lu<br />Schaffhauserstrasse 466<br />8052 Zurich, Switzerland<br />Email: <a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a><br />Telephone: +41 78 790 88 69<br />Website: https://www.tcm-weissenberger-lu.ch',
+          zh: '<strong>TCM Praxis Weissenberger-Lu</strong><br />负责人：Min Weissenberger-Lu<br />地址：Schaffhauserstrasse 466, 8052 Zürich, Switzerland<br />电子邮箱：<a href="mailto:info@tcm-weissenberger-lu.ch">info@tcm-weissenberger-lu.ch</a><br />联络电话：+41 78 790 88 69<br />官方网站：https://www.tcm-weissenberger-lu.ch',
         },
       },
       {
         h: { de: 'Berufsbezeichnung & Aufsichtsbehörde', en: 'Professional Title & Oversight', zh: '执业资质与主管监督机构' },
         html: {
-          de: 'Berufsbezeichnung: Diplomierte Naturheilpraktikerin TCM / Akupunkteurin (verliehen in der Schweiz)<br />Zuständige kantonale Behörde: Gesundheitsdirektion des Kantons Zürich<br />Registrierungen: EMR / ASCA / SBO-TCM <span class="badge badge-confirm">[CONFIRM]</span>',
-          en: 'Professional title: Certified Naturopathic Practitioner TCM / Acupuncturist (awarded in Switzerland)<br />Supervisory authority: Health Directorate of the Canton of Zurich (Gesundheitsdirektion Kanton Zürich)<br />Professional registries: EMR / ASCA / SBO-TCM <span class="badge badge-confirm">[CONFIRM]</span>',
-          zh: '职业名称：瑞士联邦认证自然疗法中医师／针灸师（获授于瑞士联邦）<br />州主管监督机构：苏黎世州卫生局（Gesundheitsdirektion des Kantons Zürich）<br />专业认证登记：EMR / ASCA / SBO-TCM <span class="badge badge-confirm">[CONFIRM]</span>',
+          de: 'Berufsbezeichnung: Diplomierte Naturheilpraktikerin TCM / Akupunkteurin (verliehen in der Schweiz)<br />Zuständige kantonale Behörde: Gesundheitsdirektion des Kantons Zürich<br />Registrierungen: EMR / ASCA / SBO-TCM',
+          en: 'Professional title: Certified Naturopathic Practitioner TCM / Acupuncturist (awarded in Switzerland)<br />Supervisory authority: Health Directorate of the Canton of Zurich (Gesundheitsdirektion Kanton Zürich)<br />Professional registries: EMR / ASCA / SBO-TCM',
+          zh: '职业名称：瑞士联邦认证自然疗法中医师／针灸师（获授于瑞士联邦）<br />州主管监督机构：苏黎世州卫生局（Gesundheitsdirektion des Kantons Zürich）<br />专业认证登记：EMR / ASCA / SBO-TCM',
         },
       },
       {

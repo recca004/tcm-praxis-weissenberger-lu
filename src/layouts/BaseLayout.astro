@@ -5,6 +5,7 @@ import { OG_IMAGE, OG_IMAGE_DIMS, OG_IMAGE_ALT, OG_LOCALE, buildJsonLd } from '.
 import Header from '../components/Header.astro';
 import MobileMenu from '../components/MobileMenu.astro';
 import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import '../styles/variables.css';
 import '../styles/base.css';
 import '../styles/layout.css';
@@ -16,7 +17,6 @@ const SITE = SITE_URL;
 const langLinks = [
   { locale: 'de', label: 'DE', title: 'Deutsch', hreflang: 'de-CH', href: Astro.props.deHref },
   { locale: 'en', label: 'EN', title: 'English', hreflang: 'en', href: Astro.props.enHref },
-  { locale: 'zh', label: '中文', title: '中文', hreflang: 'zh-CN', href: Astro.props.zhHref },
 ];
 const canonical = SITE + Astro.props.canonicalPath;
 const ogImage = SITE + OG_IMAGE;
@@ -66,6 +66,7 @@ const jsonLd = buildJsonLd({ pageId, locale, canonical, routes: ROUTES });
       <slot />
     </main>
     <Footer locale={locale} />
+    <WhatsAppFloat locale={locale} />
     <script>
       import gsap from 'gsap';
       (window as any).gsap = gsap;

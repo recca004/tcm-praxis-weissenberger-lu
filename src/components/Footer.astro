@@ -2,6 +2,7 @@
 import { MapPin, Phone, Mail } from '@lucide/astro';
 import { ROUTES, NAV, I18N } from '../data/routes.js';
 import { PRACTICE } from '../data/site.js';
+import SocialLinks from './SocialLinks.astro';
 const { locale } = Astro.props;
 const T = {
   de: { tag: 'Traditionelle Chinesische Medizin in Zürich-Seebach. Persönliche Behandlung bei Min Weissenberger-Lu.', nav: 'Navigation', treat: 'Behandlungen', contact: 'Kontakt', legal: 'Rechtliches',
@@ -14,11 +15,6 @@ const T = {
     legalLinks: [['/en/privacy-policy/','Privacy Policy'],['/en/imprint/','Imprint']],
     contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zurich'],['phone',`Landline: ${PRACTICE.landline}`,PRACTICE.landlineHref],['phone',`Mobile: ${PRACTICE.phone}`,PRACTICE.phoneHref],['mail',PRACTICE.email,`mailto:${PRACTICE.email}`]],
     note: '© 2026 TCM Praxis Weissenberger-Lu · Content pending client approval' },
-  zh: { tag: '苏黎世 Seebach 传统中医诊所 · 由中医师 Min Weissenberger-Lu 亲自诊治。', nav: '网站导航', treat: '治疗项目', contact: '联络方式', legal: '法律资讯',
-    treatments: ['针灸','推拿','拔罐','中草药治疗','艾灸','查看全部治疗项目 →'],
-    legalLinks: [['/zh/yinsi/','隐私政策'],['/zh/falv-shengming/','法律声明']],
-    contactItems: [['map-pin','Schaffhauserstrasse 466, 8052 Zürich'],['phone',`固定电话：${PRACTICE.landline}`,PRACTICE.landlineHref],['phone',`手机：${PRACTICE.phone}`,PRACTICE.phoneHref],['mail',PRACTICE.email,`mailto:${PRACTICE.email}`]],
-    note: '© 2026 TCM Praxis Weissenberger-Lu · 内容待客户审核' },
 }[locale];
 ---
 <footer class="site-footer" role="contentinfo">
@@ -37,6 +33,7 @@ const T = {
           />
         </a>
         <p>{T.tag}</p>
+        <SocialLinks />
       </div>
       <div class="footer-col">
         <h3>{T.nav}</h3>

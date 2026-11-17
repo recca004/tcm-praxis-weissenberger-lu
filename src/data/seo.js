@@ -79,7 +79,7 @@ export function personNode(locale, canonical) {
   return {
     '@type': 'Person',
     name: PRACTICE.practitioner,
-    jobTitle: { de: 'TCM-Therapeutin', en: 'TCM Practitioner', zh: '执业中医师' }[locale],
+    jobTitle: { de: 'Dipl. TCM Therapeutin', en: 'Dipl. TCM Therapist', zh: '执业中医师' }[locale],
     url: canonical,
     worksFor: { '@id': `${SITE_URL}/#practice` },
     sameAs: ['https://emr.ch/de/therapeut/min.weissenberger-lu'],

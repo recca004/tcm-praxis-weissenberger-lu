@@ -175,3 +175,22 @@ export const PRICES_PAGE = {
     ],
   },
 };
+
+// Gift vouchers — enquiry only, no online checkout until the client
+// confirms purchase/redemption terms.
+export const VOUCHERS = {
+  h2: { de: 'Geschenkgutscheine', en: 'Gift Vouchers' },
+  text: {
+    de: 'Verschenken Sie einen Gutschein für eine Behandlung in der TCM Praxis Weissenberger-Lu.',
+    en: 'Give the gift of a treatment at TCM Praxis Weissenberger-Lu.',
+  },
+  amounts: ['CHF 50.–', 'CHF 100.–', 'CHF 150.–'],
+  cta: {
+    de: 'Gutschein anfragen',
+    en: 'Enquire about a voucher',
+  },
+  note: {
+    de: 'Erhältlich in der Praxis oder auf Anfrage per E-Mail oder Telefon.',
+    en: 'Available at the practice or on request by email or phone.',
+  },
+};
