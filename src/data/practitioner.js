@@ -49,8 +49,8 @@ export const CREDENTIALS_ABOUT = [
   {
     icon: 'award',
     confirmed: true,
-    de: 'Naturheilpraktikerin mit eidg. Diplom TCM',
-    en: 'Federally Certified Naturopath (TCM)',
+    de: 'Dipl. TCM Therapeutin',
+    en: 'Dipl. TCM Therapist',
     zh: '瑞士联邦认证自然疗法师（中医）',
   },
   {

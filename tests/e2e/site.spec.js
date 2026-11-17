@@ -3,7 +3,6 @@ import { test, expect } from '@playwright/test';
 const ROUTES = [
   '/de/', '/de/ueber-min/', '/de/behandlungen/', '/de/beschwerden/', '/de/erster-besuch/', '/de/preise-krankenkasse/', '/de/termin-buchen/', '/de/kontakt/', '/de/datenschutz/', '/de/impressum/',
   '/en/', '/en/about-min/', '/en/treatments/', '/en/symptoms/', '/en/first-visit/', '/en/prices-insurance/', '/en/book-appointment/', '/en/contact/', '/en/privacy-policy/', '/en/imprint/',
-  '/zh/', '/zh/guanyu-min/', '/zh/liaofa/', '/zh/changjian-jiankang-wenti/', '/zh/shouci-jiuzhen/', '/zh/feiyong-baoxian/', '/zh/yuyue/', '/zh/lianxi/', '/zh/yinsi/', '/zh/falv-shengming/',
 ];
 
 test.describe('routes', () => {
@@ -35,7 +34,7 @@ test.describe('routes', () => {
   test('hreflang + canonical present', async ({ page }) => {
     await page.goto('/de/');
     await expect(page.locator('link[hreflang="de-CH"]')).toHaveCount(1);
-    await expect(page.locator('link[hreflang="zh-CN"]')).toHaveCount(1);
+    await expect(page.locator('link[hreflang="en"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.tcm-weissenberger-lu.ch/de/');
   });
 });
@@ -53,13 +52,11 @@ test.describe('homepage content', () => {
     await expect(page.locator('img[src*="clinic-room-orchids"]')).toBeVisible();
   });
 
-  test('en/zh homepages render correctly', async ({ page }) => {
+  test('en homepage renders correctly', async ({ page }) => {
     await page.goto('/en/');
     await expect(page.locator('.accordion-item')).toHaveCount(5);
     await expect(page.locator('h1')).toContainText('Traditional Chinese Medicine');
-    await page.goto('/zh/');
-    await expect(page.locator('.accordion-item')).toHaveCount(5);
-    await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   });
 });
 

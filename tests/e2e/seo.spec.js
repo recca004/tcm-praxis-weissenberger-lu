@@ -5,8 +5,6 @@ const ROUTES = [
   '/de/preise-krankenkasse/', '/de/termin-buchen/', '/de/kontakt/', '/de/datenschutz/', '/de/impressum/',
   '/en/', '/en/about-min/', '/en/treatments/', '/en/symptoms/', '/en/first-visit/',
   '/en/prices-insurance/', '/en/book-appointment/', '/en/contact/', '/en/privacy-policy/', '/en/imprint/',
-  '/zh/', '/zh/guanyu-min/', '/zh/liaofa/', '/zh/changjian-jiankang-wenti/', '/zh/shouci-jiuzhen/',
-  '/zh/feiyong-baoxian/', '/zh/yuyue/', '/zh/lianxi/', '/zh/yinsi/', '/zh/falv-shengming/',
 ];
 
 const SITE = 'https://www.tcm-weissenberger-lu.ch';
@@ -36,7 +34,7 @@ test.describe('seo', () => {
       await page.goto(route);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', SITE + route);
       const lang = await page.locator('html').getAttribute('lang');
-      const expected = { de: 'de-CH', en: 'en', zh: 'zh-CN' }[route.slice(1, 3)];
+      const expected = { de: 'de-CH', en: 'en' }[route.slice(1, 3)];
       expect(lang, `lang on ${route}`).toBe(expected);
     }
   });
@@ -47,7 +45,7 @@ test.describe('seo', () => {
       const alts = await page.locator('link[rel="alternate"][hreflang]').evaluateAll((els) =>
         Object.fromEntries(els.map((e) => [e.getAttribute('hreflang'), e.getAttribute('href')])),
       );
-      expect(Object.keys(alts).sort(), `hreflangs on ${route}`).toEqual(['de-CH', 'en', 'x-default', 'zh-CN']);
+      expect(Object.keys(alts).sort(), `hreflangs on ${route}`).toEqual(['de-CH', 'en', 'x-default']);
       expect(alts['x-default']).toBe(`${SITE}/de/`);
       for (const [k, v] of Object.entries(alts)) {
         if (k !== 'x-default') expect(v, `${k} on ${route}`).toContain(SITE);
@@ -66,7 +64,8 @@ test.describe('seo', () => {
       const biz = ld['@graph'].find((n) => n['@type'] === 'MedicalBusiness');
       expect(biz.address.streetAddress).toBe('Schaffhauserstrasse 466');
       expect(biz.telephone).toContain('+4143300');
-      expect(JSON.stringify(biz)).not.toContain('openingHours');
+      expect(biz.openingHours).toBe('Mo-Fr 09:00-18:00');
+      expect(biz.contactPoint.telephone).toBe('+41787908869');
       if (route !== `/${route.slice(1, 3)}/`) expect(types).toContain('BreadcrumbList');
     }
   });
@@ -97,7 +96,7 @@ test.describe('seo', () => {
     expect(sitemap.status()).toBe(200);
   });
 
-  test('sitemap covers all 30 content routes', async ({ page }) => {
+  test('sitemap covers all 20 content routes', async ({ page }) => {
     const res = await page.request.get('/sitemap-0.xml');
     const xml = await res.text();
     for (const route of ROUTES) {
@@ -107,7 +106,7 @@ test.describe('seo', () => {
 
   test('internal links resolve (sampled per locale)', async ({ page, request }) => {
     const seen = new Set();
-    for (const route of ['/de/', '/en/', '/zh/']) {
+    for (const route of ['/de/', '/en/']) {
       await page.goto(route);
       const hrefs = await page.locator('a[href^="/"]').evaluateAll((as) => as.map((a) => a.getAttribute('href')));
       for (const h of hrefs) {

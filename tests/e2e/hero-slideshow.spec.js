@@ -58,8 +58,8 @@ test.describe('hero slideshow', () => {
     await ctx.close();
   });
 
-  test('zh + en slideshows render', async ({ page }) => {
-    for (const path of ['/en/', '/zh/']) {
+  test('en slideshow renders', async ({ page }) => {
+    for (const path of ['/en/']) {
       await page.goto(path);
       await expect(page.locator('.hero-slide')).toHaveCount(3);
       await expect(page.locator('.hero-slide').first()).toHaveAttribute('alt', /.+/);

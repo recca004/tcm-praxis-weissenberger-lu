@@ -55,7 +55,7 @@ test.describe('symptoms extended topics', () => {
   });
 
   test('no forbidden medical claims', async ({ page }) => {
-    for (const r of ['/de/beschwerden/', '/en/symptoms/', '/zh/changjian-jiankang-wenti/']) {
+    for (const r of ['/de/beschwerden/', '/en/symptoms/']) {
       await page.goto(r);
       const body = (await page.textContent('body')).toLowerCase();
       for (const bad of ['heilt asthma', 'cures asthma', 'garantiert', 'guaranteed', 'proven treatment', 'bewiesene wirkung', '治愈']) {
@@ -64,11 +64,9 @@ test.describe('symptoms extended topics', () => {
     }
   });
 
-  test('en + zh render translated groups', async ({ page }) => {
+  test('en renders translated groups', async ({ page }) => {
     await page.goto('/en/symptoms/');
     await expect(page.locator('.sym-extra-title')).toContainText('Acupuncture');
     await expect(page.locator('.sym-extra-group').first()).toContainText('Pain & Movement');
-    await page.goto('/zh/changjian-jiankang-wenti/');
-    await expect(page.locator('.sym-extra-title')).toContainText('针灸');
   });
 });

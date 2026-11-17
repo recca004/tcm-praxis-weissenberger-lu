@@ -3,9 +3,10 @@
 // every page gets correct metadata without page-level duplication.
 //
 // Only confirmed public facts are encoded here: practice name, address,
-// landline (EMR-verified), email, geo from the published Maps embed, and
-// the EMR profile link. Unconfirmed values (mobile, opening hours,
-// prices, insurer partners, ratings, medical specialties) stay out.
+// landline (EMR-verified), mobile (business card), email, geo from the
+// published Maps embed, confirmed opening hours, and the EMR profile link.
+// Unconfirmed values (prices, insurer partners, ratings, medical
+// specialties) stay out.
 import { PRACTICE, SITE_URL } from './site.js';
 
 export const OG_IMAGE = '/assets/images/clinic-room-orchids.webp';
@@ -39,6 +40,12 @@ export function practiceNode() {
     name: PRACTICE.name,
     url: `${SITE_URL}/de/`,
     telephone: PRACTICE.landlineIntl.replace(/\s/g, ''),
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: PRACTICE.phone.replace(/\s/g, ''),
+      contactType: 'customer service',
+    },
+    openingHours: 'Mo-Fr 09:00-18:00',
     email: PRACTICE.email,
     address: {
       '@type': 'PostalAddress',

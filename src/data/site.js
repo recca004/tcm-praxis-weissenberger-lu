@@ -28,10 +28,7 @@ export const SOCIAL = {
   whatsapp: 'https://wa.me/41787908869',
 };
 
-// Google reviews — link to the practice listing. Verify against the live
-// Google Business Profile before launch.
-export const GOOGLE_REVIEWS_URL =
-  'https://www.google.com/maps/search/?api=1&query=TCM+Praxis+Weissenberger-Lu+Schaffhauserstrasse+466+8052+Z%C3%BCrich';
-
-// [CONFIRM] phone number — requires client approval before launch.
-export const CONFIRM = '[CONFIRM]';
+// Google reviews — client-supplied Google Maps link (maps.app.goo.gl short
+// URL). It opens the practice's business listing; whether it lands directly
+// on the reviews tab depends on Google's handling of the link.
+export const GOOGLE_REVIEWS_URL = 'https://maps.app.goo.gl/MCH8zCGXR1MdGL4k9';

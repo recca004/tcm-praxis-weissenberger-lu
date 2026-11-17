@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const pages = { de: '/de/kontakt/', en: '/en/contact/', zh: '/zh/lianxi/' };
+const pages = { de: '/de/kontakt/', en: '/en/contact/' };
 
 test.describe('contact map', () => {
   for (const [lang, path] of Object.entries(pages)) {

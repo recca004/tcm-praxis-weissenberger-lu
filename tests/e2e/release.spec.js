@@ -8,7 +8,7 @@ test.describe('client-review release', () => {
     await expect(page.locator('.hero-facts')).not.toContainText('Sprachen');
   });
   test('no 15+ years claims anywhere', async ({ page }) => {
-    for (const p of ['/de/ueber-min/', '/en/about-min/', '/zh/guanyu-min/', '/de/']) {
+    for (const p of ['/de/ueber-min/', '/en/about-min/', '/de/']) {
       await page.goto(p);
       await expect(page.locator('body')).not.toContainText(/15\+|\u003c15|ber 15|15年/);
     }
